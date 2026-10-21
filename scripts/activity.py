@@ -97,13 +97,14 @@ def events(user: str, token: str | None) -> list[tuple[dt.date, str, str]]:
             k = p.get("size") or p.get("distinct_size")
             item = ("commit", f"Pushed {k} commit{'s' if k != 1 else ''} to {repo}" if k else f"Pushed to {repo}")
         elif kind == "PullRequestEvent":  # one line per pull request, its latest meaningful state
-            if p.get("action") not in ("opened", "closed", "reopened"):
+            if p.get("action") not in ("opened", "closed", "reopened", "merged"):
                 continue
             num = p.get("number") or p.get("pull_request", {}).get("number")
             if (repo, num) in seen:
                 continue
             seen.add((repo, num))
-            merged = p.get("action") == "closed" and p.get("pull_request", {}).get("merged")
+            # the API now reports merges as their own action; older payloads carry a merged flag on close
+            merged = p["action"] == "merged" or (p["action"] == "closed" and p.get("pull_request", {}).get("merged"))
             item = ("merge", f"{'Merged' if merged else p['action'].capitalize()} PR #{num} in {repo}")
         elif kind == "IssuesEvent":
             item = ("dot", f"{p.get('action', 'Updated').capitalize()} issue #{p.get('issue', {}).get('number')} in {repo}")
