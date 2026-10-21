@@ -27,7 +27,7 @@ import bitmap as bm  # noqa: E402
 from bitmap import n  # noqa: E402
 
 DAYS = 364
-W, H = 830, 340
+WIDE, NARROW = 830, 360
 UA = {"User-Agent": "r204570-signal"}
 QUERY = """
 query($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -160,23 +160,37 @@ def day(d: dt.date) -> str:
 
 
 # ---------------------------------------------------------------- drawing
-def render(theme: dict, user: str, series: list[tuple[dt.date, int]], feed: list[tuple[dt.date, str]], synced: str) -> str:
+def fit(s: str, room: float, c: float) -> str:
+    """Trim `s` so it fits in `room` px at cell size `c`."""
+    if bm.width(s, c) <= room:
+        return s
+    while s and bm.width(s + "..", c) > room:
+        s = s[:-1]
+    return s.rstrip() + ".."
+
+
+def render(theme: dict, user: str, series: list[tuple[dt.date, int]], feed: list[tuple[dt.date, str]], synced: str,
+           narrow: bool = False) -> str:
+    """The wide drawing fills GitHub's 830px column; the narrow one is a 360px phone layout set
+    1:1, with one number per line and no date column."""
     t = theme
+    W = NARROW if narrow else WIDE
     series = series[-DAYS:]
     counts = [c for _, c in series]
     st = stats(series)
     step = W / len(series)
-    mid, reach = 92, 66  # centre line of the wave and how far a mote may stray from it
+    mid, reach = (74, 46) if narrow else (92, 66)  # centre line of the wave and how far a mote may stray from it
     o = []
 
-    o.append(f'<rect class="blink" x="0" y="4" width="8" height="8" fill="{t["signal"]}"/>')
-    o.append(bm.text(f"synced {synced}  ·  {user.lower()}  ·  last 52 weeks", 16, 2, 2, t["d2"]))
+    o.append(f'<rect x="0" y="4" width="8" height="8" fill="{t["signal"]}"/>')
+    head = f"52 weeks · synced {synced}" if narrow else f"synced {synced}  ·  {user.lower()}  ·  last 52 weeks"
+    o.append(bm.text(head, 14 if narrow else 16, 2, 2, t["d2"]))
 
     if st["total"] == 0:  # flatline: say so in reversed cells
-        msg, c = "NO SIGNAL", 6
+        msg, c = "NO SIGNAL", 4 if narrow else 6
         mw = bm.width(msg, c, 2)
         x0, y0 = (W - mw) / 2, mid - 4 * c
-        o.append(f'<defs><mask id="rev"><rect x="0" y="0" width="{W}" height="{H}" fill="#fff"/>'
+        o.append(f'<defs><mask id="rev"><rect x="0" y="0" width="{W}" height="{mid + reach}" fill="#fff"/>'
                  f'<path d="{bm.path(msg, x0, y0, c, 2)}" fill="#000"/></mask></defs>'
                  f'<rect x="{n(x0 - 2 * c)}" y="{n(y0 - 2 * c)}" width="{n(mw + 4 * c)}" height="{n(11 * c)}" fill="{t["ink"]}" mask="url(#rev)"/>')
     else:
@@ -202,30 +216,41 @@ def render(theme: dict, user: str, series: list[tuple[dt.date, int]], feed: list
                 o.append(f'<path d="{d}" fill="{fill}"{op}/>')
         o.append(f'<rect class="blink" x="{n(W - 6)}" y="{mid - 9}" width="6" height="18" fill="{t["signal"]}"/>')
 
-    # month marks along the bottom of the field
-    marks = []
+    # month marks along the bottom of the field, spaced so they never touch
+    my, gap, last = mid + reach + 12, (46 if narrow else 40), -1e9
     for i, (d, _) in enumerate(series):
-        if d.day == 1 and 24 < i < len(series) - 24:
-            marks.append(bm.text(d.strftime("%b").lower(), i * step, mid + reach + 12, 2, t["d3"], anchor="middle"))
-    o.append("".join(marks))
-    o.append(bm.text("today", W, mid + reach + 12, 2, t["d2"], anchor="end"))
+        x = i * step
+        if d.day == 1 and 8 < i < len(series) - 30 and x - last >= gap:
+            o.append(bm.text(d.strftime("%b").lower(), x, my, 2, t["d2"], anchor="middle"))
+            last = x
+    o.append(bm.text("today", W, my, 2, t["d2"], anchor="end"))
 
-    # one sentence of real numbers, then the feed
-    y = mid + reach + 44
-    if st["total"]:
-        o.append(bm.text(f"{st['total']:,} contributions in 52 weeks", 0, y, 3, t["ink"]))
-        o.append(bm.text(f"longest run {st['best']} days  ·  busiest day {st['peak']}, {day(st['peak_day'])}  ·  "
-                         f"{st['active']} active days", 0, y + 32, 2, t["d1"]))
+    # the real numbers, then the feed
+    y = my + 34
+    busiest = f"busiest day {day(st['peak_day'])} with {st['peak']}"
+    if not st["total"]:
+        o.append(bm.text(fit("no public contributions in 52 weeks", W, 3), 0, y, 3, t["ink"]))
+        lines = []
+    elif narrow:
+        o.append(bm.text(f"{st['total']:,} contributions", 0, y, 3, t["ink"]))
+        lines = [f"longest run {st['best']} days", busiest, f"{st['active']} active days"]
     else:
-        o.append(bm.text("no public contributions in the last 52 weeks", 0, y, 3, t["ink"]))
+        o.append(bm.text(f"{st['total']:,} contributions in 52 weeks", 0, y, 3, t["ink"]))
+        lines = [f"longest run {st['best']} days  ·  {busiest}  ·  {st['active']} active days"]
+    for j, s in enumerate(lines):
+        o.append(bm.text(s, 0, y + 34 + j * 20, 2, t["d1"]))
+    fy = y + 34 + len(lines) * 20 + 14
     for j, (d, s) in enumerate(feed):
-        fy = y + 64 + j * 22
-        o.append(bm.text(day(d), 0, fy, 2, t["d3"]))
-        o.append(bm.text(s, 84, fy, 2, t["d2"]))
+        if narrow:
+            o.append(bm.text(fit(s, W, 2), 0, fy + j * 22, 2, t["d2"]))
+        else:
+            o.append(bm.text(day(d), 0, fy + j * 22, 2, t["d2"]))
+            o.append(bm.text(fit(s, W - 84, 2), 84, fy + j * 22, 2, t["d2"]))
+    H = fy + max(len(feed), 1) * 22
 
     css = ".blink{animation:blink 1.1s steps(1) infinite}@keyframes blink{50%{opacity:0}}"
-    desc = (f"{st['total']} contributions in the last 52 weeks; longest run {st['best']} days; busiest day {st['peak']} on "
-            f"{st['peak_day'].isoformat()}. Latest: " + "; ".join(f"{day(d)} {s}" for d, s in feed) + f". Synced {synced}.")
+    desc = (f"{st['total']} contributions in the last 52 weeks; longest run {st['best']} days; busiest day {day(st['peak_day'])} "
+            f"with {st['peak']}; {st['active']} active days. Latest: " + "; ".join(f"{day(d)} {s}" for d, s in feed) + f". Synced {synced}.")
     return bm.svg(W, H, "".join(o), f"Signal: {user}'s contributions, last 52 weeks", desc, css)
 
 
@@ -254,6 +279,7 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     for t in bm.THEMES:
         (out / f"signal-{t['name']}.svg").write_text(render(t, a.user, series, feed, synced), encoding="utf-8")
+        (out / f"signal-narrow-{t['name']}.svg").write_text(render(t, a.user, series, feed, synced, narrow=True), encoding="utf-8")
     s = stats(series[-DAYS:])
     print(f"signal: {s['total']} contributions · longest run {s['best']}d · busiest {s['peak']} · {len(feed)} events")
 

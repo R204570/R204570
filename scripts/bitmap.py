@@ -192,9 +192,11 @@ def text(s: str, x: float, y: float, c: float, fill: str, track: float = 1, anch
 
 # palettes ------------------------------------------------------------------
 # The page itself is the void: every SVG is transparent, so GitHub's own ground shows through.
-# `ink` is the frontmost layer; d1-d3 step back one depth each; `signal` is the single accent.
-DARK = dict(name="dark", ink="#E6E2D6", d1="#BDB9AE", d2="#8C8A83", d3="#55534E", signal="#FFB000", void="#0D1117")
-LIGHT = dict(name="light", ink="#141414", d1="#3B3B3B", d2="#666666", d3="#A3A3A3", signal="#B25E00", void="#FFFFFF")
+# `ink` is the frontmost layer and d1, d2, rear step back one depth each (all safe for large text);
+# d3 is dust only, never text; `signal` is the single accent.
+DARK = dict(name="dark", ink="#E6E2D6", d1="#BDB9AE", d2="#8C8A83", rear="#6E6C66", d3="#55534E", signal="#FFB000", void="#0D1117")
+LIGHT = dict(name="light", ink="#141414", d1="#4A4A4A", d2="#6B6B6B", rear="#8A8A8A", d3="#A3A3A3", signal="#B25E00", void="#FFFFFF")
+STEPS = ("ink", "d1", "d2", "rear")  # brightness by depth, front to back
 THEMES = (DARK, LIGHT)
 
 MOTION_CSS = "@media (prefers-reduced-motion:reduce){*{animation:none!important}}"

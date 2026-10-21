@@ -27,7 +27,7 @@ Raj builds the model *and* the deployed software around it: agentic systems (Doc
 
 - Rendered by GitHub inside the profile page's main column: about 830px wide on desktop, about 360px on phones. GitHub's own sidebar already shows avatar, name, bio, location and links; pinned repos and the contribution calendar render below the README.
 - GitHub sanitises README HTML: no CSS, no JS, no iframes. Custom visuals must be images (SVG via `<img>`/`<picture>`). SVG animation and data-URI fonts work; links inside an SVG do not. `<picture>` with `prefers-color-scheme` follows the viewer's GitHub theme (light and dark both matter).
-- A GitHub Action (`.github/workflows/vitals.yml`, `GITHUB_TOKEN`, `contents: write`) can redraw an SVG from the contribution calendar on a schedule.
+- A GitHub Action (`.github/workflows/signal.yml`, `GITHUB_TOKEN`, `contents: write`) redraws the signal SVGs from the contribution calendar twice a day.
 
 ## Capabilities and Constraints
 
@@ -46,11 +46,12 @@ Raj builds the model *and* the deployed software around it: agentic systems (Doc
 Verified from the repositories on 2026-10-21:
 
 - **DocsForge** (github.com/R204570/DocsForge, docsforge.vercel.app): open-source MCP server; name a library and it finds, verifies and harvests the official, version-specific docs for Claude Code, Cursor, Codex and other MCP clients. Held-out test: 91% of never-seen names resolved to their official docs on first pass (round 3, 56 names). `pipx install docsforge`. Actively seeking contributors.
-- **NeuroAssist** (github.com/R204570/BrainTumor): Flask clinical decision-support prototype; MRI (NIfTI/DICOM) → 3D Attention U-Net segmentation on BraTS 2020 → tumour volumes and lobe involvement → RAG-grounded LLM report. Built under Microsoft Elevate × GTU.
+- **NeuroAssist** (github.com/R204570/BrainTumor): Flask clinical decision-support prototype; MRI (NIfTI/DICOM) → 3D Attention U-Net segmentation on BraTS 2020 → tumour volumes and lobe involvement → RAG-grounded LLM report. Built under Microsoft Elevate × GTU; Raj's own previous README tagged it `capstone`.
 - **PCB Defect Detection** (github.com/R204570/PCB_DEFECT_DETECTION, pcb-anomaly-detection.streamlit.app): YOLOv8, mAP@0.5 > 85% per its README, webcam and batch modes. Intel AI for Manufacturing.
 - **Hospital Management System** (github.com/R204570/hospital-management-system, live on Render): Django, role-based access, appointments, billing, pharmacy, PDF reports. 100 stars, 4 forks: the most-starred repo.
-- **SAC AI Search**, **Reconciliation** (atomic compute-then-commit wallet reconciliation, Flask + MS SQL), **ExpenseFlow** (live on Vercel), **Cafe-POS** (Django + DRF, 5★), **GearGuard**, Kaggle **BraTS2020 MGMT** preprocessed dataset.
+- **SAC AI Search** (repo description: GST SAC code database with AI search from a plain description), **Reconciliation** (atomic compute-then-commit wallet reconciliation, Flask + MS SQL), **ExpenseFlow** (live on Vercel; previous README: AI extraction from receipt to saved expense), **Cafe-POS** (Django + DRF, 5★), **GearGuard** (repo description: maintenance and equipment management platform, Django 5.2 + PostgreSQL), Kaggle **BraTS2020 MGMT** preprocessed dataset.
 - Credentials: Intel® AI for Manufacturing (2025, first batch, 16 weeks, demoed to GTU's Vice Chancellor and Intel leadership); Microsoft Elevate × GTU (2026); B.E. Information Technology + Data Science honours, GTU (2026); CPTE certified.
+- Skills as Raj listed them in the previous README: agentic AI, RAG, tool use, MCP servers, Claude Code; FastAPI, Django, Flask, Postgres + pgvector, Redis; PyTorch, TensorFlow, YOLOv8, OpenCV, 3D U-Net; LLMs/SLMs, NLP, Hugging Face, pandas, NumPy, scikit-learn; Streamlit, Node.js, GCP, Render, Vercel, Netlify; CPTE, STRIDE threat models, OWASP LLM Top 10, DPDP.
 - Not verified, do not use: Dice scores for NeuroAssist; mAP ≈ 0.90 for PCB.
 
 ## Product Principles
