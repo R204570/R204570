@@ -47,7 +47,7 @@ def strip(cv: Canvas, x: float, y: float, w: float, weeks: list[int], label_size
     """Live cell: the last 26 weeks as speckled blue bars, a recent pulse with no annotation (the
     activity panel below owns the full-year detail and the busiest-week call-out). Returns the bottom edge."""
     total = sum(weeks)
-    cv.text(x, y, "LAST 26 WEEKS", label_size, MUTED, MONO, 500, tracking=1.3)
+    cv.text(x, y, "LAST 26 WEEKS", label_size, MUTED, MONO, 500, tracking=1.4 if label_size >= 11 else 1.3)
     cv.text(x + w, y, f"{total:,} contributions", label_size + 1.5, TEXT, MONO, anchor="end")
     top = y + 10
     base = top + bar_h

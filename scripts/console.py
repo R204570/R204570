@@ -22,10 +22,10 @@ LIFT = "#18202B"       # hover-level lift, used for pills and the command box
 SEAM = "#232C38"       # 1px seams
 TEXT = "#E6EDF3"
 SOFT = "#C3CDD8"       # body copy on the ground
-MUTED = "#8B949E"      # labels, keys, secondary text (5.4:1 on GROUND)
+MUTED = "#8B949E"      # labels, keys, secondary text (6.2:1 on GROUND)
 BLUE = "#1F6FEB"       # primary action, chart body
 BLUE_HI = "#58A6FF"    # live state, links
-BLUE_LO = "#79C0FF"    # values that need to read as blue text (8.3:1)
+BLUE_LO = "#79C0FF"    # values that need to read as blue text (9.7:1 on GROUND)
 WHITE = "#FFFFFF"
 LABEL_LIGHT = "#59636E"  # section labels on GitHub's light ground
 
@@ -123,7 +123,8 @@ class Canvas:
         self.add(f'<rect x="{n(x)}" y="{n(y)}" width="{n(w)}" height="{n(h)}"{rr} fill="{fill}"{st}{extra}/>')
 
     def line(self, x1, y1, x2, y2, stroke=SEAM, extra=""):
-        self.add(f'<line x1="{n(x1)}" y1="{n(y1)}" x2="{n(x2)}" y2="{n(y2)}" stroke="{stroke}"{extra}/>')
+        """A 1px seam, snapped to the device grid so it stays sharp at 1x."""
+        self.add(f'<line x1="{n(x1)}" y1="{n(y1)}" x2="{n(x2)}" y2="{n(y2)}" stroke="{stroke}" shape-rendering="crispEdges"{extra}/>')
 
     def icon(self, name, x, y, size=16, stroke=MUTED, width=1.75):
         k = size / 24
