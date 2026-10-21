@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-activity.py: draws the profile's live activity panel from the GitHub contribution calendar.
+activity.py: draws the profile's live panels from the GitHub contribution calendar.
 
-One blue bar per day for the last 52 weeks (weekly bars on a phone), the real totals, and the
-latest public events. Standard library only, so the Action needs no installs; type comes from the
-committed font subsets in scripts/fonts.
+The activity panel: one blue bar per week for the last 52 weeks, the real totals, and the latest
+public events on project repositories. It also redraws the hero (scripts/hero.py), whose strip
+shows the last 26 weeks. Standard library only, so the Action needs no installs; type comes from
+the committed font subsets in scripts/fonts.
 
   python scripts/activity.py --user R204570      # live: GraphQL with GITHUB_TOKEN, else the public calendar page
   python scripts/activity.py --demo              # offline preview from synthetic data
@@ -23,6 +24,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import hero  # noqa: E402
 from console import (BLUE, BLUE_HI, BLUE_LO, MONO, MUTED, SANS, SEAM, TEXT, Canvas, fit, measure, n)  # noqa: E402
 
 DAYS = 364
@@ -91,6 +93,8 @@ def events(user: str, token: str | None) -> list[tuple[dt.date, str, str]]:
     out, seen = [], set()
     for ev in raw:
         full = ev["repo"]["name"]
+        if full.lower() == f"{user}/{user}".lower():  # edits to this profile are not news about the work
+            continue
         repo = full.split("/", 1)[1] if full.lower().startswith(user.lower() + "/") else full
         p, kind = ev.get("payload", {}), ev["type"]
         if kind == "PushEvent":
@@ -167,10 +171,11 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
     body_start = len(cv.parts)
 
     # header
-    cv.text(pad, 28, "ACTIVITY", 11, MUTED, MONO, 500, tracking=1.4)
+    cv.icon("folder", pad, 15, 15, MUTED)
+    cv.text(pad + 22, 28, "r204570 / activity", 12 if narrow else 12.5, MUTED, MONO)
     live = f"Live · synced {synced}"
     cv.text(W - pad, 28, live, 12, TEXT, MONO, anchor="end")
-    cv.pulse(W - pad - measure(live, MONO, 400, 12) - 13, 24, 3.5)
+    cv.dot(W - pad - measure(live, MONO, 400, 12) - 13, 24, 3.5)
     cv.line(0.5, 44, W - 0.5, 44)
 
     # chart
@@ -184,10 +189,13 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
         step = (W - 2 * pad) / len(weeks)
         gap = 1.6 if narrow else 4
         pk = max(range(len(weeks)), key=weeks.__getitem__)
+        bars = []
         for i, v in enumerate(weeks):
             h = 2 if not v else 4 + (span - 4) * math.sqrt(v / wp)
             col, op = (SEAM, 1) if not v else ((BLUE_LO, 1) if i == pk else (BLUE, .45 + .55 * math.sqrt(v / wp)))
-            cv.rect(pad + i * step + gap / 2, base - h, step - gap, h, col, r=1 if narrow else 2, extra=f' opacity="{op:.2f}"')
+            bars.append(f'<rect x="{n(pad + i * step + gap / 2)}" y="{n(base - h)}" width="{n(step - gap)}" height="{n(h)}" '
+                        f'rx="{1 if narrow else 2}" fill="{col}" opacity="{op:.2f}"/>')
+        cv.add(f"<g{cv.speckle()}>{''.join(bars)}</g>")
         lab = f"{weeks[pk]} that week" if narrow else f"Busiest week · {weeks[pk]} contributions"
         px = pad + pk * step + step / 2
         right = px > W / 2
@@ -214,7 +222,7 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
         for k, (key, val, unit) in enumerate(cells):
             cx, cy = pad + (k % 2) * cw, y0 + 26 + (k // 2) * 58
             cv.text(cx, cy, key, 10, MUTED, MONO, 500, tracking=1)
-            cv.text(cx, cy + 27, val, 21, TEXT, SANS, 600)
+            cv.text(cx, cy + 27, val, 21, TEXT, SANS, 600, extra=cv.speckle())
             cv.text(cx + measure(val, SANS, 600, 21) + 6, cy + 27, unit, 12.5, MUTED)
         cv.line(pad + cw - 8, y0 + 12, pad + cw - 8, y0 + 120)
         y = y0 + 132
@@ -225,7 +233,7 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
             if k:
                 cv.line(cx - 12, y0 + 12, cx - 12, y0 + 66)
             cv.text(cx, y0 + 30, key, 10.5, MUTED, MONO, 500, tracking=1)
-            cv.text(cx, y0 + 58, val, 22, TEXT, SANS, 600)
+            cv.text(cx, y0 + 58, val, 22, TEXT, SANS, 600, extra=cv.speckle())
             cv.text(cx + measure(val, SANS, 600, 22) + 7, y0 + 58, unit, 13, MUTED)
         y = y0 + 80
     cv.line(0.5, y, W - 0.5, y)
@@ -293,6 +301,10 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     (out / "activity.svg").write_text(render(a.user, series, feed, synced), encoding="utf-8")
     (out / "activity-narrow.svg").write_text(render(a.user, series, feed, synced, narrow=True), encoding="utf-8")
+    recent = [c for _, c in series[-182:]]
+    weeks26 = [sum(recent[i:i + 7]) for i in range(0, len(recent), 7)]
+    (out / "hero.svg").write_text(hero.wide(weeks26), encoding="utf-8")
+    (out / "hero-narrow.svg").write_text(hero.narrow(weeks26), encoding="utf-8")
     s = stats(series[-DAYS:])
     print(f"activity: {s['total']} contributions, longest streak {s['best']}d, busiest {s['peak']}, {len(feed)} events")
 

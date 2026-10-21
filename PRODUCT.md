@@ -27,7 +27,7 @@ Raj builds the model *and* the deployed software around it: agentic systems (Doc
 
 - Rendered by GitHub inside the profile page's main column: about 830px wide on desktop, about 360px on phones. GitHub's own sidebar already shows avatar, name, bio, location and links; pinned repos and the contribution calendar render below the README.
 - GitHub sanitises README HTML: no CSS, no JS, no iframes. Custom visuals must be images (SVG via `<img>`/`<picture>`). SVG animation and data-URI fonts work; links inside an SVG do not. `<picture>` with `prefers-color-scheme` follows the viewer's GitHub theme (light and dark both matter).
-- A GitHub Action (`.github/workflows/signal.yml`, `GITHUB_TOKEN`, `contents: write`) redraws the signal SVGs from the contribution calendar twice a day.
+- A GitHub Action (`.github/workflows/activity.yml`, `GITHUB_TOKEN`, `contents: write`) redraws the live panels (the hero's 26-week strip and the activity panel) from the contribution calendar twice a day.
 
 ## Capabilities and Constraints
 

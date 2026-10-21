@@ -130,8 +130,26 @@ class Canvas:
         self.add(f'<g transform="translate({n(x)} {n(y)}) scale({n(k)})" fill="none" stroke="{stroke}" '
                  f'stroke-width="{n(width / k)}" stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</g>')
 
+    def speckle(self) -> str:
+        """Film grain in the lit marks themselves (type, bars, the primary fill): noise clipped to
+        the shape and multiplied over it. Returns the attribute to put on an element or group."""
+        if not any('id="speckle"' in d for d in self.defs):
+            self.defs.append(
+                '<filter id="speckle" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+                '<feTurbulence type="fractalNoise" '
+                'baseFrequency=".95" numOctaves="2" seed="11" result="noise"/><feColorMatrix in="noise" type="saturate" '
+                'values="0" result="grey"/><feComponentTransfer in="grey" result="tone"><feFuncR type="linear" slope=".75" '
+                'intercept=".5"/><feFuncG type="linear" slope=".75" intercept=".5"/><feFuncB type="linear" slope=".75" '
+                'intercept=".5"/><feFuncA type="linear" slope="0" intercept="1"/></feComponentTransfer>'
+                '<feComposite in="tone" in2="SourceGraphic" operator="in" result="clip"/>'
+                '<feBlend in="SourceGraphic" in2="clip" mode="multiply"/></filter>')
+        return ' filter="url(#speckle)"'
+
+    def dot(self, cx, cy, r=3.5, fill=BLUE_HI):
+        self.add(f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r)}" fill="{fill}"/>')
+
     def pulse(self, cx, cy, r=4, fill=BLUE_HI):
-        """The one moving thing: a live dot breathing. Still when motion is reduced."""
+        """The one moving thing on the page: a live dot breathing. Still when motion is reduced."""
         self.add(f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * 2.2)}" fill="{fill}" opacity=".18" class="halo"/>'
                  f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r)}" fill="{fill}"/>')
         if ".halo" not in "".join(self.css):
@@ -144,9 +162,10 @@ class Canvas:
         w = self.w - 1 if w is None else w
         h = self.h - 1 if h is None else h
         self.defs.append(
-            '<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" '
+            '<filter id="grain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+            '<feTurbulence type="fractalNoise" baseFrequency=".9" '
             'numOctaves="2" seed="7" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>'
-            '<feComponentTransfer><feFuncA type="table" tableValues="0 .09"/></feComponentTransfer></filter>'
+            '<feComponentTransfer><feFuncA type="table" tableValues="0 .14"/></feComponentTransfer></filter>'
             '<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".75" '
             f'fill="{TEXT}" opacity=".07"/></pattern>'
             f'<clipPath id="pc"><rect x="{n(x)}" y="{n(y)}" width="{n(w)}" height="{n(h)}" rx="{n(r)}"/></clipPath>')
@@ -190,4 +209,15 @@ ICONS = {
     "dot": '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/>',
     "folder": '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>',
     "pin": '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+    # pipeline stages
+    "database": '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
+    "cpu": '<rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/>'
+           '<path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>',
+    "bot": '<path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/>'
+           '<path d="M15 13v2"/><path d="M9 13v2"/>',
+    "server": '<rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/>',
+    "rocket": '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>'
+              '<path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>'
+              '<path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+    "shield": '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
 }
