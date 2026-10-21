@@ -68,6 +68,8 @@ def kv(cv: Canvas, x: float, right: float, y: float, rows, step: float, ksize: f
     for k, v, col in rows:
         cv.text(x, y, k, ksize, ON_BLUE_LABEL, MONO)
         cv.text(right, y, v, vsize, col, anchor="end")
+        if v == "Available":  # availability keeps a blue cue without tinting the type
+            cv.dot(right - measure(v, SANS, 400, vsize) - 9, y - vsize * .35, 3.5, SKY)
         y += step
     return y
 
