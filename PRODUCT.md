@@ -39,6 +39,7 @@ Raj builds the model *and* the deployed software around it: agentic systems (Doc
 
 - Name: Raj Patel. Handle: R204570. Based in Ahmedabad, Gujarat, India.
 - Voice: first person, plain, specific; numbers over adjectives.
+- Register (confirmed 2026-10-21): "visually appealing as well as great" and "somewhat formal". Two themed worlds were rejected in a row (stacked medical imaging; a demoscene cracktro screen); playful costume reads as unprofessional here.
 - Links: portfolio https://portfolio-raj-25.netlify.app/ · LinkedIn https://www.linkedin.com/in/raj-patel5 · Kaggle https://www.kaggle.com/raj072004 · Medium https://medium.com/@rajpatel9408019 · Résumé https://portfolio-raj-25.netlify.app/Raj-Patel-Resume.pdf · rajpatel9408019@gmail.com
 
 ## Evidence on Hand
