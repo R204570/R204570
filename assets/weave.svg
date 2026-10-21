@@ -1,0 +1,521 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 132" width="840" height="132" role="img" aria-labelledby="t">
+<title id="t">Woven in Ahmedabad — the Manchester of the East</title>
+<style>
+@font-face{font-family:'JBM';font-weight:400;src:url(data:font/woff;base64,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) format('woff')}
+@font-face{font-family:'JBM';font-weight:700;src:url(data:font/woff;base64,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) format('woff')}
+.m{font-family:'JBM','JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}</style>
+<defs>
+  <linearGradient id="warp" x1="0" x2="1"><stop offset="0" stop-color="#0E131B"/><stop offset=".5" stop-color="#2A3443"/><stop offset="1" stop-color="#0E131B"/></linearGradient>
+  <linearGradient id="weftShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".45" stop-color="#fff" stop-opacity=".10"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>
+  <linearGradient id="goldG" x1="0" x2="1"><stop offset="0" stop-color="#8A6A14"/><stop offset=".5" stop-color="#E9B949"/><stop offset="1" stop-color="#8A6A14"/></linearGradient>
+  <linearGradient id="fadeX" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".12" stop-color="#fff"/><stop offset=".88" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="glint" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <mask id="mx"><rect width="840" height="132" fill="url(#fadeX)"/></mask>
+  <clipPath id="frame"><rect x="0" y="0" width="840" height="132" rx="14"/></clipPath>
+</defs>
+<g clip-path="url(#frame)">
+  <rect width="840" height="132" fill="#07090D"/>
+  <g mask="url(#mx)" opacity=".9"><rect x="1.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="13.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="25.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="37.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="49.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="61.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="73.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="85.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="97.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="109.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="121.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="133.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="145.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="157.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="169.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="181.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="193.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="205.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="217.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="229.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="241.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="253.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="265.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="277.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="289.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="301.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="313.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="325.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="337.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="349.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="361.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="373.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="385.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="397.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="409.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="421.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="433.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="445.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="457.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="469.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="481.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="493.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="505.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="517.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="529.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="541.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="553.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="565.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="577.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="589.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="601.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="613.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="625.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="637.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="649.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="661.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="673.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="685.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="697.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="709.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="721.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="733.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="745.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="757.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="769.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="781.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="793.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="805.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="817.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="829.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="841.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="853.6" y="0" width="8.9" height="132" fill="url(#warp)"/>
+<rect x="0" y="1.6" width="840" height="8.9" rx="4.4" fill="#184C57"/>
+<rect x="0" y="1.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="1.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="25.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="49.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="73.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="97.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="121.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="145.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="169.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="193.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="217.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="241.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="265.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="289.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="313.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="337.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="361.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="385.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="409.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="433.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="457.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="481.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="505.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="529.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="553.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="577.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="601.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="625.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="649.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="673.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="697.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="721.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="745.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="769.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="793.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="817.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="841.6" y="0.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="13.6" width="840" height="8.9" rx="4.4" fill="#195A50"/>
+<rect x="0" y="13.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="13.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="37.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="61.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="85.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="109.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="133.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="157.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="181.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="205.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="229.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="253.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="277.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="301.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="325.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="349.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="373.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="397.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="421.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="445.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="469.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="493.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="517.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="541.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="565.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="589.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="613.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="637.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="661.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="685.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="709.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="733.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="757.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="781.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="805.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="829.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="853.6" y="12.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="25.6" width="840" height="8.9" rx="4.4" fill="url(#goldG)"/>
+<rect x="0" y="25.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="1.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="25.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="49.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="73.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="97.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="121.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="145.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="169.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="193.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="217.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="241.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="265.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="289.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="313.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="337.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="361.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="385.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="409.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="433.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="457.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="481.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="505.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="529.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="553.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="577.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="601.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="625.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="649.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="673.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="697.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="721.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="745.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="769.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="793.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="817.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="841.6" y="24.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="37.6" width="840" height="8.9" rx="4.4" fill="#163F50"/>
+<rect x="0" y="37.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="13.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="37.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="61.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="85.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="109.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="133.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="157.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="181.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="205.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="229.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="253.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="277.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="301.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="325.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="349.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="373.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="397.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="421.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="445.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="469.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="493.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="517.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="541.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="565.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="589.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="613.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="637.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="661.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="685.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="709.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="733.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="757.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="781.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="805.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="829.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="853.6" y="36.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="49.6" width="840" height="8.9" rx="4.4" fill="#184C57"/>
+<rect x="0" y="49.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="1.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="25.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="49.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="73.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="97.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="121.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="145.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="169.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="193.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="217.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="241.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="265.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="289.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="313.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="337.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="361.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="385.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="409.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="433.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="457.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="481.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="505.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="529.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="553.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="577.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="601.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="625.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="649.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="673.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="697.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="721.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="745.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="769.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="793.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="817.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="841.6" y="48.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="61.6" width="840" height="8.9" rx="4.4" fill="#195A50"/>
+<rect x="0" y="61.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="13.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="37.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="61.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="85.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="109.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="133.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="157.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="181.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="205.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="229.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="253.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="277.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="301.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="325.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="349.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="373.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="397.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="421.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="445.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="469.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="493.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="517.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="541.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="565.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="589.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="613.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="637.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="661.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="685.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="709.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="733.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="757.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="781.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="805.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="829.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="853.6" y="60.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="73.6" width="840" height="8.9" rx="4.4" fill="#1D506A"/>
+<rect x="0" y="73.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="1.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="25.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="49.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="73.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="97.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="121.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="145.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="169.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="193.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="217.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="241.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="265.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="289.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="313.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="337.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="361.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="385.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="409.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="433.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="457.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="481.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="505.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="529.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="553.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="577.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="601.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="625.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="649.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="673.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="697.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="721.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="745.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="769.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="793.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="817.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="841.6" y="72.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="85.6" width="840" height="8.9" rx="4.4" fill="#163F50"/>
+<rect x="0" y="85.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="13.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="37.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="61.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="85.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="109.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="133.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="157.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="181.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="205.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="229.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="253.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="277.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="301.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="325.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="349.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="373.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="397.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="421.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="445.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="469.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="493.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="517.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="541.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="565.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="589.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="613.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="637.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="661.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="685.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="709.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="733.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="757.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="781.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="805.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="829.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="853.6" y="84.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="97.6" width="840" height="8.9" rx="4.4" fill="#184C57"/>
+<rect x="0" y="97.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="1.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="25.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="49.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="73.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="97.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="121.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="145.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="169.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="193.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="217.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="241.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="265.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="289.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="313.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="337.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="361.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="385.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="409.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="433.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="457.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="481.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="505.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="529.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="553.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="577.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="601.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="625.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="649.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="673.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="697.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="721.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="745.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="769.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="793.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="817.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="841.6" y="96.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="109.6" width="840" height="8.9" rx="4.4" fill="#195A50"/>
+<rect x="0" y="109.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="13.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="37.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="61.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="85.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="109.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="133.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="157.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="181.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="205.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="229.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="253.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="277.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="301.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="325.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="349.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="373.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="397.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="421.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="445.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="469.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="493.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="517.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="541.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="565.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="589.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="613.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="637.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="661.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="685.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="709.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="733.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="757.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="781.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="805.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="829.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="853.6" y="108.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="0" y="121.6" width="840" height="8.9" rx="4.4" fill="#1D506A"/>
+<rect x="0" y="121.6" width="840" height="8.9" fill="url(#weftShade)"/>
+<rect x="1.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="25.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="49.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="73.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="97.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="121.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="145.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="169.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="193.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="217.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="241.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="265.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="289.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="313.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="337.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="361.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="385.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="409.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="433.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="457.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="481.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="505.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="529.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="553.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="577.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="601.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="625.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="649.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="673.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="697.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="721.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="745.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="769.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="793.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="817.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+<rect x="841.6" y="120.1" width="8.9" height="11.9" rx="2" fill="url(#warp)"/>
+    <rect x="-200" y="0" width="160" height="132" fill="url(#glint)">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="1080 0" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <ellipse cx="0" cy="30" rx="16" ry="4.2" fill="#F6D27A"/>
+      <ellipse cx="0" cy="30" rx="30" ry="7" fill="#F6D27A" opacity=".25"/>
+      <animateTransform attributeName="transform" type="translate" values="-40 0;880 0;880 0" keyTimes="0;.7;1" dur="6s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <rect x="188.0" y="49.0" width="464" height="34" rx="17" fill="#07090D" stroke="#2A3443"/>
+  <text x="420.0" y="70.0" class="m" font-size="11" font-weight="700" fill="#E9B949" text-anchor="middle" letter-spacing="2.6">WOVEN IN AHMEDABAD<tspan fill="#7D8899" font-weight="400"> · THE MANCHESTER OF THE EAST</tspan></text>
+</g>
+<rect x=".5" y=".5" width="839" height="131" rx="14" fill="none" stroke="#1A2130"/>
+</svg>
