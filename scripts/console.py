@@ -30,10 +30,10 @@ WHITE = "#FFFFFF"
 LABEL_LIGHT = "#59636E"  # section labels on GitHub's light ground
 # on the grainy blue surface (hero, card headers): white type, two quieter whites
 NIGHT = "#03050B"      # the black the blue fades into
-ELECTRIC = "#2563EB"   # the brightest blue of the glow
-ON_BLUE = "#FFFFFF"
-ON_BLUE_SOFT = "#DCE6FF"
-ON_BLUE_LABEL = "#C3D3FF"  # small labels; 4.6:1 even where the glow is brightest
+ELECTRIC = "#1D4ED8"   # the hottest point of a glow; royal, so white-ish type keeps its contrast
+ON_BLUE = "#FFFFFF"    # 6.7:1 at the hottest point
+ON_BLUE_SOFT = "#DCE6FF"   # lede and taglines, 5.2:1 at the hottest point
+ON_BLUE_LABEL = "#D3DFFF"  # small labels, 5.0:1 at the hottest point
 GLASS = "#050811"      # boxes laid on the blue, at ~50% opacity
 
 SANS, MONO = "Geist", "Geist Mono"
@@ -205,7 +205,7 @@ class Canvas:
         grads = []
         for i, (gx, gy, gr) in enumerate(glows):
             gid = f"g{k}r{i}"
-            hot = ELECTRIC if i == 0 else "#3B82F6"
+            hot = ELECTRIC if i == 0 else "#2563EB"
             grads.append(f'<radialGradient id="{gid}" cx="{n(x + gx * w)}" cy="{n(y + gy * h)}" r="{n(gr * w)}" gradientUnits="userSpaceOnUse">'
                          f'<stop offset="0" stop-color="{hot}" stop-opacity="{.95 if i == 0 else .7}"/>'
                          f'<stop offset=".45" stop-color="{BLUE}" stop-opacity="{.55 if i == 0 else .3}"/>'
@@ -263,6 +263,14 @@ ICONS = {
     "plug": '<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>',
     "layers": '<path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>'
               '<path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+    "calendar": '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+    "card": '<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/>',
+    "pill": '<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>',
+    "image": '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+    "scan": '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/>'
+            '<path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m16 16-1.9-1.9"/>',
+    "download": '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+    "search": '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
     # pipeline stages
     "database": '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
     "cpu": '<rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/>'

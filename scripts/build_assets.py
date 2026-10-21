@@ -187,28 +187,28 @@ def button(key: str, label: str, icon: str, primary: bool) -> None:
 PROJECTS = [
     dict(key="docsforge", repo="docsforge", name="DocsForge", status="Production",
          tagline="Open-source MCP server for official, version-specific docs",
-         flow=["library name", "find docs", "verify", "harvest", "MCP tools"],
+         flow=[("library name", "book"), ("find docs", "search"), ("verify", "check"), ("harvest", "database"), ("MCP tools", "plug")],
          desc="Name a library and DocsForge finds its official documentation, verifies it, harvests it and serves it "
               "to Claude Code, Cursor, Codex and any other MCP client.",
          stack=["Python", "MCP", "FastAPI", "PostgreSQL"],
          facts=[("Result", "91% of never-seen names resolved first try"), ("Live", "docsforge.vercel.app")], glow=(.1, 1.3)),
     dict(key="neuroassist", repo="braintumor", name="NeuroAssist", status="Capstone",
          tagline="Brain-tumour MRI to a drafted clinical report",
-         flow=["MRI scan", "3D U-Net", "volumes + lobes", "RAG report"],
+         flow=[("MRI scan", "layers"), ("3D U-Net", "cpu"), ("volumes + lobes", "chart"), ("RAG report", "file")],
          desc="A 3D Attention U-Net segments the tumour on BraTS 2020 scans, measures volumes and lobe involvement, "
               "and a RAG-grounded LLM drafts the structured report.",
          stack=["Python", "3D U-Net", "RAG", "Flask", "PostgreSQL"],
          facts=[("Programme", "Microsoft Elevate × GTU"), ("Data", "BraTS 2020 MRI, NIfTI and DICOM")], glow=(.85, 1.35)),
     dict(key="hospital", repo="hospital-management-system", name="Hospital Management", status="Live · 100 stars",
          tagline="Role-based hospital operations, end to end",
-         flow=["patient", "appointment", "billing", "pharmacy", "PDF report"],
+         flow=[("patient", "users"), ("appointment", "calendar"), ("billing", "card"), ("pharmacy", "pill"), ("PDF report", "file")],
          desc="A Django system for patients, appointments, billing and pharmacy, with role-based access and PDF reports. "
               "My most-starred repository.",
          stack=["Python", "Django"],
          facts=[("Stars", "100, with 4 forks"), ("Live", "Render")], glow=(.3, -.35)),
     dict(key="pcb", repo="pcb_defect_detection", name="PCB Defect Detection", status="Live demo",
          tagline="Fine-tuned YOLOv8 for circuit-board inspection",
-         flow=["PCB images", "YOLOv8", "defects found", "annotated ZIP"],
+         flow=[("PCB images", "image"), ("YOLOv8", "cpu"), ("defects found", "scan"), ("annotated ZIP", "download")],
          desc="Upload one PCB image or a batch; a fine-tuned YOLOv8 marks the defects, charts their distribution and "
               "exports the annotated images.",
          stack=["Python", "YOLOv8", "PyTorch", "Streamlit"],
@@ -225,22 +225,23 @@ def pill_on_blue(cv: Canvas, right: float, y: float, label: str, size: float) ->
     cv.text(x + 22, y + 16.5, label, size, ON_BLUE, MONO, 500)
 
 
-def flow(cv: Canvas, x: float, y: float, room: float, steps: list[str], size: float) -> float:
-    """How the project works, as nodes joined by arrows; wraps inside `room`. Returns the bottom edge."""
-    gap, h = 26, 30
+def flow(cv: Canvas, x: float, y: float, room: float, steps: list, size: float) -> float:
+    """How the project works: glass nodes, each with its stage icon, joined by lit arrows; wraps
+    inside `room`. Returns the bottom edge."""
+    gap, h = 26, 32
     cx, cy = x, y
-    for i, s in enumerate(steps):
-        w = measure(s, MONO, 400, size) + 24
+    for i, (s, icon) in enumerate(steps):
+        w = 33 + measure(s, MONO, 400, size) + 12
         if i and cx + gap + w > x + room:
             cx, cy = x, cy + h + 10
         elif i:
-            ax = cx + 4
-            cv.add(f'<path d="M{n(ax)} {n(cy + h / 2)}h{gap - 10}m-4 -4 4 4-4 4" fill="none" stroke="#FFFFFF" '
-                   'stroke-opacity=".7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>')
+            cv.add(f'<path d="M{n(cx + 4)} {n(cy + h / 2)}h{gap - 9}m-4 -4 4 4-4 4" fill="none" stroke="{SKY}" '
+                   'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>')
             cx += gap
-        cv.add(f'<rect x="{n(cx)}" y="{n(cy)}" width="{n(w)}" height="{h}" rx="8" fill="{GLASS}" fill-opacity=".55" '
+        cv.add(f'<rect x="{n(cx)}" y="{n(cy)}" width="{n(w)}" height="{h}" rx="8" fill="{GLASS}" fill-opacity=".6" '
                'stroke="#FFFFFF" stroke-opacity=".22"/>')
-        cv.text(cx + 12, cy + 19.5, s, size, ON_BLUE, MONO)
+        cv.icon(icon, cx + 11, cy + 9, 14, SKY)
+        cv.text(cx + 33, cy + 20.5, s, size, ON_BLUE, MONO)
         cx += w
     return cy + h
 
@@ -251,17 +252,20 @@ def card(p: dict, narrow: bool) -> None:
     cv = Canvas(W, 1400)
     body: list[str] = []
     # header band content (drawn after the surface; collected first so the band height is known)
-    cv.text(pad, 27, f"r204570 / {p['repo']}", 11.5 if narrow else 12, ON_BLUE_LABEL, MONO)
-    pill_on_blue(cv, W - pad, 12, p["status"], 11 if narrow else 11.5)
+    cv.icon("folder", pad, 14, 15, ON_BLUE_LABEL)
+    cv.text(pad + 22, 26.5, f"r204570 / {p['repo']}", 11.5 if narrow else 12, ON_BLUE_LABEL, MONO)
+    pill_on_blue(cv, W - pad, 9, p["status"], 11 if narrow else 11.5)
+    cv.add(f'<line x1=".5" y1="42.5" x2="{n(W - .5)}" y2="42.5" stroke="#FFFFFF" stroke-opacity=".14" shape-rendering="crispEdges"/>')
     name_size = 28 if narrow else 34
     while measure(p["name"], SANS, 600, name_size, -1) > W - 2 * pad:
         name_size -= 1
-    cv.text(pad - 1, 76 if narrow else 84, p["name"], name_size, ON_BLUE, SANS, 600, tracking=-1, extra=cv.speckle())
-    y = 100 if narrow else 110
-    for line in wrap(p["tagline"], SANS, 400, 14 if narrow else 15.5, W - 2 * pad):
-        cv.text(pad, y, line, 14 if narrow else 15.5, ON_BLUE_SOFT)
+    y = 84 if narrow else 90
+    cv.text(pad - 1, y, p["name"], name_size, ON_BLUE, SANS, 600, tracking=-1, extra=cv.speckle())
+    y += 24 if narrow else 27
+    for line in wrap(p["tagline"], SANS, 400, 14.5 if narrow else 15.5, W - 2 * pad):
+        cv.text(pad, y, line, 14.5 if narrow else 15.5, ON_BLUE_SOFT)
         y += 20
-    band = flow(cv, pad, y + 6, W - 2 * pad, p["flow"], 11 if narrow else 12) + (18 if narrow else 22)
+    band = flow(cv, pad, y + 6, W - 2 * pad, p["flow"], 11.5 if narrow else 12) + (18 if narrow else 22)
     head = cv.parts
     cv.parts = []
     # body
@@ -273,16 +277,16 @@ def card(p: dict, narrow: bool) -> None:
     y = chips(cv, pad, y + 2, W - 2 * pad, p["stack"]) + 26
     if narrow:
         for k, v in p["facts"]:
-            cv.text(pad, y, k.upper(), 10, MUTED, MONO, 500, tracking=1)
-            for line in wrap(v, SANS, 400, 13.5, W - 2 * pad):
-                cv.text(pad, y + 19, line, 13.5, TEXT)
-                y += 18
-            y += 26
+            cv.text(pad, y, k.upper(), 11.5, MUTED, MONO, 500, tracking=1)
+            for line in wrap(v, SANS, 400, 14, W - 2 * pad):
+                cv.text(pad, y + 20, line, 14, TEXT)
+                y += 19
+            y += 27
         H = y
     else:
         for (k, v), x in zip(p["facts"], (pad, 470)):
-            cv.text(x, y, k.upper(), 10.5, MUTED, MONO, 500, tracking=1)
-            cv.text(x, y + 21, v, 14, TEXT)
+            cv.text(x, y, k.upper(), 11, MUTED, MONO, 500, tracking=1)
+            cv.text(x, y + 21, v, 14.5, TEXT)
         H = y + 42
     body = cv.parts
     cv.parts = []
@@ -297,46 +301,76 @@ def card(p: dict, narrow: bool) -> None:
     cv.rect(0.5, 0.5, W - 1, H - 1, stroke=SEAM, r=14)
     cv.defs += defs
     facts = "; ".join(f"{k}: {v}" for k, v in p["facts"])
+    steps = " → ".join(s for s, _ in p["flow"])
     finish(cv, f"card-{p['key']}{'-narrow' if narrow else ''}", f"{p['name']}, {p['status']}",
-           f"{p['tagline']}. How it works: {' → '.join(p['flow'])}. {p['desc']} Stack: {', '.join(p['stack'])}. {facts}.")
+           f"{p['tagline']}. How it works: {steps}. {p['desc']} Stack: {', '.join(p['stack'])}. {facts}.")
 
 
 # ---------------------------------------------------------------- more work
-MORE = [  # key, name, description, language
-    ("sac", "SAC AI Search", "Finds the right GST service code (SAC) from a plain-words description of the service.", "Python"),
-    ("reconciliation", "Reconciliation", "Wallet-balance reconciliation on an atomic compute-then-commit engine, with a Flask dashboard and CLI.", "Python"),
-    ("expenseflow", "ExpenseFlow", "Receipt to saved expense with AI extraction and a searchable history. Live on Vercel.", "JavaScript"),
-    ("cafepos", "Cafe-POS", "Point of sale for cafes and restaurants on Django, Django REST Framework and PostgreSQL.", "Python"),
-    ("gearguard", "GearGuard", "Maintenance and equipment management platform built with Django 5.2 and PostgreSQL.", "Django"),
-    ("mgmt", "BraTS2020 MGMT", "Preprocessed BraTS 2020 MRI dataset for predicting MGMT promoter methylation, on Kaggle.", "Kaggle"),
+MORE = [  # key, name, description, lead mark (logo slug or :icon), two facts
+    ("sac", "SAC AI Search", "Describe a service in plain words and it finds the right GST service accounting code (SAC).",
+     "python", [("Stack", "Python · AI search"), ("Licence", "Open source")]),
+    ("reconciliation", "Reconciliation", "Wallet-balance reconciliation on an atomic compute-then-commit engine, with a Flask "
+     "dashboard, CLI and batch runner.", "flask", [("Stack", "Flask · MS SQL Server"), ("Engine", "Compute, then commit")]),
+    ("expenseflow", "ExpenseFlow", "Receipt to saved expense with AI extraction and a searchable history.",
+     "javascript", [("Stack", "JavaScript"), ("Live", "Vercel")]),
+    ("cafepos", "Cafe-POS", "Point of sale for cafes and restaurants, with a REST API behind it.",
+     "django", [("Stack", "Django · DRF · PostgreSQL"), ("For", "Cafes and restaurants")]),
+    ("gearguard", "GearGuard", "A full-featured web platform for maintenance and equipment management.",
+     "django", [("Stack", "Django 5.2 · PostgreSQL"), ("Kind", "Web platform")]),
+    ("mgmt", "BraTS2020 MGMT", "Preprocessed BraTS 2020 MRI for predicting MGMT promoter methylation with a 3D ResNet.",
+     ":chart", [("Dataset", "Kaggle"), ("Model", "3D ResNet")]),
 ]
 
 
-def more_row(key: str, name: str, desc: str, lang: str, narrow: bool) -> None:
-    W = NARROW if narrow else WIDE
-    pad = 16 if narrow else 22
-    cv = Canvas(W, 400)
-    cv.icon("folder", pad, 17, 18, BLUE_HI)
-    cv.text(pad + 28, 31, name, 16, TEXT, SANS, 600)
-    lw = chip_width(lang)
-    if narrow:
-        y = 56
-        for line in wrap(desc, SANS, 400, 14, W - 2 * pad):
-            cv.text(pad, y, line, 14, SOFT)
-            y += 20
-        chip(cv, pad, y - 4, lang)
-        H = y + 38
+def tile(cv: Canvas, x: float, y: float, size: float, mark: str) -> None:
+    cv.rect(x, y, size, size, LIFT, SEAM, r=10)
+    m = size * .52
+    if mark.startswith(":"):
+        cv.icon(mark[1:], x + (size - m) / 2, y + (size - m) / 2, m, BLUE_LO)
     else:
-        chip(cv, W - pad - lw, 13, lang)
-        cv.text(pad + 28, 56, desc, 14.5, SOFT)
-        H = 74
+        cv.logo(LOGO[mark], x + (size - m) / 2, y + (size - m) / 2, m, BLUE_LO)
+
+
+def more_row(key: str, name: str, desc: str, mark: str, facts: list, narrow: bool) -> None:
+    W = NARROW if narrow else WIDE
+    cv = Canvas(W, 400)
+    if narrow:
+        pad = 16
+        tile(cv, pad, 16, 40, mark)
+        cv.text(pad + 54, 42, name, 18, TEXT, SANS, 600)
+        y = 84
+        for line in wrap(desc, SANS, 400, 15.5, W - 2 * pad):
+            cv.text(pad, y, line, 15.5, SOFT)
+            y += 22
+        y += 12
+        for (k, v), x in zip(facts, (pad, 186)):
+            cv.text(x, y, k.upper(), 11.5, MUTED, MONO, 500, tracking=1)
+            cv.text(x, y + 20, C.fit(v, SANS, 400, 13.5, 160), 13.5, TEXT)
+        H = y + 40
+    else:
+        pad = 22
+        tile(cv, pad, 22, 46, mark)
+        cv.text(pad + 62, 46, name, 20, TEXT, SANS, 600)
+        y = 74
+        for line in wrap(desc, SANS, 400, 16, 500):
+            cv.text(pad + 62, y, line, 16, SOFT)
+            y += 23
+        cv.line(616, 20, 616, max(y, 104) - 6)
+        for i, (k, v) in enumerate(facts):
+            cv.text(636, 40 + i * 44, k.upper(), 11, MUTED, MONO, 500, tracking=1)
+            cv.text(636, 60 + i * 44, C.fit(v, SANS, 400, 14, W - 636 - pad), 14, TEXT)
+        H = max(y + 10, 124)
     body = cv.parts
     cv.parts = []
     cv.h = H
+    defs = cv.defs
     cv.defs = []
     cv.panel(r=12)
     cv.parts += body
-    finish(cv, f"more-{key}{'-narrow' if narrow else ''}", f"{name}: {desc}", f"{name}. {desc} {lang}.")
+    cv.defs += defs
+    facts_txt = "; ".join(f"{k}: {v}" for k, v in facts)
+    finish(cv, f"more-{key}{'-narrow' if narrow else ''}", name, f"{name}. {desc} {facts_txt}.")
 
 
 # ---------------------------------------------------------------- tech stack
@@ -362,7 +396,7 @@ def stack(narrow: bool) -> None:
         if i:
             cv.line(pad, y - 13, W - pad, y - 13)
         if narrow:
-            cv.text(pad, y + 6, group.upper(), 10.5, MUTED, MONO, 500, tracking=1.2)
+            cv.text(pad, y + 6, group.upper(), 11.5, MUTED, MONO, 500, tracking=1.3)
             y = chips(cv, pad, y + 16, W - 2 * pad, items) + 26
         else:
             cv.text(pad, y + 18.5, group.upper(), 11, MUTED, MONO, 500, tracking=1.3)

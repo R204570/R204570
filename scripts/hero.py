@@ -15,7 +15,7 @@ NOTE = "ENW{u1qq3a_c4eg_hay0px3q}"
 SKY = "#93C5FD"  # the one blue that reads as blue text on the blue surface
 PITCH = "AI engineer building agents, vision models and the software around them, from idea to deployed."
 PROFILE = [("Based in", "Ahmedabad, India", ON_BLUE), ("Focus", "Agentic AI · Computer vision", ON_BLUE),
-           ("Open to", "AI Engineering, Data Science", ON_BLUE), ("Freelance", "Available", SKY)]
+           ("Open to", "AI Engineering, Data Science", ON_BLUE), ("Freelance", "Available", ON_BLUE)]
 CREDENTIALS = [("2026", "Microsoft Elevate × GTU"), ("2026", "B.E. IT, Data Science hons"),
                ("2025", "Intel® AI for Manufacturing"), ("CPTE", "Penetration testing engineer")]
 TITLE = "Raj Patel, AI engineer"
@@ -118,11 +118,11 @@ def narrow(weeks: list[int]) -> str:
         cv.text(16, y, line, 15.5, ON_BLUE_SOFT)
         y += 22
     command_box(cv, 16, y - 4, 328, 11.5)
-    y = strip(cv, 16, y + 86, 328, weeks, 10.5, 40) + 30
+    y = strip(cv, 16, y + 86, 328, weeks, 11.5, 40) + 30
     hair(cv, 0.5, y - 12.5, W - 0.5, y - 12.5)
-    cv.text(16, y + 10, "PROFILE", 10.5, ON_BLUE_LABEL, MONO, 500, tracking=1.3)
+    cv.text(16, y + 10, "PROFILE", 11.5, ON_BLUE_LABEL, MONO, 500, tracking=1.4)
     y = kv(cv, 16, W - 16, y + 34, PROFILE, 22, 12, 13) + 16
-    cv.text(16, y, "CREDENTIALS", 10.5, ON_BLUE_LABEL, MONO, 500, tracking=1.3)
+    cv.text(16, y, "CREDENTIALS", 11.5, ON_BLUE_LABEL, MONO, 500, tracking=1.4)
     y = kv(cv, 16, W - 16, y + 24, [(k, v, ON_BLUE) for k, v in CREDENTIALS], 22, 12, 13)
     H = y + 4
     cv.h = H

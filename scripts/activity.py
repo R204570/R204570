@@ -221,7 +221,7 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
         cw = (W - 2 * pad) / 2
         for k, (key, val, unit) in enumerate(cells):
             cx, cy = pad + (k % 2) * cw, y0 + 26 + (k // 2) * 58
-            cv.text(cx, cy, key, 10, MUTED, MONO, 500, tracking=1)
+            cv.text(cx, cy, key, 11, MUTED, MONO, 500, tracking=1)
             cv.text(cx, cy + 27, val, 21, TEXT, SANS, 600, extra=cv.speckle())
             cv.text(cx + measure(val, SANS, 600, 21) + 6, cy + 27, unit, 12.5, MUTED)
         cv.line(pad + cw - 8, y0 + 12, pad + cw - 8, y0 + 120)
