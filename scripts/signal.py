@@ -217,14 +217,18 @@ def render(theme: dict, user: str, series: list[tuple[dt.date, int]], feed: list
         o.append(f'<rect class="blink" x="{n(W - 6)}" y="{mid - 9}" width="6" height="18" fill="{t["signal"]}"/>')
 
     # month marks along the bottom of the field, spaced so they never touch
-    my, gap, last = mid + reach + 12, (46 if narrow else 40), -1e9
-    room = W - bm.width("today", 2) - 12  # month labels stop short of "today"
-    for i, (d, _) in enumerate(series):
-        x = i * step
-        if d.day == 1 and i > 8 and x + 18 < room and x - last >= gap:
+    # Labels are placed from the right edge back, so the latest months always get one. On a phone
+    # the amber head bar alone marks today, which leaves room to label the month under it.
+    my, gap = mid + reach + 12, (46 if narrow else 40)
+    room = W - 2 if narrow else W - bm.width("today", 2) - 12
+    last = 1e9
+    for i in range(len(series) - 1, -1, -1):
+        d, x = series[i][0], i * step
+        if d.day == 1 and 18 <= x and x + 18 < room and last - x >= gap:
             o.append(bm.text(d.strftime("%b").lower(), x, my, 2, t["d2"], anchor="middle"))
             last = x
-    o.append(bm.text("today", W, my, 2, t["d2"], anchor="end"))
+    if not narrow:
+        o.append(bm.text("today", W, my, 2, t["d2"], anchor="end"))
 
     # the real numbers, then the feed
     y = my + 34

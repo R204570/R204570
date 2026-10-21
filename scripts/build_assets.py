@@ -68,12 +68,12 @@ def dust(theme: dict, W: float, bands: list, top: float, bottom: float, planes: 
 def headline(theme: dict, lines: list[tuple[str, float, float]], c: float) -> str:
     """Lit cells with a faint phosphor flicker; in the dark they also bleed a little light."""
     dark = theme is bm.DARK
-    ops = (1, .95, .9) if dark else (1, .96, .92)
+    ops = (1, .97, .94) if dark else (1, .97, .95)
     o = []
     if dark:
         glow = "".join(bm.path(s, x, y, c) for s, x, y in lines)
-        o.append(f'<defs><filter id="bleed" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="{n(c * .3)}"/></filter></defs>'
-                 f'<path d="{glow}" fill="{theme["ink"]}" opacity=".25" filter="url(#bleed)"/>')
+        o.append(f'<defs><filter id="bleed" x="-5%" y="-20%" width="110%" height="140%"><feGaussianBlur stdDeviation="{n(c * .45)}"/></filter></defs>'
+                 f'<path d="{glow}" fill="{theme["ink"]}" opacity=".38" filter="url(#bleed)"/>')
     for s, x, y in lines:
         for d, op in zip(bm.grain_paths(s, x, y, c), ops):
             o.append(f'<path d="{d}" fill="{theme["ink"]}" fill-opacity="{op}"/>')
@@ -125,9 +125,9 @@ def hero_narrow(theme: dict) -> str:
     o.append(bm.text("RAJ PATEL", 0, 6, 3, t["ink"], track=1.4))
     o.append(f'<rect x="{n(bm.width("RAJ PATEL", 3, 1.4) + 8)}" y="18" width="9" height="9" fill="{t["signal"]}"/>')
     o.append(bm.text("R204570 · AHMEDABAD, IN", 0, 38, 2, t["d2"], track=2))
-    o.append(bars(t, 0, 76))
-    o.append(bm.text("open to roles + freelance", 36, 62, 2, t["ink"]))
-    o.append(bm.text("now shipping docsforge", 36, 84, 2, t["d2"]))
+    o.append(bars(t, W - 26, 27))
+    o.append(bm.text("open to ai roles + freelance", 0, 62, 2, t["ink"]))
+    o.append(bm.text("now shipping docsforge", 0, 84, 2, t["d2"]))
     o.append(headline(t, [("i build ai", 0, 120), ("that ships", 0, 176)], 5))
     o.append(caret(t, "that ships", 0, 176, 5))
     for i, line in enumerate(("agents, vision models and", "the apps around them, from", "idea to deployed.")):
