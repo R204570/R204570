@@ -92,8 +92,8 @@ def finish(cv: Canvas, name: str, title: str, desc: str = "", comment: str = "")
 
 # ---------------------------------------------------------------- content
 PITCH = "AI engineer building agents, vision models and the software around them, from idea to deployed."
-PROFILE = [("Based in", "Ahmedabad, India", TEXT), ("Focus", "Agentic AI · Vision", TEXT),
-           ("Open to", "AI · Agentic · DS roles", TEXT), ("Freelance", "Available", BLUE_LO)]
+PROFILE = [("Based in", "Ahmedabad, India", TEXT), ("Focus", "Agentic AI · Computer vision", TEXT),
+           ("Open to", "AI Engineering, Data Science", TEXT), ("Freelance", "Available", BLUE_LO)]
 CREDENTIALS = [("2026", "Microsoft Elevate × GTU"), ("2026", "B.E. IT, Data Science hons"),
                ("2025", "Intel® AI for Manufacturing"), ("CPTE", "Penetration testing engineer")]
 PIPELINE = [("Data", ["pandas", "NumPy", "scikit-learn"]), ("Model", ["PyTorch", "YOLOv8", "3D U-Net"]),

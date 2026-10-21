@@ -96,10 +96,15 @@ def events(user: str, token: str | None) -> list[tuple[dt.date, str, str]]:
         if kind == "PushEvent":
             k = p.get("size") or p.get("distinct_size")
             item = ("commit", f"Pushed {k} commit{'s' if k != 1 else ''} to {repo}" if k else f"Pushed to {repo}")
-        elif kind == "PullRequestEvent":
+        elif kind == "PullRequestEvent":  # one line per pull request, its latest meaningful state
+            if p.get("action") not in ("opened", "closed", "reopened"):
+                continue
             num = p.get("number") or p.get("pull_request", {}).get("number")
+            if (repo, num) in seen:
+                continue
+            seen.add((repo, num))
             merged = p.get("action") == "closed" and p.get("pull_request", {}).get("merged")
-            item = ("merge", f"{'Merged' if merged else p.get('action', 'Updated').capitalize()} PR #{num} in {repo}")
+            item = ("merge", f"{'Merged' if merged else p['action'].capitalize()} PR #{num} in {repo}")
         elif kind == "IssuesEvent":
             item = ("dot", f"{p.get('action', 'Updated').capitalize()} issue #{p.get('issue', {}).get('number')} in {repo}")
         elif kind == "ReleaseEvent":
@@ -172,35 +177,20 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
     span = base - top - 8
     if not st["total"]:
         cv.text(W / 2, (top + base) / 2, "No public activity in the last 52 weeks", 14, MUTED, anchor="middle")
-    elif narrow:
+    else:  # one bar per week; brightness follows volume, the busiest week is the lightest blue
         weeks = [sum(counts[i:i + 7]) for i in range(0, len(counts), 7)]
         wp = max(weeks)
         step = (W - 2 * pad) / len(weeks)
+        gap = 1.6 if narrow else 4
         pk = max(range(len(weeks)), key=weeks.__getitem__)
         for i, v in enumerate(weeks):
             h = 2 if not v else 4 + (span - 4) * math.sqrt(v / wp)
             col, op = (SEAM, 1) if not v else ((BLUE_LO, 1) if i == pk else (BLUE, .45 + .55 * math.sqrt(v / wp)))
-            cv.rect(pad + i * step + .8, base - h, step - 1.6, h, col, r=1, extra=f' opacity="{op:.2f}"')
-        cv.text(min(pad + pk * step, W - pad), top - 8, f"{weeks[pk]} that week", 11, BLUE_LO, MONO, anchor="end" if pk > len(weeks) / 2 else "start")
-    else:
-        step = (W - 2 * pad) / len(counts)
-        peak = st["peak"]
-        bars = {}
-        for i, c in enumerate(counts):
-            x = pad + i * step
-            if not c:
-                cv.rect(x, base - 2, max(step - .7, .8), 2, SEAM)
-                continue
-            h = 4 + (span - 4) * math.sqrt(c / peak)
-            if i == st["peak_i"]:
-                cv.rect(x, base - h, max(step - .7, .8), h, BLUE_LO)
-            else:
-                bars.setdefault(round(.4 + .6 * math.sqrt(c / peak), 1), []).append(f"M{n(x)} {n(base - h)}h{n(max(step - .7, .8))}v{n(h)}h{n(-max(step - .7, .8))}z")
-        for op, paths in sorted(bars.items()):
-            cv.add(f'<path d="{"".join(paths)}" fill="{BLUE}" opacity="{op}"/>')
-        px = pad + st["peak_i"] * step
-        lab = f"{day(st['peak_day'])} · {peak}"
-        cv.text(px + (8 if px < W / 2 else -8), top - 6, lab, 11, BLUE_LO, MONO, anchor="start" if px < W / 2 else "end")
+            cv.rect(pad + i * step + gap / 2, base - h, step - gap, h, col, r=1 if narrow else 2, extra=f' opacity="{op:.2f}"')
+        lab = f"{weeks[pk]} that week" if narrow else f"Busiest week · {weeks[pk]} contributions"
+        px = pad + pk * step + step / 2
+        right = px > W / 2
+        cv.text(px + (step / 2 if right else -step / 2), top - 8, lab, 11, BLUE_LO, MONO, anchor="end" if right else "start")
     cv.line(pad, base + .5, W - pad, base + .5)
 
     # month labels, placed from the right edge back so the latest months always get one
