@@ -43,20 +43,21 @@ def command_box(cv: Canvas, x: float, y: float, w: float, mono: float) -> None:
     cv.text(x + 34, y + 43, "$ pipx install docsforge", mono - 1, MUTED, MONO)
 
 
-def strip(cv: Canvas, x: float, y: float, w: float, weeks: list[int], label_size: float) -> float:
-    """Live cell: the last 26 weeks as speckled blue bars. Returns the bottom edge."""
+def strip(cv: Canvas, x: float, y: float, w: float, weeks: list[int], label_size: float, bar_h: float) -> float:
+    """Live cell: the last 26 weeks as speckled blue bars, a recent pulse with no annotation (the
+    activity panel below owns the full-year detail and the busiest-week call-out). Returns the bottom edge."""
     total = sum(weeks)
     cv.text(x, y, "LAST 26 WEEKS", label_size, MUTED, MONO, 500, tracking=1.3)
     cv.text(x + w, y, f"{total:,} contributions", label_size + 1.5, TEXT, MONO, anchor="end")
-    top, base = y + 12, y + 64
+    top = y + 10
+    base = top + bar_h
     peak = max(weeks) or 1
-    pk = max(range(len(weeks)), key=weeks.__getitem__)
     step = w / len(weeks)
     bars = []
     for i, v in enumerate(weeks):
         h = 2 if not v else 3 + (base - top - 3) * math.sqrt(v / peak)
-        fill = SEAM if not v else (BLUE_LO if i == pk else BLUE)
-        op = 1 if (not v or i == pk) else .5 + .5 * math.sqrt(v / peak)
+        fill = SEAM if not v else BLUE
+        op = 1 if not v else .5 + .5 * math.sqrt(v / peak)
         bars.append(f'<rect x="{n(x + i * step + 1.5)}" y="{n(base - h)}" width="{n(step - 3)}" height="{n(h)}" rx="1.5" '
                     f'fill="{fill}" opacity="{op:.2f}"/>')
     cv.add(f"<g{cv.speckle()}>{''.join(bars)}</g>")
@@ -65,8 +66,8 @@ def strip(cv: Canvas, x: float, y: float, w: float, weeks: list[int], label_size
 
 
 def wide(weeks: list[int]) -> str:
-    W, seam_y = 830, 384
-    H = seam_y + 166
+    W, seam_y = 830, 344
+    H = seam_y + 150
     cv = Canvas(W, H)
     cv.panel(glow=(150, 110, 430))
     # title bar: the page's one breathing dot says who is available
@@ -77,28 +78,28 @@ def wide(weeks: list[int]) -> str:
     cv.pulse(W - 24 - measure(status, MONO, 400, 12.5) - 14, 23, 3.5)
     cv.line(0.5, 44, W - 0.5, 44)
     # identity, now shipping, live strip
-    cv.text(30, 134, "Raj Patel", 66, TEXT, SANS, 600, tracking=-2, extra=cv.speckle())
-    y = 174
+    cv.text(30, 126, "Raj Patel", 66, TEXT, SANS, 600, tracking=-2, extra=cv.speckle())
+    y = 166
     for line in wrap(PITCH, SANS, 400, 18, 450):
         cv.text(32, y, line, 18, SOFT)
         y += 26
-    command_box(cv, 32, y - 8, 456, 13)
-    strip(cv, 32, y + 84, 456, weeks, 11)
+    command_box(cv, 32, y - 10, 456, 13)
+    strip(cv, 32, y + 72, 456, weeks, 11, 36)
     # profile and credentials
     cv.line(520, 44, 520, seam_y)
-    cv.text(544, 78, "PROFILE", 11, MUTED, MONO, 500, tracking=1.4)
+    cv.text(544, 74, "PROFILE", 11, MUTED, MONO, 500, tracking=1.4)
     for i, (k, v, col) in enumerate(PROFILE):
-        cv.text(544, 104 + i * 24, k, 12.5, MUTED, MONO)
-        cv.text(806, 104 + i * 24, v, 13.5, col, anchor="end")
-    cv.text(544, 228, "CREDENTIALS", 11, MUTED, MONO, 500, tracking=1.4)
+        cv.text(544, 98 + i * 24, k, 12.5, MUTED, MONO)
+        cv.text(806, 98 + i * 24, v, 13.5, col, anchor="end")
+    cv.text(544, 210, "CREDENTIALS", 11, MUTED, MONO, 500, tracking=1.4)
     for i, (k, v) in enumerate(CREDENTIALS):
-        cv.text(544, 254 + i * 24, k, 12.5, MUTED, MONO)
-        cv.text(806, 254 + i * 24, v, 13.5, TEXT, anchor="end")
+        cv.text(544, 234 + i * 24, k, 12.5, MUTED, MONO)
+        cv.text(806, 234 + i * 24, v, 13.5, TEXT, anchor="end")
     cv.line(0.5, seam_y, W - 0.5, seam_y)
     # pipeline: how an idea becomes something deployed
-    cv.text(32, seam_y + 30, "PIPELINE", 11, MUTED, MONO, 500, tracking=1.4)
-    cv.text(32 + measure("PIPELINE", MONO, 500, 11, 1.4) + 12, seam_y + 30, "idea to deployed", 13, MUTED)
-    gap, bw, by, bh = 14, (W - 64 - 5 * 14) / 6, seam_y + 46, 96
+    cv.text(32, seam_y + 26, "PIPELINE", 11, MUTED, MONO, 500, tracking=1.4)
+    cv.text(32 + measure("PIPELINE", MONO, 500, 11, 1.4) + 12, seam_y + 26, "idea to deployed", 13, MUTED)
+    gap, bw, by, bh = 14, (W - 64 - 5 * 14) / 6, seam_y + 38, 92
     for i, (stage, icon, tools) in enumerate(PIPELINE):
         bx = 32 + i * (bw + gap)
         if i:
@@ -125,7 +126,7 @@ def narrow(weeks: list[int]) -> str:
         cv.text(16, y, line, 15.5, SOFT)
         y += 22
     command_box(cv, 16, y - 6, 328, 11.5)
-    y = strip(cv, 16, y + 82, 328, weeks, 10.5) + 30
+    y = strip(cv, 16, y + 80, 328, weeks, 10.5, 40) + 30
     cv.line(0.5, y - 14, W - 0.5, y - 14)
     cv.text(16, y + 8, "PROFILE", 10.5, MUTED, MONO, 500, tracking=1.3)
     y += 32
