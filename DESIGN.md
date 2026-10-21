@@ -1,352 +1,472 @@
 ---
-name: R204570 Title Screen
-description: Raj Patel's GitHub profile README, drawn as a cracktro title screen in one hand-drawn bitmap face over GitHub's own ground.
+name: R204570 Console
+description: Raj Patel's GitHub profile README drawn as a formal developer console in blue and black, with film grain, one accent and one breathing dot.
 colors:
-  signal-dark: "#FFB000"
-  signal-light: "#B25E00"
-  ink-dark: "#E6E2D6"
-  ink-light: "#141414"
-  d1-dark: "#BDB9AE"
-  d1-light: "#4A4A4A"
-  d2-dark: "#8C8A83"
-  d2-light: "#6B6B6B"
-  rear-dark: "#6E6C66"
-  rear-light: "#8A8A8A"
-  d3-dark: "#55534E"
-  d3-light: "#A3A3A3"
-  void-dark: "#0D1117"
-  void-light: "#FFFFFF"
+  ground: "#0D1117"
+  panel: "#121821"
+  lift: "#18202B"
+  seam: "#232C38"
+  text: "#E6EDF3"
+  soft: "#C3CDD8"
+  muted: "#8B949E"
+  blue: "#1F6FEB"
+  blue-hi: "#58A6FF"
+  blue-lo: "#79C0FF"
+  white: "#FFFFFF"
+  label-light: "#59636E"
 typography:
   display:
-    fontFamily: "bitmap 5x7 (scripts/bitmap.py, drawn as SVG paths, no font file)"
-    fontSize: "70px"
-    lineHeight: "110px"
-    letterSpacing: "10px"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "66px"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-2px"
   display-narrow:
-    fontFamily: "bitmap 5x7 (scripts/bitmap.py, drawn as SVG paths, no font file)"
-    fontSize: "35px"
-    lineHeight: "56px"
-    letterSpacing: "5px"
-  headline:
-    fontFamily: "bitmap 5x7 (scripts/bitmap.py, drawn as SVG paths, no font file)"
-    fontSize: "28px"
-    letterSpacing: "10px"
-  title:
-    fontFamily: "bitmap 5x7 (scripts/bitmap.py, drawn as SVG paths, no font file)"
-    fontSize: "21px"
-    lineHeight: "36px"
-    letterSpacing: "3px"
-  label:
-    fontFamily: "bitmap 5x7 (scripts/bitmap.py, drawn as SVG paths, no font file)"
-    fontSize: "14px"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "46px"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-1.4px"
+  stat:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "22px"
+    fontWeight: 600
+    lineHeight: 1
+  lede:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: "26px"
+  lede-narrow:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "15.5px"
+    fontWeight: 400
     lineHeight: "22px"
-    letterSpacing: "2px"
-  label-spaced:
-    fontFamily: "bitmap 5x7 (scripts/bitmap.py, drawn as SVG paths, no font file)"
-    fontSize: "14px"
-    letterSpacing: "4px"
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Noto Sans\", Helvetica, Arial, sans-serif"
+    fontFamily: "Geist, sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: "22px"
+  body-narrow:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: "20px"
+  title:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "14px"
+    fontWeight: 500
+  value:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+  unit:
+    fontFamily: "Geist, sans-serif"
+    fontSize: "13px"
+    fontWeight: 400
+  repo:
+    fontFamily: "Geist Mono, monospace"
     fontSize: "16px"
-    lineHeight: 1.5
+    fontWeight: 500
+  command:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "13px"
+    fontWeight: 400
+  data:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "12.5px"
+    fontWeight: 400
+  data-small:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "11px"
+    fontWeight: 400
+  tag:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "11.5px"
+    fontWeight: 500
+  label:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "11px"
+    fontWeight: 500
+    letterSpacing: "1.4px"
+  key:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "10.5px"
+    fontWeight: 500
+    letterSpacing: "1px"
+  section-label:
+    fontFamily: "Geist Mono, monospace"
+    fontSize: "12px"
+    fontWeight: 500
+    letterSpacing: "1.6px"
 rounded:
-  none: "0px"
+  bar: "2px"
+  box: "8px"
+  panel: "12px"
+  pill: "12px"
 spacing:
-  cell-label: "2px"
-  cell-title: "3px"
-  cell-headline: "4px"
-  cell-display-narrow: "5px"
-  cell-display: "10px"
-  leader-pitch: "8px"
-  leader-gap: "16px"
-  row-indent: "36px"
-  row-indent-narrow: "26px"
+  icon-gap: "8px"
+  stage-gap: "14px"
+  gutter-narrow: "16px"
+  grid: "22px"
+  row-narrow: "22px"
+  gutter: "24px"
+  row: "24px"
+  inset: "32px"
 components:
   hero:
-    textColor: "{colors.ink-dark}"
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.text}"
     typography: "{typography.display}"
+    rounded: "{rounded.panel}"
     width: "830px"
-    height: "412px"
+    height: "550px"
   hero-narrow:
-    textColor: "{colors.ink-dark}"
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.text}"
     typography: "{typography.display-narrow}"
+    rounded: "{rounded.panel}"
     width: "360px"
-    height: "300px"
-  link-prompt:
-    textColor: "{colors.ink-dark}"
-    typography: "{typography.label}"
-    height: "24px"
-  link-prompt-primary:
-    textColor: "{colors.signal-dark}"
-    typography: "{typography.label}"
-    height: "24px"
-  queue-row-front:
-    textColor: "{colors.ink-dark}"
-    typography: "{typography.headline}"
-    width: "830px"
-    height: "40px"
-  queue-row-d1:
-    textColor: "{colors.d1-dark}"
-    typography: "{typography.headline}"
-    width: "830px"
-    height: "40px"
-  queue-row-d2:
-    textColor: "{colors.d2-dark}"
-    typography: "{typography.headline}"
-    width: "830px"
-    height: "40px"
-  queue-row-rear:
-    textColor: "{colors.rear-dark}"
-    typography: "{typography.headline}"
-    width: "830px"
-    height: "40px"
-  queue-row-narrow:
-    textColor: "{colors.ink-dark}"
-    typography: "{typography.title}"
-    width: "360px"
+    height: "870px"
+  now-shipping:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.text}"
+    typography: "{typography.command}"
+    rounded: "{rounded.box}"
+    width: "456px"
     height: "56px"
-  section-label:
-    textColor: "{colors.ink-dark}"
-    typography: "{typography.label-spaced}"
-    height: "20px"
-  signal:
-    textColor: "{colors.d2-dark}"
+  now-shipping-narrow:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.text}"
+    rounded: "{rounded.box}"
+    width: "328px"
+    height: "56px"
+  live-strip:
+    textColor: "{colors.blue}"
     typography: "{typography.label}"
-    width: "830px"
-  signal-narrow:
-    textColor: "{colors.d2-dark}"
-    typography: "{typography.label}"
-    width: "360px"
-  scroller:
-    textColor: "{colors.d2-dark}"
-    typography: "{typography.label}"
-    width: "830px"
+    width: "456px"
+    height: "64px"
+  pipeline-stage:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.text}"
+    typography: "{typography.title}"
+    rounded: "{rounded.box}"
+    padding: "12px"
+    width: "116px"
+    height: "96px"
+  button-primary:
+    backgroundColor: "{colors.blue}"
+    textColor: "{colors.white}"
+    typography: "{typography.title}"
+    rounded: "{rounded.box}"
+    padding: "0 16px 0 14px"
+    height: "36px"
+  button-secondary:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.text}"
+    typography: "{typography.title}"
+    rounded: "{rounded.box}"
+    padding: "0 16px 0 14px"
+    height: "36px"
+  status-pill:
+    backgroundColor: "{colors.lift}"
+    textColor: "{colors.blue-lo}"
+    typography: "{typography.tag}"
+    rounded: "{rounded.pill}"
+    padding: "0 8px 0 22px"
     height: "24px"
-  scroller-narrow:
-    textColor: "{colors.d2-dark}"
-    typography: "{typography.label}"
+  project-card:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.soft}"
+    typography: "{typography.body}"
+    rounded: "{rounded.panel}"
+    padding: "0 24px"
+    width: "830px"
+  project-card-narrow:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.soft}"
+    typography: "{typography.body-narrow}"
+    rounded: "{rounded.panel}"
+    padding: "0 16px"
     width: "360px"
-    height: "24px"
+  section-label-dark:
+    textColor: "{colors.muted}"
+    typography: "{typography.section-label}"
+    height: "18px"
+  section-label-light:
+    textColor: "{colors.label-light}"
+    typography: "{typography.section-label}"
+    height: "18px"
+  activity:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.text}"
+    typography: "{typography.stat}"
+    rounded: "{rounded.panel}"
+    padding: "0 24px"
+    width: "830px"
+    height: "500px"
+  activity-narrow:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.text}"
+    typography: "{typography.stat}"
+    rounded: "{rounded.panel}"
+    padding: "0 16px"
+    width: "360px"
+    height: "552px"
 ---
 
-# Design System: R204570 Title Screen
+# Design System: R204570 Console
+
+<!-- Recorded from the built world on 2026-10-21. Ground truth is scripts/console.py, scripts/hero.py,
+     scripts/build_assets.py, scripts/activity.py and the 22 SVGs in assets/. Product truth lives in PRODUCT.md. -->
 
 ## Overview
 
-**Creative North Star: "The Cracktro Title Screen"**
+**Creative North Star: "The Well-Run Console"**
 
-Raj Patel's GitHub profile is drawn as a demoscene title screen. One hand-drawn bitmap face rides its baselines over a void that is GitHub's own ground: every drawing is a transparent SVG, so the page behind it is the screen. In the dark theme the type is phosphor ivory with a faint bleed of light; in the light theme the same drawing prints in inverse video, ink on paper, with no glow. Behind the type, square dust motes drift in up to three planes, gathered into swept ribbons. In front, nothing travels except a blinking caret and, at the foot of the page, the closing greetings scroller.
+The profile is a formal developer console, not a themed costume: a dashboard of shipped systems in blue and black. Every visual is an SVG panel drawn by Python (`scripts/console.py` is the shared kit), because GitHub strips CSS and JS from READMEs. Each panel is the same object: GitHub's own dark ground, a 1px seam around a 12px-radius frame, a faint dot grid, fine film grain, and content set in two faces, Geist for words and Geist Mono for data. Blue is the only accent, and one dot on the whole page breathes.
 
-Shipped work is a worked queue, and rank is depth. The front row is the brightest, the widest tracked, amber-marked and still; each row behind it steps down one brightness, tightens its tracking and lets its dotted leader drift faster, the way far layers move fastest in a parallax starfield. One signal amber is spent only where a visitor should act or where something is live. Nothing is enclosed by a rule or a box; the only filled cell behind a letter is a reversed cell, and it means failure.
+The register is "somewhat formal" (PRODUCT.md, confirmed by the user). Density is dashboard-like but calm: short labels, key/value rows, numbers set large, sentences kept to one or two lines. Personality lives in a few precise details: the grain speckled into the lit marks (the name, the numbers, the bars, the Résumé fill), the live 26-week strip and 52-week chart redrawn twice a day by a GitHub Action, the "idea to deployed" pipeline, and the hidden flag for security people. Two earlier worlds were rejected outright, stacked medical imaging and a demoscene cracktro title screen; nothing from either survives.
 
-The platform sets the edges. GitHub sanitises README HTML (no CSS, no JS), so every custom visual is an SVG image inside a `<picture>` that picks a theme pair and, under 600px, a dedicated 360px phone drawing set 1:1. Links inside an SVG do not work, so every link is markdown or an `<a>` around a picture. GitHub's own sans sets the markdown copy between the drawings and is never imitated inside them.
+Panels stay opaque dark in both GitHub themes on purpose. In dark mode they sit flush with the page; in light mode they read as embedded console screens. Only the section labels, which sit directly on GitHub's ground, swap between a dark and a light drawing.
 
 **Key Characteristics:**
-- One bitmap face (5×7 on a 5×9 cell grid), drawn as merged pixel runs at 2, 3, 4, 5 and 10px cells.
-- Transparent void; four text brightness steps per theme plus one dust step; one signal amber.
-- Rank is depth: brightness, tracking and leader drift move together.
-- Up to three dust planes: the rear plane drifts fastest, each step forward halves the rate, the type plane is still.
-- No rules, no boxes, no radius, no shadows; a reversed cell means failure.
-- Wide drawings at 830px, phone drawings at 360px set 1:1, switched at a 600px viewport.
+- One object, repeated: dark ground, 1px seam, 12px frame, 22px dot grid, grain.
+- Geist for words, Geist Mono for data; uppercase only on small tracked mono field labels.
+- Blue is the only hue, in three tones with fixed jobs; one solid blue fill (Résumé).
+- Exactly one animation: the hero's availability dot breathing; still under reduced motion.
+- Every scaled panel exists twice: 830px wide and a recomposed 360px narrow drawing.
+- Live panels (hero, activity) are redrawn twice a day; all other panels are static builds.
 
 ## Colors
 
-Two inverse-video ladders on a transparent void: a warm phosphor ladder for the dark theme, a neutral ink ladder for the light theme, and one amber per theme. Every value lives in `DARK` and `LIGHT` in `scripts/bitmap.py`; each step is named by depth, and contrast figures are against GitHub's ground.
+Near-black slate neutrals stepped by tone, one blue in three tones, and a single light-theme grey for labels that sit on GitHub's white page. Token names match the constants in `scripts/console.py` (`GROUND`, `PANEL`, `LIFT`, `SEAM`, `TEXT`, `SOFT`, `MUTED`, `BLUE`, `BLUE_HI`, `BLUE_LO`, `WHITE`, `LABEL_LIGHT`).
 
 ### Primary
-- **Signal Amber** (#FFB000 dark, 10.3:1 / #B25E00 light, 4.7:1): the single accent and the only colour that is not a depth. It marks the primary action (the `> résumé` prompt, caret and label), the front queue row (its `>` caret and status), and live markers: the masthead block, the four status bars, the hero caret, the signal's sync square, the signal's blinking now-bar and the motes of the busiest day.
+- **Signal Blue** (blue): solid fills only. The Résumé button, the chart bars (opacity scales with volume, from .45 in the activity chart and .5 in the hero strip up to 1), the pipeline connectors, and the hero's radial wash (at 22% fading to 0). 4.08:1 against the ground as a non-text mark; white type on it measures 4.63:1.
+- **Live Blue** (blue-hi): marks of state and kind. Every status dot (the breathing dot, the now-shipping dot, the activity "Live" dot, the pill dots), the stage icons in the pipeline, the box icon on each project card, the event icons in the activity feed. 7.49:1 on the ground, 6.49:1 on lift.
+- **Readout Blue** (blue-lo): blue that must read as text. "Available" in the profile column, "docsforge" in the now-shipping line, status pill labels, the "Busiest week" annotation, and the single peak bar in each chart. 9.73:1 on the ground, 9.16:1 on panel, 8.43:1 on lift. Note the naming trap: `BLUE_LO` is the *lighter* of the two light blues.
 
 ### Neutral
-- **Phosphor Ivory / Print Ink** (ink: #E6E2D6, 14.6:1 / #141414, 18.4:1): the front plane. The headline, masthead, status values, section-label heads, link-prompt labels, the front row's name, the signal total and the reversed failure cell.
-- **Warm Ash / Graphite** (d1: #BDB9AE, 9.7:1 / #4A4A4A, 8.9:1): one step back. The hero subline, the signal's stat line(s) and the second queue row.
-- **Smoke / Pencil Grey** (d2: #8C8A83, 5.5:1 / #6B6B6B, 5.3:1): two steps back, and the quietest step allowed for small text. Keys (STATUS, NOW), the ID line, label tails, non-primary prompt carets, the scroller, the signal header, month marks and feed, the third queue row, the near dust plane, the light theme's mid dust plane, and a third of the signal's motes.
-- **Far Smoke / Far Grey** (rear: #6E6C66, 3.6:1 / #8A8A8A, 3.5:1): the rearmost text step, large-text contrast only. It carries the fourth queue row and nothing else.
-- **Dust** (d3: #55534E, 2.5:1 / #A3A3A3, 2.5:1): never a letter. The far dust plane, the dark theme's mid plane, leader dots, quiet-day motes and the faintest signal motes.
-- **GitHub Night / GitHub Paper** (void: #0D1117 / #FFFFFF): GitHub's own ground, recorded so contrast can be checked. No drawing paints it.
+- **Console Black** (ground): every panel's ground; it is GitHub's own dark page colour, so panels sit flush in dark mode. Also the masking discs behind the narrow pipeline's stage icons.
+- **Raised Slate** (panel): boxes inside a panel: the now-shipping box, the pipeline stages, secondary buttons. 1.06:1 over the ground; the seam does the separating.
+- **Lift Slate** (lift): the status pill only, one step above panel.
+- **Seam Steel** (seam): every 1px seam, frame and box border, the chart baseline, and zero-contribution week stubs. 1.34:1 on the ground: structural and decorative, never the only carrier of meaning.
+- **Console White** (text): names, values, stage names, stat numbers, the title-bar status. 16.0:1 on the ground, 15.1:1 on panel.
+- **Soft Steel** (soft): body copy on the ground: the hero pitch and card descriptions. 11.8:1 on the ground, 9.4:1 at the brightest point of the hero wash.
+- **Key Grey** (muted): keys, labels, units, dates, tool lists, secondary icons, the title-bar path. 6.15:1 on the ground, 5.79:1 on panel, 4.91:1 at the brightest point of the hero wash.
+- **Button White** (white): icon and label on the Résumé fill, nowhere else.
+- **Light-Theme Label Grey** (label-light): the section labels' light-theme drawing, on GitHub's white page (6.11:1). Key Grey would only reach 3.08:1 there, which is why the pair exists.
 
 ### Named Rules
-**The One Amber Rule.** Signal amber is spent on three things only: the primary action, the front row of the queue, and live markers. A second amber element anywhere else dilutes the one place a visitor should act.
+**The One Accent Rule.** Blue is the only hue on the page. Signal Blue fills, Live Blue marks state, Readout Blue is text. No green for "online", no red, no amber; state is said in blue tones and words.
 
-**The Transparent Void Rule.** No SVG paints a background. GitHub's ground is the screen, in both themes; the reversed failure cell is the only fill that sits behind letters.
+**The One Solid Blue Rule.** The Résumé button is the only solid blue surface. Every other action is a Raised Slate box with a seam.
 
-**The Dust Is Not Ink Rule.** d3 never carries a letter. It is reserved for motes and leader dots, so anything set in it reads as atmosphere, not information.
+**The Opaque Console Rule.** Panels are opaque Console Black in both GitHub themes. Only content that sits directly on GitHub's page (the section labels) gets a dark/light pair via `prefers-color-scheme`.
 
 ## Typography
 
-**Display Font:** the profile's bitmap face (hand-drawn 5×7 caps on a 5×9 cell grid, `scripts/bitmap.py`), drawn as SVG path runs; no font file and no `<text>` element.
-**Body Font:** GitHub's markdown sans (-apple-system, "Segoe UI", "Noto Sans", Helvetica, Arial), set by the platform.
-**Label/Mono Font:** the same bitmap face, at its smallest cell.
+**Display Font:** Geist (variable font from google/fonts, instanced at 400, 500, 600)
+**Body Font:** Geist
+**Label/Mono Font:** Geist Mono (instanced at 400, 500)
 
-**Character:** one blocky, evenly weighted pixel face does every drawn job, from the 70px headline to the 14px scroller, so the hierarchy comes from cell size, brightness and tracking rather than a second family. GitHub's humanist sans carries the paragraphs between drawings and reads as the platform speaking, not the title screen.
+Both faces are SIL OFL 1.1 (`scripts/fonts/OFL.txt`) and are embedded in every SVG as WOFF2 data URIs, so panels render identically wherever GitHub shows them. Static panels embed exact per-panel subsets; the live panels embed the committed basic-latin subsets (`scripts/fonts/*.woff2`). Kept OpenType features: `kern`, `liga`, `calt`, `tnum`. Text outside the panels (the link rows, the "More work" line, the Hidden part) is GitHub's own sans and is not part of this system.
 
-### The cell grid
-- Each glyph is 5 columns by 9 rows of square cells. Caps and ascenders use rows 0 to 6 (cap height is 7 cells), the x-height is rows 2 to 6, and descenders (g j p q y , ; _ |) drop into rows 7 and 8.
-- Advance is (5 + track) cells, with a default track of 1 empty cell. Ink width is (characters × (5 + track) − track) × cell, and `start`, `middle` and `end` anchors measure that ink width, so right-aligned text ends exactly on the column edge.
-- Every helper takes `y` as the top of row 0; the baseline is `y` + 7 cells. Horizontal runs of lit cells merge into one rectangle each, so the files stay small and crisp at any zoom.
-- The set covers A–Z, a–z, é, 0–9, punctuation, × and a few drawn icons in the same grammar (· ★ ● ○ ▸ ↗ → ■). A missing character renders as `?`: add it to `_SPEC` (five characters per row, 7 to 9 rows) before using it.
-- Sizes below are cap heights: `fontSize` is 7 × cell, and letter spacing is track × cell.
+**Character:** a neutral, engineered grotesk for anything a person reads as language, and its monospace twin for anything a machine would print. The pairing is what makes the page read as a console without costume.
 
 ### Hierarchy
-- **Display** (10px cell, 70px caps, 1-cell track, 110px baseline pitch): "i build ai / that ships" on the wide hero only. Lit cells split into three static opacity buckets (1, .95, .9 in dark; 1, .96, .92 in light) for a phosphor grain; in dark only, a copy blurred by 0.3 cell at 25% opacity bleeds light behind it. On a phone the same lines use **Display narrow** (5px cell, 35px caps, 56px pitch).
-- **Headline** (4px cell, 28px caps): queue row names on the wide drawing. Tracking follows rank: 2.5, 1.75, 1 and 0.5 cells from front to rear.
-- **Title** (3px cell, 21px caps, 1-cell track): the masthead "RAJ PATEL" (1.4-cell track), the wide hero subline (36px pitch), wide row statuses, row names on a phone (tracking still follows rank) and the signal total.
-- **Label** (2px cell, 14px caps, 1-cell track, 20 to 22px pitch): link prompts, status values, the phone subline, phone row statuses, the scroller, the signal header, month marks, stats and feed. **Label spaced** (2-cell track) sets the uppercase keys: section labels, the ID line, STATUS and NOW.
-- **Body** (GitHub sans, 16px, 1.5): row descriptions, the bold availability line, credentials, the stack lines (bold key · values) and captions in `<sub>`.
+- **Display** (Geist 600, 66px, tracking -2px ≈ -0.03em; narrow 46px, -1.4px): the name "Raj Patel" only, Console White, speckled.
+- **Stat** (Geist 600, 22px; narrow 21px): the four activity numbers, speckled; followed by a **Unit** in Key Grey.
+- **Lede** (Geist 400, 18px on a 26px pitch; narrow 15.5px on 22px): the hero pitch in Soft Steel, wrapped to 450px (narrow 328px), two lines.
+- **Body** (Geist 400, 15px on 22px; narrow 14px on 20px): card descriptions in Soft Steel, wrapped to the card's inner width.
+- **Title** (Geist 500, 14px): pipeline stage names and button labels.
+- **Value** (Geist 400, 14px): card fact values and feed sentences; the hero's profile and credential values sit a half-step down at 13.5px (narrow 13px), right-aligned.
+- **Unit** (Geist 400, 13px; narrow 12.5px): stat units and the "idea to deployed" gloss, Key Grey.
+- **Repo** (Geist Mono 500, 16px; narrow 14.5px): repository names on cards, shrinking by 0.5px steps down to 12px before anything is cut.
+- **Command** (Geist Mono 400, 13px; narrow 11.5px): the now-shipping line; "docsforge" steps to 500 in Readout Blue; the `$ pipx install docsforge` line is 1px smaller in Key Grey.
+- **Data** (Geist Mono 400, 12.5px; narrow 11.5 to 12px): title-bar paths, profile and credential keys, the strip total, feed dates (12px).
+- **Data small** (Geist Mono 400, 11px; axis ticks 10.5px): pipeline tool lists, status bar, chart axis, the busiest-week note.
+- **Tag** (Geist Mono 500, 11.5px; narrow 11px): status pill labels, sentence case, Readout Blue.
+- **Label** (Geist Mono 500, 11px, uppercase, tracking 1.4px ≈ 0.13em; narrow 10.5px, 1.3px): panel section labels: PROFILE, CREDENTIALS, PIPELINE, LAST 26 WEEKS, LATEST.
+- **Key** (Geist Mono 500, 10.5px, uppercase, tracking 1px ≈ 0.1em; narrow 10px): field keys above values: STACK, RESULT, LIVE, CONTRIBUTIONS, LONGEST STREAK.
+- **Section label** (Geist Mono 500, 12px, uppercase, tracking 1.6px ≈ 0.13em): the README's h3 images, SELECTED WORK and ACTIVITY.
 
 ### Named Rules
-**The One Face Rule.** Every drawn letter and symbol is the bitmap face, drawn as path runs. No second typeface, no `<text>`, no embedded font, and no imitation of GitHub's sans inside a drawing.
+**The Words and Data Rule.** Geist sets what a person reads as language (the name, sentences, values, stage names). Geist Mono sets what a machine would print (paths, keys, dates, counts in captions, tool lists, commands, repository names, labels). Never swap them for effect.
 
-**The Two-Pixel Floor Rule.** No text cell renders below 2px. A drawing that would shrink a 2px cell on a phone gets its own 360px drawing set 1:1; drawings narrow enough to fit (link prompts up to 132px, labels up to 320px) stay at native size everywhere.
+**The Field Label Rule.** Uppercase appears only in Geist Mono 500 at 10 to 12px with positive tracking, and only to name a field or a section. A label never sits above a larger headline as a kicker.
 
-**The Lowercase Voice Rule.** Statements and values speak lowercase ("i build ai", "open to ai roles + freelance", "in production"). Uppercase belongs to the masthead name, the ID line, the keys STATUS and NOW, and section labels.
+**The Measured Text Rule.** Every string is placed with `measure()`, `wrap()` or `fit()` from `console.py`, which use advance widths from `scripts/fonts/metrics.json` without kerning; leave a few pixels of slack. A character outside the committed set (`BASIC` in `build_assets.py`: ASCII plus `·×→↗•★–—…’é®`) has no metrics and no glyph in the live subsets until it is added there and the build is rerun.
 
 ## Layout
 
-A single column that GitHub supplies. Wide drawings are 830px, the profile README column; phone drawings are 360px. Everything starts flush at x = 0, and anything right-aligned (the hero's status block, row statuses, "today" under the signal) ends exactly on the drawing's right edge, so the column's two edges are the only alignment lines.
+The README is a single column about 830px wide on desktop and about 360px on phones (PRODUCT.md, Operating Context). Panels are drawn to exactly those widths: an 830px viewBox for wide and a 360px viewBox for narrow, displayed at natural size. GitHub's markdown supplies only the vertical flow between images.
 
-- **Phone switch.** A `(max-width: 600px)` viewport query selects the phone drawing. Hero, queue rows, signal and scroller have one; link prompts and section labels do not need one and wrap or sit at native size.
-- **Heights hug the ink.** Link prompts are 24px tall, labels 20px, rows 40px (56px on a phone), the scroller 24px, the hero 412px (300px), the signal about 338px (340px) and growing with its feed. There are no spacer images: vertical rhythm between drawings is GitHub's own markdown flow (paragraph and h3 margins), plus one `<br>` before the scroller.
-- **Inside a queue row.** The caret sits at 0, the name at 36px (26px on a phone), the leader runs from the name's end + 16px to the status's start − 16px, and the status ends on the right edge. On a phone the status drops under the name at 26px.
-- **Page order as built.** Hero; link prompts on one line separated by `&emsp;` (they wrap on a phone); the bold availability line and credentials; QUEUE label and four rows, front to rear, each followed by its description and links; "Deeper in the queue" in `<sub>`; SIGNAL label, the signal and its caption; LAYERS label and the stack; the Hidden part `<details>`; the scroller.
+**Spacing rhythm.** Panel gutter 24px wide and 16px narrow; the hero's left column is inset 30 to 32px. Key/value rows step 24px wide and 22px narrow. The dot grid is a 22px lattice. Pipeline stages sit 14px apart; icon-to-label gap is 8px; icons are 15 to 18px. Title bars are 44px tall wide (40px on the narrow hero), each closed by a full-width seam.
 
-### The picture block
-Every drawing is one `<picture>` written on one line. Sources are tested in order and the first match wins, so the phone-dark source must come first:
+**Wide hero (830 x 550).** Title bar 0 to 44. A vertical seam at x=520 splits the body down to y=384: left column (x 32 to 488, 456px) holds the name (baseline 134), the two-line pitch (from baseline 174), the now-shipping box (56px tall) and the live strip; right column (x 544 to 806) holds PROFILE (four rows from baseline 104) and CREDENTIALS (four rows from 254), keys left in mono, values right-aligned in sans. A full-width seam at 384 opens the pipeline band: label at 414, six 116 x 96px stages from y=430, joined by 14px blue connectors at mid-height.
+
+**Narrow hero (360 x 870).** One column, recomposed rather than shrunk: title bar (40px, no folder icon, status shortened to "Open to AI roles"), name, pitch, now-shipping box (328px), strip (328px), then PROFILE, CREDENTIALS and PIPELINE stacked between seams. The pipeline becomes a vertical list on a 34px pitch: a blue line runs down x=24 through the stage icons (each on a 10px Console Black disc), stage name at x=42, tools joined by " · " at x=124.
+
+**Cards.** Header row 50px (icon, repo name, status pill), seam, description from baseline 80, then three facts. Wide: facts in columns at x=24, 300 and 560, key above value; height 156px for a one-line description, 178px for two. Narrow: facts stacked on a 44px pitch; heights 258 to 298px.
+
+**Activity (830 x 500 with three feed events; 360 x 552 narrow).** Title bar 44; chart from y=74 to a baseline at 190 with month ticks below; seam; four stat cells in a row separated by short vertical seams (narrow: a 2 x 2 grid on a 58px pitch with one vertical seam); seam; LATEST with up to three event rows on a 30px pitch; seam; status bar. Height follows the feed: fewer events, shorter panel.
+
+### README markup pattern and source order
+Every scaled panel is one line, wrapped in its link:
 
 ```html
-<a href="…"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/NAME-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/NAME-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/NAME-dark.svg"><img src="./assets/NAME-light.svg" alt="…"></picture></a>
+<a href="TARGET"><picture><source media="(max-width: 600px)" srcset="./assets/NAME-narrow.svg"><img src="./assets/NAME.svg" alt="Complete text equivalent"></picture></a><br>
+[Live site](URL) · [Source](URL)
 ```
 
-A drawing without a phone version drops the two narrow sources. The `<img>` is always the light wide file and carries the alt text, which says in a sentence what the drawing says. Section labels sit inside `<h3>` so the page keeps a real heading outline.
+Section labels are h3 elements holding a theme pair:
 
-Multi-line blocks break, for three reasons:
-- A line holding only an opening tag such as `<a href="…">` starts a raw-HTML block that runs to the next blank line with markdown switched off, so a queue row's `[repo](…)` links and `**contributors wanted:**` would print raw.
-- Newlines and indentation inside `<a>` render as whitespace inside the link: an underlined gap beside the image.
-- An indented continuation line after a blank line becomes a code block.
+```html
+<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/label-KEY-dark.svg"><img src="./assets/label-KEY-light.svg" alt="Section name"></picture></h3>
+```
 
-Written on one line, a row's picture opens a paragraph, so its `<br>`, description and markdown links render together as one block. The link prompts sit in a `<p>` block of pure HTML, one `<a>` per line, which is safe because nothing inside it needs markdown.
+Source order in README.md:
+1. The DIRECTION CONTRACT comment (first HTML comment).
+2. The hidden part's stage-1 comment (second HTML comment).
+3. Hero panel, linked to the portfolio.
+4. Button row in a `<p>`, one `<a><img></a>` per line: Résumé (primary) first, then Email, LinkedIn, Portfolio, Kaggle, Medium. Buttons and labels are natural-size images and have no narrow drawings; the row wraps on phones.
+5. "Selected work" label.
+6. Four project cards in order DocsForge, NeuroAssist, Hospital Management System, PCB defect detection, each linked to its repository and followed by `<br>` and a markdown link row.
+7. A `<sub>` "More work" line of further repositories.
+8. "Activity" label.
+9. Activity panel, linked to `.github/workflows/activity.yml`.
+10. `<details>` "Hidden part · for security people".
 
 ### Named Rules
-**The Narrow Drawing Rule.** A phone never sees a wide drawing scaled down. Every drawing wider than 360px has a 360px twin set 1:1 that drops dust planes and leaders but keeps brightness steps and tracking.
+**The Two Drawings Rule.** Every panel that would otherwise scale gets a 360px `-narrow` drawing, recomposed for the phone column (stacked facts, vertical pipeline, 2 x 2 stats), and served by `<source media="(max-width: 600px)">`. Never rely on GitHub shrinking an 830px drawing.
 
-**The One-Line Picture Rule.** One `<picture>` per line, sources in the order narrow-dark, narrow, dark, then the light `<img>`. No line breaks or indentation inside it.
+**The One-Line Picture Rule.** A `<picture>` block stays on a single line. Multi-line picture blocks inside a link break on GitHub.
 
 ## Elevation & Depth
 
-There are no shadows and no elevation. Depth is planes and rank: the type plane is in front and holds still, dust planes sit behind it and drift left, and the queue's rank is expressed by how far back each row sits.
+The system is flat. Depth comes from tone and line: Console Black ground, Raised Slate boxes one step up, Lift Slate for the pill, and a 1px Seam Steel stroke around every frame and box. There are no shadows anywhere. Atmosphere comes from three textures drawn by `Canvas.panel()` and one drawn into marks by `Canvas.speckle()`:
 
-**Dust planes** (from `dust()` in `scripts/build_assets.py`; counts and durations are per 830px and scale with width, so speed in px/s is the same on a phone):
-- **Near:** 2.4px motes, d2, opacity .7 dark / .6 light, 110 motes, 280s per width (about 3px/s).
-- **Mid:** 1.8px motes, d3 dark / d2 light, opacity 1 / .9, 360 motes, 140s per width (about 6px/s).
-- **Far:** 1.2px motes, d3, opacity .9 / .8, 1,600 motes, 70s per width (about 12px/s).
-
-About 92% of motes sit on swept sine ribbons whose scatter widens and narrows twice per width; the rest are loose. Every term repeats over the drawing's width and a second copy sits one width to the right, so `translateX(−width)` loops without a seam. The random seed is 204570, so a rebuild is byte-stable. The phone hero keeps only the far plane.
-
-**Rank ladder** (from `TRACK`, `LEAD_DRIFT` and `STEPS`):
-
-| Depth | Row | Colour | Tracking | Leader drift |
-|---|---|---|---|---|
-| 0 (front) | docsforge | ink; caret and status amber | 2.5 cells | still |
-| 1 | neuroassist | d1 | 1.75 cells | 8px per 5.4s |
-| 2 | hospital ms | d2 | 1 cell | 8px per 2.7s |
-| 3 (rear) | pcb inspection | rear | 0.5 cells | 8px per 1.35s |
-
-The leaders continue the dust's speed chain: the depth-2 leader moves at the near plane's speed and the rear leader at the mid plane's, so the queue rows sit inside the same parallax field. On a phone the leaders go; brightness and tracking stay.
-
-**Motion grammar.** Linear, infinite and transform-only for drift (`translateX`); `steps(1)` at 1.1s, off at 50%, for the caret and the signal's now-bar; the scroller travels at about 42px/s. Every animated drawing carries `@media (prefers-reduced-motion: reduce){*{animation:none!important}}`, which `bm.svg()` appends whenever a drawing has a style block.
+- **Dot grid:** a 22px pattern of 0.75px dots in Console White at 7% opacity, clipped to the frame.
+- **Grain:** desaturated fractal noise (base frequency 0.9, 2 octaves, seed 7) mapped to 0 to 14% alpha, clipped to the frame.
+- **Blue wash (hero only):** a radial gradient of Signal Blue from 22% to 0, centred at (150, 110) with a 430px radius on the wide hero and (80, 90) with 300px on the narrow one.
+- **Speckle:** fractal noise (base frequency 0.95, 2 octaves, seed 11) toned to 0.5 to 1.25, clipped to the mark and multiplied over it, so specks darken a mark by up to half. Applied to the hero name, the stat numbers, every chart bar, and the Résumé fill. The darkest speck in Console White type measures about 4.15:1 on the ground, which is why it is reserved for large type.
 
 ### Named Rules
-**The Rank Is Depth Rule.** Rank is shown by brightness step, tracking and leader drift together, never by one lever alone and never by size, weight or a badge. All four rows share one cell size.
+**The Seam Not Shadow Rule.** Separation is a 1px seam and one tonal step. No drop shadows, glows, blurs or glass.
 
-**The Halving Rule.** The rear plane drifts fastest, and each step forward halves the rate, down to the front plane, which never moves. Type is that front plane: only the caret blinks, and only the closing scroller travels.
-
-**The Inverse Video Rule.** The light theme is the same drawing in inverse video: identical geometry, counts and motion, with the ladder inverted from ink-on-night to ink-on-paper. The phosphor bleed exists only in the dark.
+**The Grain in the Light Rule.** Grain lives on every ground; speckle lives only in large lit marks (display type, stat numbers, bars, the one solid blue fill). Never speckle text under about 21px, secondary copy, or icons.
 
 ## Shapes
 
-Square, filled and axis-aligned. Letters are runs of square cells; dust motes are squares (1.2, 1.8 and 2.4px in the hero; 1.4, 1.8 and 2px in the signal). The fixed marks keep to the same geometry: the hero caret is 3 × 3 cells sitting on the baseline one cell after the last glyph, the masthead block is 9px on the masthead's baseline, the signal's sync square is 8px, its now-bar 6 × 18px, the status bars 5px wide on a 7px pitch at 6, 9, 12 and 15px tall, and leader dots are 2 × 2px on an 8px pitch. There is no radius, no stroke, no outline and no circle outside the face's own drawn glyphs.
-
-### Named Rules
-**The No-Enclosure Rule.** Nothing is enclosed by a rule, a border, a box or a frame. A dotted leader connects a name to its status and stops 16px short of both; it never spans the column or underlines a heading. The signal draws no axis or baseline: quiet days settle as loose motes.
-
-**The Square Mark Rule.** Every mark is a filled, axis-aligned square or rectangle. A new mark is built from cells, not drawn as a stroke or a curve.
+Quiet, engineered geometry. Frames have a 12px radius; boxes inside them (now-shipping box, pipeline stages, buttons) have 8px; the status pill is fully round (12px on a 24px height). Chart bars carry a hint of rounding (2px wide activity, 1px narrow activity, 1.5px in the hero strip). Every stroke is 1px Seam Steel unless it is a pipeline connector; frames sit on a half-pixel inset and chart baselines on a half-pixel offset so they land crisp. Icons are one family: line icons after Lucide on a 24px grid, drawn at 15 to 18px with a 1.75px stroke at any size, round caps and joins (`ICONS` in `console.py`: file, mail, linkedin, globe, chart, book, check, box, commit, merge, dot, folder, pin, and the stage set database, cpu, bot, server, rocket, shield).
 
 ## Components
 
-Every component is generated by Python into `assets/` as a `-dark` / `-light` pair, plus `-narrow-dark` / `-narrow-light` where the Narrow Drawing Rule applies. Each file is a transparent SVG with `role="img"`, a `<title>`, and a `<desc>` where the drawing says more than its alt text.
+### Source and regeneration
+- `scripts/console.py`: palette, `Canvas` (text, rect, line, icon, dot, pulse, speckle, panel, svg), icons, `measure`/`wrap`/`fit`, `font_css`. Standard library only.
+- `scripts/hero.py`: the hero, wide and narrow. Called by `activity.py` because it carries live data.
+- `scripts/build_assets.py`: instances and subsets Geist and Geist Mono with fontTools (fetched once into the git-ignored `scripts/fonts/src/`), writes the committed WOFF2 subsets and `metrics.json`, then draws the buttons, cards (wide and narrow) and section labels.
+- `scripts/activity.py` + `.github/workflows/activity.yml`: draws `assets/activity*.svg` and `assets/hero*.svg` from the contribution calendar (GraphQL with `GITHUB_TOKEN`, else the public calendar page) and the public events feed. The Action runs at 06:41 and 18:41 UTC, on manual dispatch, and on pushes that touch `activity.py`, `console.py`, `hero.py`, `scripts/fonts/**` or the workflow, and commits only those four SVGs.
 
-### Hero (title screen)
-The first viewport: who, what, status, in the face at its largest.
-- **Wide (830 × 412):** masthead "RAJ PATEL" (title cells, 1.4-cell track, ink) at top left with the 9px amber block on its baseline; ID line "R204570 · AHMEDABAD, IN" below it (label spaced, d2). Top right, right-aligned: key STATUS (d2), the four amber status bars, "open to ai roles + freelance" (ink), key NOW (d2), "shipping docsforge" (ink). Then "i build ai" and "that ships" in display cells with the amber 3 × 3-cell caret blinking after "ships", and a two-line subline in title cells (d1). Three dust planes fill the band from 70px to the foot.
-- **Phone (360 × 300):** the same masthead and ID line; the status bars move to the left with "open to roles + freelance" (ink) and "now shipping docsforge" (d2) beside them; the headline in display-narrow cells with its caret; the subline in three label lines (d1). Far dust plane only.
-- **Link:** the whole hero links to the portfolio.
-- **Hidden part:** the dark wide hero carries the hidden part's second layer as an XML comment, generated from `NOTE` in `scripts/build_assets.py`. Leave it to the script.
+To regenerate:
 
-### Link prompt
-A command-line prompt per destination, at native label size on every screen.
-- **Anatomy:** `>` caret, one space, lowercase label; 24px tall, width to the ink (84 to 132px).
-- **Default:** caret d2, label ink.
-- **Primary:** caret and label signal amber. Only `> résumé` is primary.
-- **States:** none of its own. GitHub gives images inside links no hover style; the link is the `<a>` around the picture.
+```sh
+pip install fonttools brotli
+python3 scripts/build_assets.py      # fonts, metrics, buttons, cards, labels
+python3 scripts/activity.py          # hero and activity, live data
+python3 scripts/activity.py --demo --out-dir /tmp/preview   # offline preview with synthetic data
+```
 
-### Queue row
-One row per shipped project, ranked by depth (see the rank ladder).
-- **Wide (830 × 40):** caret `>` (headline cells; amber on the front row, otherwise the row's step), name in headline cells at 36px with the rank's tracking, a d3 dotted leader clipped between name and status, and the status right-aligned in title cells with its baseline on the name's baseline (amber on the front row).
-- **Phone (360 × 56):** caret and name in title cells at 26px with the rank's tracking; status in label cells under the name. No leader.
-- **Below it, in markdown:** one description paragraph in GitHub sans, then links separated by " · ". The picture links to the repository.
+A palette or type change in `console.py` must be followed by both commands; the Action only redraws the live panels, so skipping `build_assets.py` leaves static and live panels in different colours.
+
+### Panel (the shared frame)
+- **Character:** one console object, reused for hero, cards and activity.
+- **Anatomy:** frame at a 0.5px inset, 12px radius, Console Black fill; optional blue wash; dot grid; grain; 1px Seam Steel stroke on top. A title bar (where present) is 44px with a 15px folder icon in Key Grey, a mono path (`r204570 / profile`, `r204570 / activity`) at 12.5px Key Grey, a status at the right in Console White, and a full-width seam beneath. Sections inside are split by full-width seams.
+- **Accessibility:** every SVG is `role="img"` with `<title>` and `<desc>` (the desc carries the full data, live numbers included) and the README `<img alt>` repeats the content without live numbers.
+
+### Hero
+- **Character:** the first viewport: who, what, proof, availability.
+- **Title-bar status:** "Open to AI roles · freelance" (narrow: "Open to AI roles") in Geist Mono 12.5px Console White, led by the breathing dot.
+- **Body:** Display name, Lede pitch, now-shipping box, live strip, profile and credentials column, pipeline band (see Layout for geometry).
+
+### Breathing dot (motion)
+- **Shape:** a 3.5px Live Blue dot (3px narrow) with a halo circle at 2.2x radius, 18% opacity at rest.
+- **Motion:** the halo scales from 0.5 to 1.25 while fading from 35% to 0, over 2.4s, ease-out, infinite.
+- **Reduced motion:** every SVG ships `@media (prefers-reduced-motion: reduce) { * { animation: none !important } }`; the dot then sits still with a static faint halo.
+
+**The One Breath Rule.** One thing moves on the whole page: the hero's availability dot. Every other status dot (now-shipping, activity "Live", pill dots) is a static 3.5px Live Blue circle. Never add a second animation.
+
+### Now-shipping box
+- **Shape:** Raised Slate, seam border, 8px radius, 56px tall, full column width (456px wide, 328px narrow).
+- **Content:** a static Live Blue dot at (20, 20); "now shipping" in Command Console White, "docsforge" in Command 500 Readout Blue, "in production" in Key Grey; beneath it `$ pipx install docsforge` 1px smaller in Key Grey.
+
+### Live strip
+- **Character:** proof of activity inside the first viewport.
+- **Content:** "LAST 26 WEEKS" (Label, Key Grey) left; "N contributions" (mono, 1.5px larger than the label, Console White) right-aligned; 26 weekly bars from 12px below the label down to a seam baseline 52px lower.
+- **Bars:** height follows the square root of the week's count over the peak (minimum 3px); Signal Blue at 50 to 100% opacity by volume; the peak week solid Readout Blue; zero weeks are 2px Seam Steel stubs. 3px gutters, 1.5px radius, all speckled.
+
+### Pipeline stage
+- **Wide:** Raised Slate box, seam border, 8px radius, 116 x 96px. A 16px stage icon in Live Blue at (12, 12), stage name in Title Console White beside it, three tools below in Data small Key Grey on a 16px pitch. Stages joined by 14px Signal Blue connectors at mid-height. Section header "PIPELINE" (Label) plus "idea to deployed" (Unit).
+- **Narrow:** no boxes. A vertical Signal Blue line through the six icons, each icon on a Console Black disc, stage name in Title, tools on one line in Data small Key Grey separated by " · ".
+- **Stages:** Data (database), Model (cpu), Agent (bot), Backend (server), Ship (rocket), Secure (shield).
+
+### Buttons
+- **Shape:** gently rounded box (8px radius), 36px tall, width fitted to the label: 14px left pad, 16px icon, 8px gap, label, 16px right pad.
+- **Primary (Résumé only):** Signal Blue fill, speckled; icon and label in Button White; label in Title (Geist 500 14px).
+- **Secondary (Email, LinkedIn, Portfolio, Kaggle, Medium):** Raised Slate fill, Seam Steel border, icon in Key Grey, label in Console White.
+- **Hover / Focus:** none drawn. Buttons are images inside links; GitHub supplies the link focus ring. Do not simulate hover.
+
+### Status pill
+- **Style:** Lift Slate fill, Seam Steel border, fully round, 24px tall; a 3.5px Live Blue dot at 13px from the left; label in Tag (Geist Mono 500, 11.5px; 11px narrow) Readout Blue, sentence case: Production, Capstone, Live.
+- **Placement:** top-right of each project card's header row.
+
+### Project card
+- **Corner Style:** panel frame, 12px radius, no title-bar path.
+- **Header:** 18px box icon in Live Blue, repository name in Repo Console White (shrinks before truncating; the real repository name is never cut), status pill right; seam at 50px.
+- **Body:** description in Body Soft Steel; then three facts, each a Key (Key Grey, uppercase) above a Value (Console White). Wide: three columns. Narrow: stacked.
+- **Links:** the image links to the repository; live sites and source sit in a markdown row under the card, because links inside SVGs do not work.
 
 ### Section label
-The heading of each section, set like a demo's part title.
-- **Anatomy:** uppercase head in ink, two blank glyphs of air (32px), then "· TAIL" in d2; label-spaced cells; 20px tall, 264 to 320px wide.
-- **Markup:** inside `<h3>`, alt text "Head: tail" ("Queue: shipped work").
+- **Style:** Section label type (Geist Mono 500, 12px, uppercase, tracking 1.6px), 18px tall, no frame. Dark drawing in Key Grey, light drawing in Light-Theme Label Grey, swapped by `prefers-color-scheme` inside an h3.
 
-### Signal
-The live contribution graph, drawn as dust instead of a calendar grid.
-- **Header:** 8px amber sync square, then in d2 label cells "synced oct 21 · r204570 · last 52 weeks" (phone: "52 weeks · synced oct 21").
-- **Field:** 364 days, one column each across the width. A day with contributions throws 3 + 4√count motes around the centre line, scattering wider as the day gets busier relative to the peak; motes fall in d3 (55%, 1.8px), d2 (33%, 2px) or ink (12%, 2px), and the busiest day's motes are all amber. A quiet day leaves at most one loose 1.4px d3 mote at half opacity. The centre line sits at 92px with a 66px reach (phone: 74px, 46px). The amber now-bar blinks at the right edge.
-- **Months:** lowercase month marks in d2 at the first of each month, at least 40px apart (46px on a phone, which shows every other month) and stopping short of "today", which is right-aligned.
-- **Numbers:** the total in title cells (ink), then the longest run, the busiest day and active days in label cells (d1), on one line joined by " · " on wide and one per line on a phone; then the three latest public events in d2, with a date column on wide and none on a phone, trimmed with ".." to fit.
-- **Markup:** linked to `.github/workflows/signal.yml`, with a one-sentence caption in `<sub>` below.
+### Activity panel
+- **Title bar:** `r204570 / activity` path; right side "Live · synced Mon D" led by a static Live Blue dot.
+- **Chart:** 52 weekly bars from y=74 to a baseline at 190; height by square root of volume (minimum 4px); Signal Blue at 45 to 100% opacity, the peak week solid Readout Blue; zero weeks as Seam Steel stubs; 4px gaps and 2px radius wide, 1.6px gaps and 1px radius narrow; all speckled. The peak is annotated in Data small Readout Blue ("Busiest week · N contributions", narrow "N that week"), flipped to end-anchored when the peak is in the right half. Month ticks (10.5px mono Key Grey) are placed from the right edge back with a 44px (narrow 48px) minimum spacing, and "Today" closes the axis.
+- **Stats:** CONTRIBUTIONS, LONGEST STREAK, ACTIVE DAYS, BUSIEST DAY: a Key above a speckled Stat number with a Unit beside it. Four columns divided by short vertical seams; 2 x 2 on narrow.
+- **Feed:** "LATEST" (Label), up to three events: 16px Live Blue icon (commit, merge, dot), sentence in Value Console White truncated with an ellipsis by `fit()`, date right-aligned in Data Key Grey. Empty state: "No public events this week." in Key Grey. With no contributions at all, the chart area reads "No public activity in the last 52 weeks".
+- **Status bar:** "r204570 · Ahmedabad, IN · UTC+5:30" left and "Redrawn twice a day by GitHub Actions" right, Data small Key Grey (narrow keeps only the right-hand line).
 
-### Failure: NO SIGNAL
-The one reversed cell in the system. When the 52-week total is zero, the field is replaced by "NO SIGNAL" (6px cells wide, 4px on a phone, 2-cell track) knocked out of an ink block that extends two cells past the letters on every side, so the letters show the void through the ink. The total line reads "no public contributions in 52 weeks" and there is no now-bar. A failed fetch is not drawn: the script exits with an error and the last good drawing stays in place.
-
-### Scroller
-The closing greetings line of a cracktro, and the only type that travels.
-- **Anatomy:** the greetings text in d2 label cells, two copies end to end with a six-cell gap, translating left at about 42px/s (one 3,550px loop in 85s); 24px tall.
-- **Wide and phone:** the same loop in an 830px or 360px window.
-
-### Markdown copy
-GitHub's sans carries everything that is read rather than seen: the bold availability line, credentials joined by " · ", row descriptions and links, "Deeper in the queue" in `<sub>`, the stack as bold keys followed by " · " and values, and the Hidden part `<details>`. It is plain first-person text with numbers; no emoji, no badges.
-
-### Regenerating
-- `python3 scripts/build_assets.py` writes the hero, link prompts, rows, labels and scroller: 42 files into `assets/` (pass a folder as the first argument to write elsewhere).
-- `python3 scripts/signal.py --user R204570` writes the four signal files from the live calendar (GraphQL with `GITHUB_TOKEN`, otherwise the public calendar page). `--demo` draws synthetic data offline, and writes into `assets/` unless `--out-dir` points elsewhere.
-- Palette, glyph and helper changes go in `scripts/bitmap.py`; run both scripts afterwards. Standard library only.
-- `.github/workflows/signal.yml` redraws the signal at 06:41 and 18:41 UTC, on manual dispatch, and on pushes that touch `signal.py`, `bitmap.py` or the workflow, and commits only when the drawing changed. Its commit step stages `assets/signal-*.svg`, so the wide and phone drawings move together; any new signal variant must match that glob.
+### Hidden part
+- **Markup:** a `<details>` block at the end of the README with a short brief and a finder count.
+- **Layers:** stage 1 is the README's second HTML comment; stage 2 is an HTML comment carried only by `assets/hero.svg` (the wide hero), emitted by `hero.wide()` through `Canvas.svg(comment=...)`. Regeneration keeps it only while that argument stays in place; never strip comments when optimising SVGs, and never move the note anywhere visible.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** spend signal amber only on the `> résumé` prompt, the front queue row's caret and status, and live markers (masthead block, status bars, hero caret, signal sync square, signal now-bar, busiest-day motes).
-- **Do** give every drawing wider than 360px a 360px `-narrow` twin set 1:1, so every drawing ships as four files: `-dark`, `-light`, `-narrow-dark`, `-narrow-light`.
-- **Do** write each `<picture>` on one line, with sources in the order narrow-dark, narrow, dark, then the light `<img>` carrying the alt text.
-- **Do** show rank with all three levers at once: brightness step (ink, d1, d2, rear), tracking (2.5, 1.75, 1, 0.5 cells) and leader drift (still, 5.4s, 2.7s, 1.35s per 8px).
-- **Do** keep dust behind type in at most three planes, rear fastest and halving at each step forward; phone drawings keep the far plane only.
-- **Do** draw every letter and symbol in the bitmap face at a 2px cell or larger, adding missing glyphs to `_SPEC` in its 5-wide grammar.
-- **Do** keep every SVG transparent, with `role="img"`, a title, and the reduced-motion guard on anything that moves.
-- **Do** put links on the `<a>` around a picture or in markdown beside it.
-- **Do** regenerate instead of hand-editing: `python3 scripts/build_assets.py` and `python3 scripts/signal.py`.
-- **Do** mark failure with a reversed glyph cell, and use a reversed cell for nothing else.
+- **Do** change colours, type and icons in `scripts/console.py`, then run both `build_assets.py` and `activity.py`; never hand-edit `assets/*.svg` (the Action overwrites the hero and activity twice a day).
+- **Do** draw every new panel with `Canvas.panel()` at 830px, with a recomposed 360px `-narrow` twin served by `<source media="(max-width: 600px)">`, on one line inside its link.
+- **Do** keep Blue to its three jobs: Signal Blue (#1F6FEB) fills, Live Blue (#58A6FF) state marks and icons, Readout Blue (#79C0FF) blue text.
+- **Do** set words in Geist and data in Geist Mono, and place every string with `measure()`, `wrap()` or `fit()`.
+- **Do** give every image an alt that is a complete text equivalent, and keep live numbers out of README alt text (only the SVGs are redrawn).
+- **Do** put links that matter in a markdown row under the image; an SVG cannot carry a working link.
+- **Do** add any new character to `BASIC` in `build_assets.py` and rerun it before a live panel uses it.
+- **Do** preview with `python3 scripts/activity.py --demo --out-dir <somewhere outside assets>`.
 
 ### Don't:
-- **Don't** enclose anything in a rule, border, box, frame or card, and don't separate sections with `<hr>` or `---`; leaders stop 16px short of the name and the status.
-- **Don't** paint a background into any SVG; GitHub's ground is the void in both themes.
-- **Don't** set a letter in d3, or anything except the rearmost queue row in rear.
-- **Don't** let a phone scale a wide drawing down, or let any text cell render below 2px.
-- **Don't** add a second typeface, a `<text>` element or an embedded font to a drawing, and don't imitate GitHub's sans inside one.
-- **Don't** move type: no drifting, bouncing or fading letters, and no leader on the front row. The caret blinks and the closing scroller travels; nothing else in the type plane moves.
-- **Don't** add glow, blur or shadow beyond the dark hero headline's phosphor bleed; the light theme has none.
-- **Don't** round a corner or draw a stroke or a curve; marks are filled squares and rectangles.
-- **Don't** add third-party stats cards, badges, shields or emoji; the signal is the only data graphic, and it is drawn in dust.
-- **Don't** put a link inside an SVG; GitHub drops it.
-- **Don't** edit, move, reformat or print the hidden part's layers: the README's second HTML comment and the dark hero's XML comment generated from `NOTE`.
+- **Don't** add a second hue: no green "online", red error or amber warning; state is blue and words.
+- **Don't** add a second solid blue fill or a second primary button; Résumé is the one.
+- **Don't** animate anything besides the hero's availability dot, and don't remove the reduced-motion rule from `Canvas.svg()`.
+- **Don't** add shadows, glows, blur, glass, or gradients other than the hero's blue wash.
+- **Don't** make panels transparent or redraw them light for GitHub's light theme; only section labels swap.
+- **Don't** speckle small text, secondary copy or icons.
+- **Don't** put a mono uppercase label above a larger headline as a kicker; labels name fields and sections.
+- **Don't** split a `<picture>` block across lines.
+- **Don't** truncate a repository name; shrink it.
+- **Don't** commit `--demo` output into `assets/`.
+- **Don't** bring back the rejected worlds (stacked medical imaging, the cracktro title screen) or any playful costume; the register is somewhat formal.
+
+### Known defects (recorded, not rules)
+- The faintest chart bars (45% opacity in the activity chart, about 1.7:1; 50% in the hero strip, about 1.9:1) and the Seam Steel zero-week stubs (1.34:1) fall below 3:1 non-text contrast. The totals, stats, desc and alt carry the data, so this is tolerated; it is not a value to reuse for a mark that carries meaning on its own.
+- Phone rendering was verified on github.com at a 500px window (system dark), which serves the 360px drawings. The GitHub mobile app was not tested; if it ignores `<source media>`, it falls back to the wide drawing scaled down.

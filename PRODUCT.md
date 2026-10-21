@@ -27,7 +27,7 @@ Raj builds the model *and* the deployed software around it: agentic systems (Doc
 
 - Rendered by GitHub inside the profile page's main column: about 830px wide on desktop, about 360px on phones. GitHub's own sidebar already shows avatar, name, bio, location and links; pinned repos and the contribution calendar render below the README.
 - GitHub sanitises README HTML: no CSS, no JS, no iframes. Custom visuals must be images (SVG via `<img>`/`<picture>`). SVG animation and data-URI fonts work; links inside an SVG do not. `<picture>` with `prefers-color-scheme` follows the viewer's GitHub theme (light and dark both matter).
-- A GitHub Action (`.github/workflows/signal.yml`, `GITHUB_TOKEN`, `contents: write`) redraws the signal SVGs from the contribution calendar twice a day.
+- A GitHub Action (`.github/workflows/activity.yml`, `GITHUB_TOKEN`, `contents: write`) redraws the live panels (the hero's 26-week strip and the activity panel) from the contribution calendar twice a day.
 
 ## Capabilities and Constraints
 
@@ -39,6 +39,7 @@ Raj builds the model *and* the deployed software around it: agentic systems (Doc
 
 - Name: Raj Patel. Handle: R204570. Based in Ahmedabad, Gujarat, India.
 - Voice: first person, plain, specific; numbers over adjectives.
+- Register (confirmed 2026-10-21): "visually appealing as well as great" and "somewhat formal". Two themed worlds were rejected in a row (stacked medical imaging; a demoscene cracktro screen); playful costume reads as unprofessional here.
 - Links: portfolio https://portfolio-raj-25.netlify.app/ · LinkedIn https://www.linkedin.com/in/raj-patel5 · Kaggle https://www.kaggle.com/raj072004 · Medium https://medium.com/@rajpatel9408019 · Résumé https://portfolio-raj-25.netlify.app/Raj-Patel-Resume.pdf · rajpatel9408019@gmail.com
 
 ## Evidence on Hand
