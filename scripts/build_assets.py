@@ -118,7 +118,7 @@ TECH = {
     "Hugging Face": "huggingface", "pandas": "pandas", "NumPy": "numpy", "FastAPI": "fastapi", "Django": "django",
     "Flask": "flask", "PostgreSQL": "postgresql", "Redis": "redis", "Node.js": "nodedotjs", "Streamlit": "streamlit",
     "Vercel": "vercel", "Netlify": "netlify", "Render": "render", "Google Cloud": "googlecloud", "Claude Code": "claude",
-    "Kaggle": "kaggle",
+    "Kaggle": ":chart",
     "MCP": ":plug", "RAG": ":layers", "Tool use": ":bot", "LLMs & SLMs": ":cpu", "NLP": ":book", "pgvector": ":database",
     "3D U-Net": ":cpu", "CPTE": ":shield", "STRIDE": ":shield", "OWASP LLM Top 10": ":shield", "DPDP": ":shield",
 }
@@ -158,7 +158,7 @@ BUTTONS = [  # key, label, icon (line icon or @logo), primary
     ("email", "Email", "mail", False),
     ("linkedin", "LinkedIn", "linkedin", False),
     ("portfolio", "Portfolio", "globe", False),
-    ("kaggle", "Kaggle", "@kaggle", False),
+    ("kaggle", "Kaggle", "chart", False),
     ("medium", "Medium", "book", False),
     ("live", "Live site", "external", False),
     ("demo", "Live demo", "external", False),
