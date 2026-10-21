@@ -218,9 +218,10 @@ def render(theme: dict, user: str, series: list[tuple[dt.date, int]], feed: list
 
     # month marks along the bottom of the field, spaced so they never touch
     my, gap, last = mid + reach + 12, (46 if narrow else 40), -1e9
+    room = W - bm.width("today", 2) - 12  # month labels stop short of "today"
     for i, (d, _) in enumerate(series):
         x = i * step
-        if d.day == 1 and 8 < i < len(series) - 30 and x - last >= gap:
+        if d.day == 1 and i > 8 and x + 18 < room and x - last >= gap:
             o.append(bm.text(d.strftime("%b").lower(), x, my, 2, t["d2"], anchor="middle"))
             last = x
     o.append(bm.text("today", W, my, 2, t["d2"], anchor="end"))
