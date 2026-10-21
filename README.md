@@ -1,9 +1,9 @@
 <!--
 THESIS: a formal developer console, not a themed costume. The profile reads like a well-run dashboard of shipped systems, in blue and black.
-OWN-WORLD: GitHub's dark ground (#0D1117) with film grain on the ground and speckled into the lit marks (name, numbers, bars, the Résumé fill), a faint dot grid; panels split by 1px seams; Geist for words, Geist Mono for data; blue as the only accent; one stroke of line icons; one breathing live dot.
-STORY: in one screen the visitor learns who Raj is and what Raj builds, sees proof (PRODUCT.md's "idea to deployed" positioning drawn as the stack pipeline, four shipped systems, live activity) and acts, résumé first.
-FIRST VIEWPORT: the hero console: title bar with the breathing "Open to AI roles" dot, name at 66px, pitch, a now-shipping box with its install line, a live 26-week strip; profile and credentials column; the pipeline band; a solid blue Résumé button directly below. Under 600px a 360px drawing replaces each wide panel.
-FORM: developer console, the user's pick from rendered sketches, steered to blue and black with grain, somewhat formal. Seed 57484c7b.
+OWN-WORLD: black slate panels split by 1px seams, and a grainy blue-and-black surface (electric-blue glows fading to black under white and black film grain) for the hero and every project header; Geist for words, Geist Mono for data; blue as the only accent; one stroke of line icons plus Simple Icons marks for technologies; one breathing live dot.
+STORY: in one screen the visitor learns who Raj is and what Raj builds, then sees proof (four project cards that each draw how the thing works, six more projects, the tech stack with its marks, live activity) and acts, résumé first.
+FIRST VIEWPORT: the grainy blue hero card: title bar with the breathing "Open to AI roles" dot, a 78px white name with grain in the letters, the pitch, a now-shipping box with its install line, profile and credentials, and a live 26-week strip of white bars; the button row directly below with the solid blue Résumé first. Under 600px a 360px drawing replaces each wide panel.
+FORM: developer console, the user's pick from rendered sketches, steered to blue and black with white grain, somewhat formal. Seed 57484c7b.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
 
@@ -12,7 +12,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   c3RhZ2UgMiA6OiB0aGUgaGlkZGVuIHBhcnQgbGl2ZXMgaW5zaWRlIGFzc2V0cy9oZXJvLnN2Zy4gb3BlbiBpdCByYXcuIHRoZSBub3RlIGlzIHNoaWZ0ZWQu
 -->
 
-<a href="https://portfolio-raj-25.netlify.app/"><picture><source media="(max-width: 600px)" srcset="./assets/hero-narrow.svg"><img src="./assets/hero.svg" alt="Raj Patel, AI engineer building agents, vision models and the software around them, from idea to deployed. Now shipping DocsForge, an open-source MCP server in production (pipx install docsforge), with a live chart of the last 26 weeks of contributions. Based in Ahmedabad, India; open to AI Engineering, Agentic AI and Data Science roles, and to freelance work. Credentials: Microsoft Elevate × GTU (2026), B.E. Information Technology with Data Science honours (2026), Intel AI for Manufacturing (2025), CPTE. Pipeline: data (pandas, NumPy, scikit-learn), model (PyTorch, YOLOv8, 3D U-Net), agent (RAG, tool use, MCP servers), backend (FastAPI, Django, pgvector), ship (Render, Vercel, GCP), secure (CPTE, STRIDE, OWASP LLM Top 10)."></picture></a>
+<a href="https://portfolio-raj-25.netlify.app/"><picture><source media="(max-width: 600px)" srcset="./assets/hero-narrow.svg"><img src="./assets/hero.svg" alt="Raj Patel, AI engineer building agents, vision models and the software around them, from idea to deployed. Now shipping DocsForge, an open-source MCP server in production (pipx install docsforge), with a live chart of the last 26 weeks of contributions. Based in Ahmedabad, India; focused on agentic AI and computer vision; open to AI Engineering and Data Science roles, and to freelance work. Credentials: Microsoft Elevate × GTU (2026), B.E. Information Technology with Data Science honours (2026), Intel AI for Manufacturing (2025), CPTE."></picture></a>
 
 <p>
 <a href="https://portfolio-raj-25.netlify.app/Raj-Patel-Resume.pdf"><img src="./assets/btn-resume.svg" alt="Résumé (PDF)"></a>
@@ -23,25 +23,53 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <a href="https://medium.com/@rajpatel9408019"><img src="./assets/btn-medium.svg" alt="Medium"></a>
 </p>
 
-<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/label-work-dark.svg"><img src="./assets/label-work-light.svg" alt="Selected work"></picture></h3>
+## Selected work
 
-<a href="https://github.com/R204570/DocsForge"><picture><source media="(max-width: 600px)" srcset="./assets/card-docsforge-narrow.svg"><img src="./assets/card-docsforge.svg" alt="DocsForge, in production: an open-source MCP server that finds, verifies and harvests a library's official, version-specific docs for Claude Code, Cursor and Codex. Python, MCP, FastAPI. Resolved 91% of never-seen library names on the first try. Live at docsforge.vercel.app."></picture></a><br>
-[Live site](https://docsforge.vercel.app) · [Source](https://github.com/R204570/DocsForge) · [Contributors wanted](https://github.com/R204570/DocsForge/blob/main/CONTRIBUTING.md)
+<p>
+<a href="https://github.com/R204570/DocsForge"><picture><source media="(max-width: 600px)" srcset="./assets/card-docsforge-narrow.svg"><img src="./assets/card-docsforge.svg" alt="DocsForge, in production: an open-source MCP server for official, version-specific docs. How it works: library name, find docs, verify, harvest, MCP tools. Serves Claude Code, Cursor, Codex and any MCP client. Python, MCP, FastAPI, PostgreSQL. Resolved 91% of never-seen library names on the first try. Live at docsforge.vercel.app."></picture></a><br>
+<a href="https://docsforge.vercel.app"><img src="./assets/btn-live.svg" alt="Live site"></a>
+<a href="https://github.com/R204570/DocsForge"><img src="./assets/btn-source.svg" alt="Source"></a>
+<a href="https://github.com/R204570/DocsForge/blob/main/CONTRIBUTING.md"><img src="./assets/btn-contribute.svg" alt="Contribute"></a>
+</p>
 
-<a href="https://github.com/R204570/BrainTumor"><picture><source media="(max-width: 600px)" srcset="./assets/card-neuroassist-narrow.svg"><img src="./assets/card-neuroassist.svg" alt="NeuroAssist, capstone: MRI in, report out. A 3D Attention U-Net segments the tumour on BraTS 2020, measures volumes and lobe involvement, and a RAG-grounded LLM drafts the report. Built under Microsoft Elevate × GTU."></picture></a><br>
-[Source](https://github.com/R204570/BrainTumor)
+<p>
+<a href="https://github.com/R204570/BrainTumor"><picture><source media="(max-width: 600px)" srcset="./assets/card-neuroassist-narrow.svg"><img src="./assets/card-neuroassist.svg" alt="NeuroAssist, capstone: brain-tumour MRI to a drafted clinical report. How it works: MRI scan, 3D U-Net, volumes and lobes, RAG report. A 3D Attention U-Net segments the tumour on BraTS 2020 scans and a RAG-grounded LLM drafts the report. Python, 3D U-Net, RAG, Flask, PostgreSQL. Built under Microsoft Elevate × GTU."></picture></a><br>
+<a href="https://github.com/R204570/BrainTumor"><img src="./assets/btn-source.svg" alt="Source"></a>
+</p>
 
-<a href="https://github.com/R204570/hospital-management-system"><picture><source media="(max-width: 600px)" srcset="./assets/card-hospital-narrow.svg"><img src="./assets/card-hospital.svg" alt="Hospital Management System, live: Django hospital system with role-based access for patients, appointments, billing, pharmacy and PDF reports. 100 stars, the most-starred repository. Live on Render."></picture></a><br>
-[Live site](https://hospital-management-system-yhsp.onrender.com/) · [Source](https://github.com/R204570/hospital-management-system)
+<p>
+<a href="https://github.com/R204570/hospital-management-system"><picture><source media="(max-width: 600px)" srcset="./assets/card-hospital-narrow.svg"><img src="./assets/card-hospital.svg" alt="Hospital Management System, live, 100 stars: role-based hospital operations. How it works: patient, appointment, billing, pharmacy, PDF report. Python and Django. Live on Render."></picture></a><br>
+<a href="https://hospital-management-system-yhsp.onrender.com/"><img src="./assets/btn-live.svg" alt="Live site"></a>
+<a href="https://github.com/R204570/hospital-management-system"><img src="./assets/btn-source.svg" alt="Source"></a>
+</p>
 
-<a href="https://github.com/R204570/PCB_DEFECT_DETECTION"><picture><source media="(max-width: 600px)" srcset="./assets/card-pcb-narrow.svg"><img src="./assets/card-pcb.svg" alt="PCB defect detection, live: a fine-tuned YOLOv8 that finds defects on PCB images, one at a time or in batches, at mAP@0.5 above 85%. YOLOv8, PyTorch, Streamlit. Built in Intel AI for Manufacturing."></picture></a><br>
-[Live demo](https://pcb-anomaly-detection.streamlit.app/) · [Source](https://github.com/R204570/PCB_DEFECT_DETECTION)
+<p>
+<a href="https://github.com/R204570/PCB_DEFECT_DETECTION"><picture><source media="(max-width: 600px)" srcset="./assets/card-pcb-narrow.svg"><img src="./assets/card-pcb.svg" alt="PCB Defect Detection, live demo: a fine-tuned YOLOv8 for circuit-board inspection. How it works: PCB images, YOLOv8, defects found, annotated ZIP. Python, YOLOv8, PyTorch, Streamlit. mAP@0.5 above 85%. Built in Intel AI for Manufacturing."></picture></a><br>
+<a href="https://pcb-anomaly-detection.streamlit.app/"><img src="./assets/btn-demo.svg" alt="Live demo"></a>
+<a href="https://github.com/R204570/PCB_DEFECT_DETECTION"><img src="./assets/btn-source.svg" alt="Source"></a>
+</p>
 
-<sub>More work: [SAC AI Search](https://github.com/R204570/SAC-Database-and-AI-Automation), GST service codes found from a plain-words description · [Reconciliation](https://github.com/R204570/Reconciliation), an atomic wallet-balance engine · [ExpenseFlow](https://expenseflow-roan.vercel.app), receipt to expense with AI · [Cafe-POS](https://github.com/R204570/Cafe-POS), a Django + DRF point of sale · [GearGuard](https://github.com/R204570/GearGuard), equipment maintenance · [BraTS2020 MGMT](https://www.kaggle.com/datasets/raj072004/preprocessed-final), a preprocessed MRI dataset on Kaggle</sub>
+## More work
 
-<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/label-activity-dark.svg"><img src="./assets/label-activity-light.svg" alt="Activity"></picture></h3>
+<a href="https://github.com/R204570/SAC-Database-and-AI-Automation"><picture><source media="(max-width: 600px)" srcset="./assets/more-sac-narrow.svg"><img src="./assets/more-sac.svg" alt="SAC AI Search: describe a service in plain words and it finds the right GST service accounting code. Python, AI search, open source."></picture></a>
 
-<a href="./.github/workflows/activity.yml"><picture><source media="(max-width: 600px)" srcset="./assets/activity-narrow.svg"><img src="./assets/activity.svg" alt="My GitHub contributions over the last 52 weeks as blue weekly bars, with totals, longest streak, active days, busiest day and my latest public activity. Redrawn twice a day by a GitHub Action."></picture></a>
+<a href="https://github.com/R204570/Reconciliation"><picture><source media="(max-width: 600px)" srcset="./assets/more-reconciliation-narrow.svg"><img src="./assets/more-reconciliation.svg" alt="Reconciliation: wallet-balance reconciliation on an atomic compute-then-commit engine, with a Flask dashboard, CLI and batch runner. Flask and MS SQL Server."></picture></a>
+
+<a href="https://github.com/R204570/ExpenseFlow"><picture><source media="(max-width: 600px)" srcset="./assets/more-expenseflow-narrow.svg"><img src="./assets/more-expenseflow.svg" alt="ExpenseFlow: receipt to saved expense with AI extraction and a searchable history. JavaScript, live on Vercel."></picture></a>
+
+<a href="https://github.com/R204570/Cafe-POS"><picture><source media="(max-width: 600px)" srcset="./assets/more-cafepos-narrow.svg"><img src="./assets/more-cafepos.svg" alt="Cafe-POS: point of sale for cafes and restaurants with a REST API. Django, Django REST Framework, PostgreSQL."></picture></a>
+
+<a href="https://github.com/R204570/GearGuard"><picture><source media="(max-width: 600px)" srcset="./assets/more-gearguard-narrow.svg"><img src="./assets/more-gearguard.svg" alt="GearGuard: a full-featured web platform for maintenance and equipment management. Django 5.2 and PostgreSQL."></picture></a>
+
+<a href="https://www.kaggle.com/datasets/raj072004/preprocessed-final"><picture><source media="(max-width: 600px)" srcset="./assets/more-mgmt-narrow.svg"><img src="./assets/more-mgmt.svg" alt="BraTS2020 MGMT: preprocessed BraTS 2020 MRI for predicting MGMT promoter methylation with a 3D ResNet. Dataset on Kaggle."></picture></a>
+
+## Tech stack
+
+<picture><source media="(max-width: 600px)" srcset="./assets/stack-narrow.svg"><img src="./assets/stack.svg" alt="Tech stack. AI and ML: PyTorch, TensorFlow, YOLOv8, OpenCV, 3D U-Net, scikit-learn, Hugging Face, pandas, NumPy. Agents and LLMs: Claude Code, MCP, RAG, tool use, LLMs and SLMs, NLP. Backend and data: FastAPI, Django, Flask, PostgreSQL, pgvector, Redis, Node.js. Ship: Streamlit, Vercel, Netlify, Render, Google Cloud. Security: CPTE, STRIDE, OWASP LLM Top 10, DPDP. Languages: Python, JavaScript, TypeScript."></picture>
+
+## Activity
+
+<a href="./.github/workflows/activity.yml"><picture><source media="(max-width: 600px)" srcset="./assets/activity-narrow.svg"><img src="./assets/activity.svg" alt="My GitHub contributions over the last 52 weeks as blue weekly bars, with totals, longest streak, active days, busiest day and my latest public activity on project repositories. Redrawn twice a day by a GitHub Action."></picture></a>
 
 <details>
 <summary><b>Hidden part</b> · for security people</summary>

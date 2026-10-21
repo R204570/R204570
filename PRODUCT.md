@@ -51,6 +51,13 @@ Verified from the repositories on 2026-10-21:
 - **PCB Defect Detection** (github.com/R204570/PCB_DEFECT_DETECTION, pcb-anomaly-detection.streamlit.app): YOLOv8, mAP@0.5 > 85% per its README, webcam and batch modes. Intel AI for Manufacturing.
 - **Hospital Management System** (github.com/R204570/hospital-management-system, live on Render): Django, role-based access, appointments, billing, pharmacy, PDF reports. 100 stars, 4 forks: the most-starred repo.
 - **SAC AI Search** (repo description: GST SAC code database with AI search from a plain description), **Reconciliation** (atomic compute-then-commit wallet reconciliation, Flask + MS SQL), **ExpenseFlow** (live on Vercel; previous README: AI extraction from receipt to saved expense), **Cafe-POS** (Django + DRF, 5★), **GearGuard** (repo description: maintenance and equipment management platform, Django 5.2 + PostgreSQL), Kaggle **BraTS2020 MGMT** preprocessed dataset.
+- Card and row details verified from the repositories' READMEs and descriptions on 2026-10-21:
+  DocsForge's chat panel is a FastAPI extra and it can store harvests in Postgres (`[web]`, `[postgres]` extras);
+  NeuroAssist stores imaging results in PostgreSQL; PCB Defect Detection runs PyTorch, processes single or batch
+  images, charts defect distributions and exports annotated images as a ZIP; Reconciliation has a Flask dashboard,
+  CLI and batch runner on MS SQL Server; SAC AI Search is Python and open source; ExpenseFlow is JavaScript on
+  Vercel; Cafe-POS is Django + Django REST Framework + PostgreSQL; GearGuard is a full-featured Django 5.2 +
+  PostgreSQL web platform; the BraTS2020 MGMT work used a 3D ResNet (Raj's previous README).
 - Credentials: Intel® AI for Manufacturing (2025, first batch, 16 weeks, demoed to GTU's Vice Chancellor and Intel leadership); Microsoft Elevate × GTU (2026); B.E. Information Technology + Data Science honours, GTU (2026); CPTE certified.
 - Skills as Raj listed them in the previous README: agentic AI, RAG, tool use, MCP servers, Claude Code; FastAPI, Django, Flask, Postgres + pgvector, Redis; PyTorch, TensorFlow, YOLOv8, OpenCV, 3D U-Net; LLMs/SLMs, NLP, Hugging Face, pandas, NumPy, scikit-learn; Streamlit, Node.js, GCP, Render, Vercel, Netlify; CPTE, STRIDE threat models, OWASP LLM Top 10, DPDP.
 - Not verified, do not use: Dice scores for NeuroAssist; mAP ≈ 0.90 for PCB.

@@ -28,6 +28,16 @@ BLUE_HI = "#58A6FF"    # live state, links
 BLUE_LO = "#79C0FF"    # values that need to read as blue text (9.7:1 on GROUND)
 WHITE = "#FFFFFF"
 LABEL_LIGHT = "#59636E"  # section labels on GitHub's light ground
+# on the grainy blue surface (hero, card headers): white type, two quieter whites
+NIGHT = "#03050B"      # the black the blue fades into
+ELECTRIC = "#1D4ED8"   # the hottest point of a glow; royal, so white-ish type keeps its contrast
+# Every word on the blue is white: with the white grain specks lifting the ground, measured renders
+# put the brightest text backgrounds at L~0.146, where white holds 5.4:1 and any tint drops below 4.5:1.
+# Hierarchy on the blue comes from size, weight and the mono labels, never from a dimmer white.
+ON_BLUE = "#FFFFFF"
+ON_BLUE_SOFT = ON_BLUE   # lede and taglines
+ON_BLUE_LABEL = ON_BLUE  # small mono labels
+GLASS = "#050811"      # boxes laid on the blue, at ~50% opacity
 
 SANS, MONO = "Geist", "Geist Mono"
 FACES = {  # css family, weight -> committed basic-latin subset
@@ -146,6 +156,10 @@ class Canvas:
                 '<feBlend in="SourceGraphic" in2="clip" mode="multiply"/></filter>')
         return ' filter="url(#speckle)"'
 
+    def logo(self, d: str, x, y, size=16, fill=TEXT):
+        """A Simple Icons mark (24px grid, filled)."""
+        self.add(f'<path transform="translate({n(x)} {n(y)}) scale({n(size / 24)})" d="{d}" fill="{fill}"/>')
+
     def dot(self, cx, cy, r=3.5, fill=BLUE_HI):
         self.add(f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r)}" fill="{fill}"/>')
 
@@ -180,6 +194,40 @@ class Canvas:
         self.add(f'<rect x="{n(x)}" y="{n(y)}" width="{n(w)}" height="{n(h)}" filter="url(#grain)" clip-path="url(#pc)"/>')
         self.rect(x, y, w, h, stroke=SEAM, r=r)
 
+    def grainy(self, x, y, w, h, r=14, glows=((.12, 1.1, .8), (.92, -.15, .5)), seed=4, corners="all"):
+        """The blue-and-black surface: black with soft electric-blue glows, under visible white and
+        black film grain. `glows` are (cx, cy, radius) as fractions of the box. `corners`: "all"
+        rounds every corner, "top" only the top two (a card header band)."""
+        k = len([d for d in self.defs if 'id="g' in d])
+        cid, wid, bid = f"gc{k}", f"gw{k}", f"gb{k}"
+        if corners == "top":
+            shape = (f'<path d="M{n(x)} {n(y + h)}V{n(y + r)}a{n(r)} {n(r)} 0 0 1 {n(r)} {n(-r)}H{n(x + w - r)}'
+                     f'a{n(r)} {n(r)} 0 0 1 {n(r)} {n(r)}V{n(y + h)}Z"/>')
+        else:
+            shape = f'<rect x="{n(x)}" y="{n(y)}" width="{n(w)}" height="{n(h)}" rx="{n(r)}"/>'
+        grads = []
+        for i, (gx, gy, gr) in enumerate(glows):
+            gid = f"g{k}r{i}"
+            hot = ELECTRIC if i == 0 else "#2563EB"
+            grads.append(f'<radialGradient id="{gid}" cx="{n(x + gx * w)}" cy="{n(y + gy * h)}" r="{n(gr * w)}" gradientUnits="userSpaceOnUse">'
+                         f'<stop offset="0" stop-color="{hot}" stop-opacity="{.95 if i == 0 else .7}"/>'
+                         f'<stop offset=".45" stop-color="{BLUE}" stop-opacity="{.55 if i == 0 else .3}"/>'
+                         f'<stop offset="1" stop-color="{BLUE}" stop-opacity="0"/></radialGradient>')
+        self.defs.append(
+            f'<clipPath id="{cid}">{shape}</clipPath>' + "".join(grads) +
+            f'<filter id="{wid}" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+            f'<feTurbulence type="fractalNoise" baseFrequency=".78" numOctaves="3" seed="{seed}" stitchTiles="stitch"/>'
+            '<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 3.2 0 0 0 -1.68"/></filter>'
+            f'<filter id="{bid}" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+            f'<feTurbulence type="fractalNoise" baseFrequency=".78" numOctaves="3" seed="{seed + 31}" stitchTiles="stitch"/>'
+            '<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3.2 0 0 0 1.5"/></filter>')
+        box = f'x="{n(x)}" y="{n(y)}" width="{n(w)}" height="{n(h)}" clip-path="url(#{cid})"'
+        self.add(f'<rect {box} fill="{NIGHT}"/>')
+        for i in range(len(glows)):
+            self.add(f'<rect {box} fill="url(#g{k}r{i})"/>')
+        self.add(f'<rect {box} fill="url(#dots)" opacity=".8"/>' if any('id="dots"' in d for d in self.defs) else "")
+        self.add(f'<rect {box} filter="url(#{wid})" opacity=".42"/><rect {box} filter="url(#{bid})" opacity=".5"/>')
+
     def svg(self, title: str, desc: str = "", fonts: dict | None = None, comment: str = "") -> str:
         lab = "t d" if desc else "t"
         d = f'<desc id="d">{escape(desc)}</desc>' if desc else ""
@@ -210,6 +258,22 @@ ICONS = {
     "dot": '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1"/>',
     "folder": '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>',
     "pin": '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+    "external": '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+    "code": '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
+    "users": '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/>'
+             '<path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    "star": '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
+    "plug": '<path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>',
+    "layers": '<path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>'
+              '<path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+    "calendar": '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>',
+    "card": '<rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/>',
+    "pill": '<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>',
+    "image": '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+    "scan": '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/>'
+            '<path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m16 16-1.9-1.9"/>',
+    "download": '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+    "search": '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
     # pipeline stages
     "database": '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
     "cpu": '<rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/>'
