@@ -199,7 +199,7 @@ PROJECTS = [
               "and a RAG-grounded LLM drafts the structured report.",
          stack=["Python", "3D U-Net", "RAG", "Flask", "PostgreSQL"],
          facts=[("Programme", "Microsoft Elevate × GTU"), ("Data", "BraTS 2020 MRI, NIfTI and DICOM")], glow=(.85, 1.35)),
-    dict(key="hospital", repo="hospital-management-system", name="Hospital Management", status="Live · 100 stars",
+    dict(key="hospital", repo="hospital-management-system", name="Hospital Management", status="Live · 100 stars", status_short="Live",
          tagline="Role-based hospital operations, end to end",
          flow=[("patient", "users"), ("appointment", "calendar"), ("billing", "card"), ("pharmacy", "pill"), ("PDF report", "file")],
          desc="A Django system for patients, appointments, billing and pharmacy, with role-based access and PDF reports. "
@@ -253,8 +253,9 @@ def card(p: dict, narrow: bool) -> None:
     body: list[str] = []
     # header band content (drawn after the surface; collected first so the band height is known)
     cv.icon("folder", pad, 14, 15, ON_BLUE_LABEL)
-    cv.text(pad + 22, 26.5, f"r204570 / {p['repo']}", 11.5 if narrow else 12, ON_BLUE_LABEL, MONO)
-    pill_on_blue(cv, W - pad, 9, p["status"], 11 if narrow else 11.5)
+    # phones show just the repository and a short status, so the bar never collides with the pill
+    cv.text(pad + 22, 26.5, p["repo"] if narrow else f"r204570 / {p['repo']}", 11.5 if narrow else 12, ON_BLUE_LABEL, MONO)
+    pill_on_blue(cv, W - pad, 9, p.get("status_short", p["status"]) if narrow else p["status"], 11 if narrow else 11.5)
     cv.add(f'<line x1=".5" y1="42.5" x2="{n(W - .5)}" y2="42.5" stroke="#FFFFFF" stroke-opacity=".14" shape-rendering="crispEdges"/>')
     name_size = 28 if narrow else 34
     while measure(p["name"], SANS, 600, name_size, -1) > W - 2 * pad:

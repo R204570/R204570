@@ -31,9 +31,12 @@ LABEL_LIGHT = "#59636E"  # section labels on GitHub's light ground
 # on the grainy blue surface (hero, card headers): white type, two quieter whites
 NIGHT = "#03050B"      # the black the blue fades into
 ELECTRIC = "#1D4ED8"   # the hottest point of a glow; royal, so white-ish type keeps its contrast
-ON_BLUE = "#FFFFFF"    # 6.7:1 at the hottest point
-ON_BLUE_SOFT = "#DCE6FF"   # lede and taglines, 5.2:1 at the hottest point
-ON_BLUE_LABEL = "#D3DFFF"  # small labels, 5.0:1 at the hottest point
+# Every word on the blue is white: with the white grain specks lifting the ground, measured renders
+# put the brightest text backgrounds at L~0.146, where white holds 5.4:1 and any tint drops below 4.5:1.
+# Hierarchy on the blue comes from size, weight and the mono labels, never from a dimmer white.
+ON_BLUE = "#FFFFFF"
+ON_BLUE_SOFT = ON_BLUE   # lede and taglines
+ON_BLUE_LABEL = ON_BLUE  # small mono labels
 GLASS = "#050811"      # boxes laid on the blue, at ~50% opacity
 
 SANS, MONO = "Geist", "Geist Mono"
