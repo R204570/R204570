@@ -3,13 +3,14 @@ name: R204570 Console
 description: Raj Patel's GitHub profile README drawn as a formal developer console in blue and black, on two grounds (dark console panels and a grainy electric-blue surface), with one accent family and one breathing dot.
 colors:
   blue: "#1F6FEB"
-  electric: "#2563EB"
-  electric-soft: "#3B82F6"
+  electric: "#1D4ED8"
+  electric-soft: "#2563EB"
   blue-hi: "#58A6FF"
   blue-lo: "#79C0FF"
   sky: "#93C5FD"
   ground: "#0D1117"
   panel: "#121821"
+  lift: "#18202B"
   seam: "#232C38"
   text: "#E6EDF3"
   soft: "#C3CDD8"
@@ -18,8 +19,8 @@ colors:
   night: "#03050B"
   glass: "#050811"
   on-blue: "#FFFFFF"
-  on-blue-soft: "#DCE6FF"
-  on-blue-label: "#C3D3FF"
+  on-blue-soft: "#FFFFFF"
+  on-blue-label: "#FFFFFF"
 typography:
   display:
     fontFamily: "Geist, sans-serif"
@@ -341,7 +342,7 @@ The blue surface:
 ### Named Rules
 **The One Accent Rule.** Blue is the only hue on the page. Signal Blue fills, Live Blue marks state on the console, Readout Blue is blue text and technology marks on the console, Sky is blue on the blue. No green for "online", no red, no amber, and no brand colours on technology marks; state is said in blue tones and words.
 
-**The Two Palettes Rule.** Type and marks on the grainy surface use only the three on-blue whites and Sky; type on the console ground uses only Console White, Soft Steel, Key Grey and the console blues. Never carry a colour across: Live Blue or Readout Blue vanish into the glow, and On-Blue Label is not a console grey.
+**The Two Palettes Rule.** Type on the grainy surface is only white (the three on-blue roles all resolve to #FFFFFF; hierarchy there comes from size, weight and mono labels), and Sky is only for marks, arrows and text inside a Glass box; type on the console ground uses only Console White, Soft Steel, Key Grey and the console blues. Never carry a colour across: Live Blue or Readout Blue vanish into the glow, and On-Blue Label is not a console grey.
 
 **The One Blue Button Rule.** The Résumé button is the only button filled blue. Every other action is a Raised Slate box with a seam. The grainy blue surface is a ground for identity, never an action.
 
@@ -585,7 +586,5 @@ A palette or type change in `console.py` must be followed by both commands; the 
 
 ### Known defects (recorded, not rules)
 - The faintest bars fall below 3:1 non-text contrast: in the activity chart, 45% Signal Blue (about 1.7:1 on the ground) and the Seam Steel zero-week stubs (1.34:1); in the hero strip, 45% white (about 2.6:1 against the glow behind it) and the 28% zero-week stubs (about 1.85:1). The totals, stats, desc and alt carry the data, so this is tolerated; it is not a value to reuse for a mark that carries meaning on its own.
-- On-Blue Label is not 4.5:1 everywhere on the blue. At a glow's brightest point it measures 4.1 to 4.3:1 (before grain), against the 4.6:1 the comment in `console.py` claims. The labels that sit nearest a peak: the wide hero's LAST 26 WEEKS (about 4.9:1, 4.8:1 measured in the preview) and the narrow hero's last credential keys, "2025" and "CPTE" at 12px (about 4.75 and 4.4:1). White grain specks lower contrast further where they land (about 3.5:1 against the brightest tenth of pixels beside the strip label).
-- On the narrow Hospital Management card, the path `r204570 / hospital-management-system` runs under the status pill (it ends near x=264; the pill starts near x=208), and the pill's 60% Glass only dims the overlapped characters. The header path is placed without `fit()` or any room for the pill.
-- Wide More work descriptions are set on one line with neither `wrap()` nor `fit()`. Every current one fits (the longest, Reconciliation, ends at about 764 of 808px); a longer one would run past the frame.
-- This build was checked in a local preview of GitHub's markdown-API rendering (Edge, 900px and 600px windows, both system themes). The github.com page and the GitHub mobile app were not checked for it; if the app ignores `<source media>`, it falls back to the wide drawings scaled down.
+- Contrast of type on the blue was measured on rendered pixels: at the 95th percentile of the background beside the brightest-placed text (white grain specks included), L is about 0.146, where white holds 5.4:1. Any tint fell to 4.0 to 4.3:1 there, which is why every word on the blue is white. Re-measure if a glow moves closer to text or the grain gets stronger.
+- This build was checked with github.com's rendered HTML for the README and the local SVGs (Edge, 900px and a 390px phone frame, both themes). The GitHub mobile app was not checked; if it ignores `<source media>`, it falls back to the wide drawings scaled down.
