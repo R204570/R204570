@@ -1,147 +1,76 @@
 <!--
-  ┌───────────────────────────────────────────────────────────────────────┐
-  │  CASE R204570 · you opened the source. good instinct.                 │
-  │                                                                       │
-  │  c3RhZ2UgMiA6OiB0aGUgcmFkaW9sb2dpc3QgbGVmdCBhIG5vdGUgaW5zaWRlIGFzc2V0 │
-  │  cy9zY2FuLnN2Zy4gb3BlbiBpdCByYXcuIHRoZSBub3RlIGlzIHNoaWZ0ZWQu         │
-  └───────────────────────────────────────────────────────────────────────┘
+THESIS: a cracktro title screen, not a stats-card profile. One bitmap face rides GitHub's own ground; shipped work is ranked by depth.
+OWN-WORLD: transparent void, ivory (dark) or ink (light) type in one hand-drawn 5x7 bitmap face, four brightness steps, one signal amber, square dust motes drifting in up to three planes. No boxes, no rules.
+STORY: in one screen the visitor learns who Raj is (AI that ships) and that Raj is available, sees shipped proof ranked by depth, and takes a prompt: résumé, email, links.
+FIRST VIEWPORT: masthead top left, status top right, "i build ai / that ships" in 70px bitmap caps with a blinking amber caret, two-line subline, dust ribbons behind; link prompts directly below. Under 600px a 360px drawing set 1:1 replaces each wide one.
+FORM: cracktro scroller queue, the user's pick over roll #6. Seed 0daddbf3.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->
 
-<p align="center">
-  <img src="./assets/scan.svg" width="100%" alt="Raj Patel, case R204570. An MRI viewer: a scanner line sweeps an axial brain slice and reveals a segmentation labelled 'curiosity (enhancing)'. Beside it, a radiology report: AI engineer, agentic systems, medical imaging, Ahmedabad.">
+<!--
+  you opened the source. good instinct.
+  c3RhZ2UgMiA6OiB0aGUgaGlkZGVuIHBhcnQgbGl2ZXMgaW5zaWRlIGFzc2V0cy9oZXJvLWRhcmsuc3ZnLiBvcGVuIGl0IHJhdy4gdGhlIG5vdGUgaXMgc2hpZnRlZC4=
+-->
+
+<a href="https://portfolio-raj-25.netlify.app/"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/hero-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/hero-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg"><img src="./assets/hero-light.svg" alt="Raj Patel, R204570, AI engineer in Ahmedabad. I build AI that ships: agents, vision models and the apps around them, from idea to deployed. Open to AI roles and freelance work; now shipping DocsForge."></picture></a>
+
+<p>
+<a href="https://portfolio-raj-25.netlify.app/Raj-Patel-Resume.pdf"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-resume-dark.svg"><img src="./assets/link-resume-light.svg" alt="Résumé (PDF)"></picture></a>&emsp;
+<a href="mailto:rajpatel9408019@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-email-dark.svg"><img src="./assets/link-email-light.svg" alt="Email"></picture></a>&emsp;
+<a href="https://www.linkedin.com/in/raj-patel5"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-linkedin-dark.svg"><img src="./assets/link-linkedin-light.svg" alt="LinkedIn"></picture></a>&emsp;
+<a href="https://portfolio-raj-25.netlify.app/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-portfolio-dark.svg"><img src="./assets/link-portfolio-light.svg" alt="Portfolio"></picture></a>&emsp;
+<a href="https://www.kaggle.com/raj072004"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-kaggle-dark.svg"><img src="./assets/link-kaggle-light.svg" alt="Kaggle"></picture></a>&emsp;
+<a href="https://medium.com/@rajpatel9408019"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/link-medium-dark.svg"><img src="./assets/link-medium-light.svg" alt="Medium"></picture></a>
 </p>
 
-<p align="center">
-  <a href="https://portfolio-raj-25.netlify.app/"><code>&nbsp;portfolio&nbsp;</code></a>&nbsp;
-  <a href="https://www.linkedin.com/in/raj-patel5"><code>&nbsp;linkedin&nbsp;</code></a>&nbsp;
-  <a href="https://www.kaggle.com/raj072004"><code>&nbsp;kaggle&nbsp;</code></a>&nbsp;
-  <a href="https://medium.com/@rajpatel9408019"><code>&nbsp;medium&nbsp;</code></a>&nbsp;
-  <a href="https://portfolio-raj-25.netlify.app/Raj-Patel-Resume.pdf"><code>&nbsp;résumé.pdf&nbsp;</code></a>&nbsp;
-  <a href="mailto:rajpatel9408019@gmail.com"><code>&nbsp;rajpatel9408019@gmail.com&nbsp;</code></a>
-</p>
+**Open to AI Engineering, Agentic AI and Data Science roles, and freelance builds.**<br>
+Intel® AI for Manufacturing (2025) · Microsoft Elevate × GTU (2026) · B.E. Information Technology with Data Science honours, GTU (2026)
 
-<img src="./assets/thread.svg" width="100%" alt="">
+<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/label-queue-dark.svg"><img src="./assets/label-queue-light.svg" alt="Queue: shipped work"></picture></h3>
 
-### `SE 01` &nbsp;$ man raj
+<a href="https://github.com/R204570/DocsForge"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/row-docsforge-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/row-docsforge-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/row-docsforge-dark.svg"><img src="./assets/row-docsforge-light.svg" alt="DocsForge, in production"></picture></a><br>
+Open-source MCP server: name a library and it finds, verifies and harvests the official, version-specific docs for Claude Code, Cursor and Codex. On a held-out test it resolved 91% of never-seen names on the first try.<br>
+[docsforge.vercel.app](https://docsforge.vercel.app) · [repo](https://github.com/R204570/DocsForge) · **contributors wanted:** [how to join](https://github.com/R204570/DocsForge/blob/main/CONTRIBUTING.md)
 
-```text
-RAJ(1)                      R204570 Field Manual                       RAJ(1)
+<a href="https://github.com/R204570/BrainTumor"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/row-neuroassist-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/row-neuroassist-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/row-neuroassist-dark.svg"><img src="./assets/row-neuroassist-light.svg" alt="NeuroAssist, capstone"></picture></a><br>
+MRI in, report out. A 3D Attention U-Net segments the tumour on BraTS 2020 scans, measures volumes and lobe involvement, and a RAG-grounded LLM drafts the report. Capstone built under Microsoft Elevate × GTU.<br>
+[repo](https://github.com/R204570/BrainTumor)
 
-NAME
-     raj — builds agents, trains models, ships products
+<a href="https://github.com/R204570/hospital-management-system"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/row-hospital-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/row-hospital-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/row-hospital-dark.svg"><img src="./assets/row-hospital-light.svg" alt="Hospital Management System, 100 stars, live"></picture></a><br>
+Django hospital system with role-based access for patients, appointments, billing, pharmacy and PDF reports. My most-starred repo.<br>
+[live](https://hospital-management-system-yhsp.onrender.com/) · [repo](https://github.com/R204570/hospital-management-system)
 
-SYNOPSIS
-     raj [--agentic] [--vision] [--full-stack] [--secure] <idea>
+<a href="https://github.com/R204570/PCB_DEFECT_DETECTION"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/row-pcb-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/row-pcb-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/row-pcb-dark.svg"><img src="./assets/row-pcb-light.svg" alt="PCB Inspection, Intel, live"></picture></a><br>
+A fine-tuned YOLOv8 that finds defects on PCB images, one at a time or in batches, at mAP@0.5 above 85%. Built in Intel® AI for Manufacturing.<br>
+[demo](https://pcb-anomaly-detection.streamlit.app/) · [repo](https://github.com/R204570/PCB_DEFECT_DETECTION)
 
-DESCRIPTION
-     Takes an idea, returns it deployed. Lives where machine learning
-     meets working software: agentic pipelines, computer-vision models,
-     and web apps real people log into. Runs from Ahmedabad, IN.
+<sub>Deeper in the queue: [SAC AI Search](https://github.com/R204570/SAC-Database-and-AI-Automation), GST service codes found from a plain-words description · [Reconciliation](https://github.com/R204570/Reconciliation), an atomic wallet-balance engine · [ExpenseFlow](https://expenseflow-roan.vercel.app), receipt to expense with AI · [Cafe-POS](https://github.com/R204570/Cafe-POS), Django + DRF point of sale · [GearGuard](https://github.com/R204570/GearGuard), equipment maintenance · [BraTS2020 MGMT](https://www.kaggle.com/datasets/raj072004/preprocessed-final), a preprocessed MRI dataset on Kaggle</sub>
 
-OPTIONS
-     --agentic     RAG pipelines, tool-use orchestration, MCP servers
-     --vision      3D tumour segmentation (BraTS), YOLOv8 defect detection
-     --full-stack  FastAPI / Django + Postgres (pgvector) + Redis, shipped
-     --secure      CPTE-certified; STRIDE threat models, OWASP LLM Top 10
+<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/label-signal-dark.svg"><img src="./assets/label-signal-light.svg" alt="Signal: live activity"></picture></h3>
 
-EXIT STATUS
-     0     deployed
-     1     still deploying (retry is automatic)
+<a href="./.github/workflows/signal.yml"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/signal-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/signal-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/signal-dark.svg"><img src="./assets/signal-light.svg" alt="My GitHub contributions over the last 52 weeks drawn as a field of dust, one column per day, with my totals and latest public activity. Redrawn twice a day by a GitHub Action."></picture></a>
 
-HISTORY
-     2025  Intel® AI for Manufacturing, first batch, 16 weeks. Demoed to
-           GTU's Vice Chancellor and Intel leadership.
-     2026  Microsoft Elevate × GTU. Built NeuroAssist end to end.
-     2026  B.E. Information Technology + Data Science honours, GTU.
+<sub>Redrawn twice a day by a GitHub Action from my contribution calendar: one column of dust per day, busier days scatter wider.</sub>
 
-BUGS
-     Opens new repositories faster than it archives old ones.
-     No fix planned.
+<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/label-layers-dark.svg"><img src="./assets/label-layers-light.svg" alt="Layers: the stack"></picture></h3>
 
-SEE ALSO
-     docsforge(1), neuroassist(7), portfolio(1)
-```
-
-### `SE 02` &nbsp;lobe atlas
-
-<p align="center">
-  <img src="./assets/atlas.svg" width="100%" alt="A lateral brain whose lobes light up one by one, each mapped to a skill area. Frontal: agentic AI, RAG, tool use, MCP servers, Claude Code. Parietal: FastAPI, Django, Flask, Postgres with pgvector, Redis. Occipital: PyTorch, TensorFlow, YOLOv8, OpenCV, 3D U-Net. Temporal: LLMs and SLMs, NLP, Hugging Face, pandas, NumPy, scikit-learn. Cerebellum: Streamlit, Node.js, GCP, Render, Vercel, Netlify. Brainstem: CPTE, STRIDE threat models, OWASP LLM Top 10, DPDP.">
-</p>
-
-<sub>Named after <code>build_lobe_atlas()</code>, the NeuroAssist function that maps a segmented tumour onto brain lobes. Here it maps me.</sub>
-
-### `SE 03` &nbsp;case files
-
-| | case | presenting complaint | findings |
-|:--|:--|:--|:--|
-| 01 | **[NeuroAssist](https://github.com/R204570/BrainTumor)**<br>`capstone` | hand-segmenting a glioma is slow | 3D Attention U-Net on BraTS 2020 (T1 · T1ce · T2 · FLAIR) → RAG-grounded LLM drafts a WHO CNS5-aligned report. Built under Microsoft Elevate. |
-| 02 | **[DocsForge](https://github.com/R204570/DocsForge)**<br>`open source` `help wanted` | your agent hallucinates a library it never read | Name a library → it finds, verifies and harvests the official, version-specific docs into an MCP knowledge base. |
-| 03 | **[PCB Inspection AI](https://github.com/R204570/PCB_DEFECT_DETECTION)**<br>`Intel` [`demo ↗`](https://pcb-anomaly-detection.streamlit.app/) | defects slip past the eye on smartphone boards | YOLOv8 at mAP ≈ 0.90 (IoU 0.5) across 10 defect classes; live webcam and batch modes. |
-| 04 | **[Hospital MS](https://github.com/R204570/hospital-management-system)**<br>`most-starred` [`live ↗`](https://hospital-management-system-yhsp.onrender.com/) | a hospital running on paper | Django + role-based access: patients, appointments, billing, pharmacy, PDF reports. |
-| 05 | **[SAC AI Search](https://github.com/R204570/SAC-Database-and-AI-Automation)**<br>`open source` | thousands of GST SAC codes, one right answer | Describe a service in plain words → semantic search returns the code. |
-| 06 | **[Reconciliation](https://github.com/R204570/Reconciliation)**<br>`fintech` | wallet balances that drift | Atomic compute-then-commit engine; Flask dashboard + CLI on MS SQL Server. |
-| 07 | **[ExpenseFlow](https://github.com/R204570/ExpenseFlow)**<br>[`live ↗`](https://expenseflow-roan.vercel.app) | receipts in a shoebox | AI extraction from receipt to saved expense, with searchable history. |
-| 08 | **[BraTS2020 · MGMT](https://www.kaggle.com/datasets/raj072004/preprocessed-final)**<br>`kaggle` | MGMT status usually needs a tissue assay | 3D ResNet predicts MGMT promoter methylation from MRI; preprocessed dataset published. |
-| ░░ | **██████████**<br>`results pending` | ███ ██████ ████ | ████████ ██ ██████ ████ ███ ██████ ████ |
-
-### `SE 04` &nbsp;vitals
-
-<p align="center">
-  <img src="./assets/vitals.svg" width="100%" alt="An ECG-style monitor of my GitHub contributions over the last 30 days, one heartbeat per day, redrawn twice a day by a GitHub Action.">
-</p>
-
-<sub>Not a stats card. A GitHub Action reads my contribution calendar twice a day and redraws this monitor: one heartbeat per day, spike height = contributions. Quiet days flatline.</sub>
-
-```text
-PROGRESS NOTE · SOAP                                               R204570
-──────────────────────────────────────────────────────────────────────────
-S   Curious about brain-inspired, selective knowledge activation for RAG:
-    retrieval that wakes up only what a question needs.
-O   DocsForge in production · NeuroAssist shipped · apps live on Render,
-    Vercel, Netlify and Streamlit Cloud
-A   Builder in an active growth phase. No signs of slowing.
-P   1. Grow DocsForge's contributors: crawling, extraction, MCP tools
-    2. Research: federated learning · multimodal RAG · longitudinal
-       tumour modelling
-    3. Open to AI Engineering, Agentic AI and Data Science roles
-```
-
-### `SE 05` &nbsp;referral
+**Agents** · RAG, tool use, MCP servers, Claude Code<br>
+**Vision** · PyTorch, TensorFlow, YOLOv8, OpenCV, 3D U-Net<br>
+**Language & data** · LLMs and SLMs, NLP, Hugging Face, pandas, NumPy, scikit-learn<br>
+**Backend** · FastAPI, Django, Flask, PostgreSQL with pgvector, Redis<br>
+**Shipping** · Render, Vercel, Netlify, Streamlit Cloud, GCP, Node.js<br>
+**Security** · CPTE certified; STRIDE threat models, OWASP LLM Top 10, DPDP
 
 <details>
-<summary><b>Hiring</b> &nbsp;·&nbsp; AI Engineering, Agentic AI, Data Science</summary>
+<summary><b>Hidden part</b> · for people who read source</summary>
 <br>
 
-Send the role and the problem it solves to [rajpatel9408019@gmail.com](mailto:rajpatel9408019@gmail.com?subject=Role%20for%20Raj). I usually reply within a day. Résumé: [PDF](https://portfolio-raj-25.netlify.app/Raj-Patel-Resume.pdf).
-
-</details>
-
-<details>
-<summary><b>Freelance build</b> &nbsp;·&nbsp; idea → deployed product</summary>
-<br>
-
-Agents, CV models, dashboards, Django and FastAPI backends. Tell me what it should do and who will use it: [email](mailto:rajpatel9408019@gmail.com?subject=Build%20request).
-
-</details>
-
-<details>
-<summary><b>Contribute</b> &nbsp;·&nbsp; DocsForge needs hands</summary>
-<br>
-
-Crawling and scraping, extraction quality, MCP tools, backend tooling. Start at [DocsForge](https://github.com/R204570/DocsForge), open an issue, claim it.
-
-</details>
-
-<details>
-<summary><b>🔒 Sealed envelope</b> &nbsp;·&nbsp; security people only</summary>
-<br>
-
-A flag is hidden in this profile, two layers deep.
+A flag is hidden on this screen, two layers deep.
 
 1. Start where browsers don't render: the source of this README.
 2. One layer is 64 characters wide. The other is older than computers.
 
-Found it? Email it with the subject `FLAG`. Every finder gets a reply and a line below.
+Found it? Email it to [rajpatel9408019@gmail.com](mailto:rajpatel9408019@gmail.com?subject=FLAG) with the subject `FLAG`. Every finder gets a reply and a name in the greetz.
 
 <sub>finders so far: 0</sub>
 
@@ -149,8 +78,4 @@ Found it? Email it with the subject `FLAG`. Every finder gets a reply and a line
 
 <br>
 
-<p align="center">
-  <img src="./assets/weave.svg" width="100%" alt="A loom-woven strip with a gold thread passing through: woven in Ahmedabad, the Manchester of the East.">
-</p>
-
-<p align="center"><sub>Every graphic on this page is custom SVG. No templates, no stat cards.</sub></p>
+<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/scroller-narrow-dark.svg"><source media="(max-width: 600px)" srcset="./assets/scroller-narrow-light.svg"><source media="(prefers-color-scheme: dark)" srcset="./assets/scroller-dark.svg"><img src="./assets/scroller-light.svg" alt="Greetings scroller: greetz to everyone who reads the source. There is a hidden part on this screen."></picture>
