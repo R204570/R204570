@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T17:03:58+00:00",
+  "generatedAt": "2026-10-22T09:55:06+00:00",
   "title": "Design System: R204570 Console",
   "extensions": {
     "colorMeta": {
@@ -245,6 +245,24 @@
         "oklch": "oklch(24.1% 0.024 256.4)",
         "codeConstant": "LIFT",
         "contrast": "Raised tile behind each More work mark",
+        "tonalRamp": [
+          "#060B14",
+          "#1E242E",
+          "#39404B",
+          "#575E69",
+          "#79818D",
+          "#9AA2AE",
+          "#BFC8D5",
+          "#E6EFFC"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0B1220",
+        "oklch": "oklch(18.3% 0.031 263.4)",
+        "codeConstant": "INK",
+        "contrast": "Type on the white chips; 18.6:1 on white",
         "tonalRamp": [
           "#060B14",
           "#1E242E",
@@ -626,7 +644,7 @@
     "rules": [
       {
         "name": "The One Accent Rule",
-        "body": "Blue is the only hue on the page. Signal Blue fills, Live Blue marks state on the console, Readout Blue is blue text and technology marks on the console, Sky is blue on the blue. No green for \"online\", no red, no amber, and no brand colours on technology marks; state is said in blue tones and words.",
+        "body": "Blue is the only hue on the page, with black and white as its partners. Signal Blue fills, Live Blue marks state on the console, Readout Blue is blue text on the console, Electric is the technology mark on a white chip, Sky is blue on the blue. No green for \"online\", no red, no amber, and no brand colours on technology marks; state is said in blue tones and words.",
         "section": "colors"
       },
       {
@@ -693,7 +711,7 @@
     "dos": [
       "Do change colours, type and icons in `scripts/console.py` (and `SKY` in both `hero.py` and `build_assets.py`), then run both `build_assets.py` and `activity.py`; never hand-edit `assets/*.svg` (the Action overwrites the hero and activity twice a day).",
       "Do draw identity on `Canvas.grainy()` and detail on `Canvas.panel()`, at 830px with a recomposed 360px `-narrow` twin served by `<source media=\"(max-width: 600px)\">`, on one line inside its link.",
-      "Do keep each blue to its job: Signal Blue (#1F6FEB) fills and glow bodies, Live Blue (#58A6FF) state marks and icons on the console, Readout Blue (#79C0FF) blue text and technology marks on the console, Sky (#93C5FD) anything blue on the blue.",
+      "Do keep each blue to its job: Signal Blue (#1F6FEB) fills and glow bodies, Live Blue (#58A6FF) state marks and icons on the console, Readout Blue (#79C0FF) blue text on the console, Electric (#1D4ED8) technology marks on the white chips, Sky (#93C5FD) anything blue on the blue.",
       "Do set type on the blue only in On-Blue White (content), On-Blue Soft (sentences) and On-Blue Label (small labels), and lay boxes on the blue as Glass with a white hairline.",
       "Do set words in Geist and data in Geist Mono, and place every string with `measure()`, `wrap()` or `fit()`.",
       "Do draw technology marks from Simple Icons in one colour, and fall back to a line icon when the mark is unreadable at 16px.",

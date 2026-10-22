@@ -25,7 +25,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hero  # noqa: E402
-from console import (BLUE, BLUE_HI, BLUE_LO, MONO, MUTED, SANS, SEAM, TEXT, Canvas, fit, measure, n)  # noqa: E402
+from console import (BLUE_HI, MONO, MUTED, ON_BLUE, SANS, SEAM, TEXT, Canvas, fit, measure, n)  # noqa: E402
+
+SKY = "#93C5FD"  # the live dot on the blue band
 
 DAYS = 364
 WIDE, NARROW = 830, 360
@@ -170,20 +172,23 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
     cv = Canvas(W, 1000)
     body_start = len(cv.parts)
 
-    # header
-    cv.icon("folder", pad, 15, 15, MUTED)
-    cv.text(pad + 22, 28, "r204570 / activity", 12 if narrow else 12.5, MUTED, MONO)
-    live = f"Live · synced {synced}"
-    cv.text(W - pad, 28, live, 12, TEXT, MONO, anchor="end")
-    cv.dot(W - pad - measure(live, MONO, 400, 12) - 13, 24, 3.5)
-    cv.line(0.5, 44, W - 0.5, 44)
+    # the band: title bar, chart and months sit on the grainy blue, all in white
+    def hair(x1, y1, x2, y2, op=".16"):
+        cv.add(f'<line x1="{n(x1)}" y1="{n(y1)}" x2="{n(x2)}" y2="{n(y2)}" stroke="{ON_BLUE}" stroke-opacity="{op}" '
+               'shape-rendering="crispEdges"/>')
 
-    # chart
+    cv.icon("folder", pad, 15, 15, ON_BLUE)
+    cv.text(pad + 22, 28, "r204570 / activity", 12 if narrow else 12.5, ON_BLUE, MONO)
+    live = f"Live · synced {synced}"
+    cv.text(W - pad, 28, live, 12, ON_BLUE, MONO, anchor="end")
+    cv.dot(W - pad - measure(live, MONO, 400, 12) - 13, 24, 3.5, SKY)
+    hair(0.5, 44.5, W - 0.5, 44.5)
+
     top, base = 74, 190
     span = base - top - 8
     if not st["total"]:
-        cv.text(W / 2, (top + base) / 2, "No public activity in the last 52 weeks", 14, MUTED, anchor="middle")
-    else:  # one bar per week; brightness follows volume, the busiest week is the lightest blue
+        cv.text(W / 2, (top + base) / 2, "No public activity in the last 52 weeks", 14, ON_BLUE, anchor="middle")
+    else:  # one white bar per week; brightness follows volume, the busiest week is solid
         weeks = [sum(counts[i:i + 7]) for i in range(0, len(counts), 7)]
         wp = max(weeks)
         step = (W - 2 * pad) / len(weeks)
@@ -192,15 +197,15 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
         bars = []
         for i, v in enumerate(weeks):
             h = 2 if not v else 4 + (span - 4) * math.sqrt(v / wp)
-            col, op = (SEAM, 1) if not v else ((BLUE_LO, 1) if i == pk else (BLUE, .45 + .55 * math.sqrt(v / wp)))
+            op = .25 if not v else (1 if i == pk else .45 + .5 * math.sqrt(v / wp))
             bars.append(f'<rect x="{n(pad + i * step + gap / 2)}" y="{n(base - h)}" width="{n(step - gap)}" height="{n(h)}" '
-                        f'rx="{1 if narrow else 2}" fill="{col}" opacity="{op:.2f}"/>')
+                        f'rx="{1 if narrow else 2}" fill="{ON_BLUE}" opacity="{op:.2f}"/>')
         cv.add(f"<g{cv.speckle()}>{''.join(bars)}</g>")
         lab = f"{weeks[pk]} that week" if narrow else f"Busiest week · {weeks[pk]} contributions"
         px = pad + pk * step + step / 2
         right = px > W / 2
-        cv.text(px + (step / 2 if right else -step / 2), top - 8, lab, 11, BLUE_LO, MONO, anchor="end" if right else "start")
-    cv.line(pad, base + .5, W - pad, base + .5)
+        cv.text(px + (step / 2 if right else -step / 2), top - 8, lab, 11, ON_BLUE, MONO, anchor="end" if right else "start")
+    hair(pad, base + .5, W - pad, base + .5, ".35")
 
     # month labels, placed from the right edge back so the latest months always get one
     step = (W - 2 * pad) / len(series)
@@ -208,10 +213,10 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
     for i in range(len(series) - 1, -1, -1):
         d, x = series[i][0], pad + i * step
         if d.day == 1 and x >= pad + 10 and x + 12 < room and last - x >= gap:
-            cv.text(x, base + 20, d.strftime("%b"), 10.5, MUTED, MONO, anchor="middle")
+            cv.text(x, base + 20, d.strftime("%b"), 10.5, ON_BLUE, MONO, anchor="middle")
             last = x
-    cv.text(W - pad, base + 20, "Today", 10.5, MUTED, MONO, anchor="end")
-    cv.line(0.5, base + 36, W - 0.5, base + 36)
+    cv.text(W - pad, base + 20, "Today", 10.5, ON_BLUE, MONO, anchor="end")
+    band = base + 36
 
     # the numbers
     cells = [("CONTRIBUTIONS", f"{st['total']:,}", "in 52 weeks"), ("LONGEST STREAK", f"{st['best']}", "days"),
@@ -266,10 +271,14 @@ def render(user: str, series: list[tuple[dt.date, int]], feed: list, synced: str
     H = y + 18
 
     cv.h = H
-    body = cv.parts[body_start:]
-    cv.parts = []
+    body, defs = cv.parts[body_start:], cv.defs
+    cv.parts, cv.defs = [], []
     cv.panel()
+    cv.grainy(0.5, 0.5, W - 1, band, r=12, glows=((.85, 1.35, .7), (.08, -.4, .5)), seed=12, corners="top")
+    cv.add(f'<line x1=".5" y1="{n(band + .5)}" x2="{n(W - .5)}" y2="{n(band + .5)}" stroke="{ON_BLUE}" stroke-opacity=".12"/>')
     cv.parts += body
+    cv.rect(0.5, 0.5, W - 1, H - 1, stroke=SEAM, r=12)
+    cv.defs += defs
     feed_txt = "; ".join(f"{day(d)}: {s}" for d, _, s in feed)
     desc = (f"{st['total']} contributions in the last 52 weeks; longest streak {st['best']} days; {st['active']} active days; "
             f"busiest day {day(st['peak_day'])} with {st['peak']}. Latest: {feed_txt or 'none'}. Synced {synced}.")
