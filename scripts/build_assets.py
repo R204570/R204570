@@ -129,14 +129,15 @@ def chip_width(label: str, size: float = 12.5) -> float:
 
 
 def chip(cv: Canvas, x: float, y: float, label: str, size: float = 12.5) -> float:
+    """A technology chip: solid white, ink type, the mark in royal blue."""
     w = chip_width(label, size)
-    cv.rect(x, y, w, 28, PANEL, SEAM, r=8)
+    cv.rect(x, y, w, 28, WHITE, r=8)
     mark = TECH.get(label, ":box")
     if mark.startswith(":"):
-        cv.icon(mark[1:], x + 10, y + 6, 16, BLUE_LO)
+        cv.icon(mark[1:], x + 10, y + 6, 16, C.ELECTRIC, width=2)
     else:
-        cv.logo(LOGO[mark], x + 10, y + 6.5, 15, BLUE_LO)
-    cv.text(x + 32, y + 18.5, label, size, TEXT, SANS, 500)
+        cv.logo(LOGO[mark], x + 10, y + 6.5, 15, C.ELECTRIC)
+    cv.text(x + 32, y + 18.5, label, size, C.INK, SANS, 500)
     return w
 
 
@@ -328,12 +329,14 @@ MORE = [  # key, name, description, lead mark (logo slug or :icon), two facts
 
 
 def tile(cv: Canvas, x: float, y: float, size: float, mark: str) -> None:
-    cv.rect(x, y, size, size, LIFT, SEAM, r=10)
+    """The row's mark in white on a small square of the grainy blue."""
+    cv.grainy(x, y, size, size, r=11, glows=((.25, 1.15, 1.25), (.95, -.2, .9)), seed=5)
+    cv.add(f'<rect x="{n(x)}" y="{n(y)}" width="{n(size)}" height="{n(size)}" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity=".18"/>')
     m = size * .52
     if mark.startswith(":"):
-        cv.icon(mark[1:], x + (size - m) / 2, y + (size - m) / 2, m, BLUE_LO)
+        cv.icon(mark[1:], x + (size - m) / 2, y + (size - m) / 2, m, WHITE, width=2)
     else:
-        cv.logo(LOGO[mark], x + (size - m) / 2, y + (size - m) / 2, m, BLUE_LO)
+        cv.logo(LOGO[mark], x + (size - m) / 2, y + (size - m) / 2, m, WHITE)
 
 
 def more_row(key: str, name: str, desc: str, mark: str, facts: list, narrow: bool) -> None:
@@ -392,10 +395,15 @@ def stack(narrow: bool) -> None:
     W = NARROW if narrow else WIDE
     pad = 16 if narrow else 24
     cv = Canvas(W, 2000)
-    cv.icon("folder", pad, 15, 15, MUTED)
-    cv.text(pad + 22, 28, "r204570 / stack", 12 if narrow else 12.5, MUTED, MONO)
-    cv.line(0.5, 44, W - 0.5, 44)
-    y = 66
+    # header band on the grainy blue: title bar and a one-line count, in white
+    cv.icon("folder", pad, 15, 15, WHITE)
+    cv.text(pad + 22, 28, "r204570 / stack", 12 if narrow else 12.5, WHITE, MONO)
+    cv.add(f'<line x1=".5" y1="44.5" x2="{n(W - .5)}" y2="44.5" stroke="#FFFFFF" stroke-opacity=".16" shape-rendering="crispEdges"/>')
+    total = sum(len(items) for _, items in STACK)
+    cv.text(pad, 78 if narrow else 80, f"{total} tools across {len(STACK)} areas", 19 if narrow else 21, WHITE, SANS, 600,
+            tracking=-.4, extra=cv.speckle())
+    band = 100 if narrow else 104
+    y = band + 30
     for i, (group, items) in enumerate(STACK):
         if i:
             cv.line(pad, y - 13, W - pad, y - 13)
@@ -412,7 +420,10 @@ def stack(narrow: bool) -> None:
     defs = cv.defs
     cv.defs = []
     cv.panel()
+    cv.grainy(0.5, 0.5, W - 1, band, r=12, glows=((.12, 1.6, .7), (.9, -.8, .5)), seed=9, corners="top")
+    cv.add(f'<line x1=".5" y1="{n(band + .5)}" x2="{n(W - .5)}" y2="{n(band + .5)}" stroke="#FFFFFF" stroke-opacity=".12"/>')
     cv.parts += body
+    cv.rect(0.5, 0.5, W - 1, H - 1, stroke=SEAM, r=12)
     cv.defs += defs
     desc = "; ".join(f"{g}: {', '.join(i)}" for g, i in STACK)
     finish(cv, f"stack{'-narrow' if narrow else ''}", "Tech stack", desc + ".")

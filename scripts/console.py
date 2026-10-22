@@ -38,6 +38,8 @@ ON_BLUE = "#FFFFFF"
 ON_BLUE_SOFT = ON_BLUE   # lede and taglines
 ON_BLUE_LABEL = ON_BLUE  # small mono labels
 GLASS = "#050811"      # boxes laid on the blue, at ~50% opacity
+# the white set: solid white chips with ink type and royal-blue marks
+INK = "#0B1220"        # type on white, 18.6:1
 
 SANS, MONO = "Geist", "Geist Mono"
 FACES = {  # css family, weight -> committed basic-latin subset

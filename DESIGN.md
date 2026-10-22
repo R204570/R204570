@@ -11,6 +11,7 @@ colors:
   ground: "#0D1117"
   panel: "#121821"
   lift: "#18202B"
+  ink: "#0B1220"
   seam: "#232C38"
   text: "#E6EDF3"
   soft: "#C3CDD8"
@@ -340,7 +341,7 @@ The blue surface:
 - **On-Blue Label** (on-blue-label): small labels on the blue: title-bar paths, profile and credential keys, PROFILE, CREDENTIALS, LAST 26 WEEKS, "in production" and the install line, the hero's folder icon. 13.7:1 on Night but only 4.1 to 4.3:1 at a glow's brightest point; see Known defects.
 
 ### Named Rules
-**The One Accent Rule.** Blue is the only hue on the page. Signal Blue fills, Live Blue marks state on the console, Readout Blue is blue text and technology marks on the console, Sky is blue on the blue. No green for "online", no red, no amber, and no brand colours on technology marks; state is said in blue tones and words.
+**The One Accent Rule.** Blue is the only hue on the page, with black and white as its partners. Signal Blue fills, Live Blue marks state on the console, Readout Blue is blue text on the console, Electric is the technology mark on a white chip, Sky is blue on the blue. No green for "online", no red, no amber, and no brand colours on technology marks; state is said in blue tones and words.
 
 **The Two Palettes Rule.** Type on the grainy surface is only white (the three on-blue roles all resolve to #FFFFFF; hierarchy there comes from size, weight and mono labels), and Sky is only for marks, arrows and text inside a Glass box; type on the console ground uses only Console White, Soft Steel, Key Grey and the console blues. Never carry a colour across: Live Blue or Readout Blue vanish into the glow, and On-Blue Label is not a console grey.
 
@@ -367,7 +368,7 @@ Both faces are SIL OFL 1.1 (`scripts/fonts/OFL.txt`) and are embedded in every S
 - **Body** (Geist 400, 15px on 22px; narrow 14px on 20px): card descriptions in Soft Steel, wrapped to the card's inner width. More work descriptions sit at 14.5px on one line (narrow: Body narrow, wrapped).
 - **Row title** (Geist 600, 16px): the project name on each More work row, Console White.
 - **Title** (Geist 500, 14px): button labels.
-- **Chip** (Geist 500, 12.5px): technology names inside chips, Console White.
+- **Chip** (Geist 500, 12.5px): technology names inside the white chips, Ink.
 - **Value** (Geist 400, 14px; narrow 13.5px): card fact values and feed sentences; the hero's profile and credential values sit a half-step down at 13.5px (narrow 13px), right-aligned.
 - **Unit** (Geist 400, 13px; narrow 12.5px): stat units, Key Grey.
 - **Command** (Geist Mono 400, 13px; narrow 11.5px): the now-shipping line; "docsforge" steps to 500 in Sky; the `$ pipx install docsforge` line is 1px smaller in On-Blue Label.
@@ -395,13 +396,13 @@ The README is a single column about 830px wide on desktop and about 360px on pho
 
 **Narrow hero (360 x 626).** One column, recomposed rather than shrunk: title bar (40px, path shortened to `r204570`, no folder icon, status shortened to "Open to AI roles"), name, three-line pitch, now-shipping box (328px), the live strip (328px, 40px bars), a hairline, then PROFILE and CREDENTIALS stacked.
 
-**Project cards (830 x 362 wide; 360 x 450 to 526 narrow).** A grainy header band (188px wide; 214 to 234px narrow): path and status pill in one row (baselines 27 / pill y 12 to 36), name (baseline 84; 76 narrow), tagline (from 110; 100 narrow), then the flow of nodes 6px below the tagline, and 22px (18px narrow) of air under it. A white hairline at 12% closes the band. The dark body: description from 32px below the band, technology chips 2px under it, then two facts 26px under the chips, key above value, at x=24 and x=470 (narrow: stacked, values wrapped, 26px between facts).
+**Project cards (830 wide; 360 narrow; height follows the content).** A grainy header band: a title bar (folder icon, `r204570 / repo` path, status pill inside the bar, white seam at y=42.5; narrow shows the repo alone and a short status), the name (34px, 28px narrow, baseline 90 / 84), the tagline, then the flow of nodes (stage icon in Sky, lit Sky arrows) and air under it. A white hairline at 12% closes the band. The dark body: description, white technology chips, then two facts, key above value, at x=24 and x=470 (narrow: stacked). Each card and its buttons share one paragraph in the README (card, `<br>`, buttons).
 
-**More work rows (830 x 74; 360 x 134 to 154).** Wide: folder icon at the gutter, name at x=50 (baseline 31), language chip right-aligned at the top, description on one line beneath (baseline 56). Narrow: name, wrapped description, then the chip.
+**More work rows (830 x ~124; 360 narrow).** A 46px grainy blue tile (40px narrow) with the project's mark in white; title 20/600 (18 narrow) and a 16px description wrapped at 500px (15.5 narrow, full width); a facts column behind a seam at x=616 with two key/value pairs (narrow: two columns under the description). The MGMT model leads the list and has Notebook and Dataset buttons under it.
 
-**Tech stack (830 x 456; 360 x 732).** Title bar with path only, then six groups (AI / ML, Agents & LLMs, Backend & data, Ship, Security, Languages), each separated by a seam inset to the gutters. Wide: group label at the gutter, chips flowing from x=190 to the right gutter. Narrow: label above its chips.
+**Tech stack (830 wide; 360 narrow).** A grainy blue header band (104px; 100 narrow) with the title bar and a speckled white count line ("34 tools across 6 areas"), then six groups on the dark body (AI / ML, Agents & LLMs, Backend & data, Ship, Security, Languages), each separated by a seam inset to the gutters. Wide: group label at the gutter, white chips flowing from x=190. Narrow: label above its chips.
 
-**Activity (830 x 500 with three feed events; 360 x 552 narrow).** Title bar 44; chart from y=74 to a baseline at 190 with month ticks below; seam; four stat cells in a row separated by short vertical seams (narrow: a 2 x 2 grid on a 58px pitch with one vertical seam); seam; LATEST with up to three event rows on a 30px pitch; seam; status bar. Height follows the feed: fewer events, shorter panel.
+**Activity (830 wide; 360 narrow; height follows the feed).** The top of the panel is a grainy blue band holding the title bar (path, Sky live dot, "Live · synced"), the chart (52 white weekly bars, brightness by volume, the busiest week solid with a white call-out; 26-week view on the hero, full year here) and the month ticks, all in white. Below the band, on the dark body: four stat cells, LATEST with up to three project events, and the status bar.
 
 ### README markup pattern and source order
 Every scaled panel is one line, wrapped in its link:
@@ -529,8 +530,8 @@ A palette or type change in `console.py` must be followed by both commands; the 
 **The Identity Band Rule.** A project card opens with a grainy header band that says what the thing is and how it works (path, status, name, tagline, flow) and closes with a console body that proves it (description, stack, facts). Facts never go on the blue.
 
 ### Chip
-- **Style:** Raised Slate, Seam Steel border, 8px radius, 28px tall; a 16px line icon (or a 15px Simple Icons mark) in Readout Blue 10px from the left; label in Chip type Console White from 32px; 12px right padding. Width is fitted to the label.
-- **Use:** technologies on project cards, the language on each More work row, and every item in the Tech stack. Chips flow left to right with 8px gaps and wrap inside their room.
+- **Style:** the white set. Solid white (#FFFFFF), no border, 8px radius, 28px tall; a 16px line icon (2px stroke) or a 15px Simple Icons mark in Electric (#1D4ED8) 10px from the left; label in Chip type, Ink (#0B1220, 18.6:1), from 32px; 12px right padding. Width is fitted to the label.
+- **Use:** technologies on project cards and every item in the Tech stack. Chips flow left to right with 8px gaps and wrap inside their room. White is the third colour of the page: grain, type on the blue, chips, bars on the blue.
 
 ### Buttons
 - **Shape:** gently rounded box (8px radius), 36px tall, width fitted to the label: 14px left pad, 16px icon, 8px gap, label, 16px right pad.
@@ -560,7 +561,7 @@ A palette or type change in `console.py` must be followed by both commands; the 
 ### Do:
 - **Do** change colours, type and icons in `scripts/console.py` (and `SKY` in both `hero.py` and `build_assets.py`), then run both `build_assets.py` and `activity.py`; never hand-edit `assets/*.svg` (the Action overwrites the hero and activity twice a day).
 - **Do** draw identity on `Canvas.grainy()` and detail on `Canvas.panel()`, at 830px with a recomposed 360px `-narrow` twin served by `<source media="(max-width: 600px)">`, on one line inside its link.
-- **Do** keep each blue to its job: Signal Blue (#1F6FEB) fills and glow bodies, Live Blue (#58A6FF) state marks and icons on the console, Readout Blue (#79C0FF) blue text and technology marks on the console, Sky (#93C5FD) anything blue on the blue.
+- **Do** keep each blue to its job: Signal Blue (#1F6FEB) fills and glow bodies, Live Blue (#58A6FF) state marks and icons on the console, Readout Blue (#79C0FF) blue text on the console, Electric (#1D4ED8) technology marks on the white chips, Sky (#93C5FD) anything blue on the blue.
 - **Do** set type on the blue only in On-Blue White (content), On-Blue Soft (sentences) and On-Blue Label (small labels), and lay boxes on the blue as Glass with a white hairline.
 - **Do** set words in Geist and data in Geist Mono, and place every string with `measure()`, `wrap()` or `fit()`.
 - **Do** draw technology marks from Simple Icons in one colour, and fall back to a line icon when the mark is unreadable at 16px.
