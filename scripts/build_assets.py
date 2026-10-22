@@ -351,10 +351,15 @@ def more_row(key: str, name: str, desc: str, mark: str, facts: list, narrow: boo
             cv.text(pad, y, line, 15.5, SOFT)
             y += 22
         y += 12
-        for (k, v), x in zip(facts, (pad, 186)):
+        deepest = y
+        for (k, v), x in zip(facts, (pad, 186)):  # values wrap rather than lose words
             cv.text(x, y, k.upper(), 11.5, MUTED, MONO, 500, tracking=1)
-            cv.text(x, y + 20, C.fit(v, SANS, 400, 13.5, 160), 13.5, TEXT)
-        H = y + 40
+            vy = y + 20
+            for line in wrap(v, SANS, 400, 13.5, 158):
+                cv.text(x, vy, line, 13.5, TEXT)
+                vy += 19
+            deepest = max(deepest, vy)
+        H = deepest + 2
     else:
         pad = 22
         tile(cv, pad, 22, 46, mark)
