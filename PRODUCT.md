@@ -57,7 +57,13 @@ Verified from the repositories on 2026-10-21:
   images, charts defect distributions and exports annotated images as a ZIP; Reconciliation has a Flask dashboard,
   CLI and batch runner on MS SQL Server; SAC AI Search is Python and open source; ExpenseFlow is JavaScript on
   Vercel; Cafe-POS is Django + Django REST Framework + PostgreSQL; GearGuard is a full-featured Django 5.2 +
-  PostgreSQL web platform; the BraTS2020 MGMT work used a 3D ResNet (Raj's previous README).
+  PostgreSQL web platform.
+- **MGMT methylation model** (confirmed by Raj on 2026-10-22, checked against the notebook
+  kaggle.com/code/raj072004/vedic-ai): a competition notebook for RSNA-MICCAI Brain Tumor Radiogenomic Classification
+  that trains BrainNet3D, a custom 3D ResNet, on all four sequences (FLAIR, T1w, T1wCE, T2w) at 64×128×128 from Raj's
+  own preprocessed dataset (kaggle.com/datasets/raj072004/preprocessed-final), validated by ROC-AUC (best validation
+  AUC in the notebook output: 0.6504; not shown on the profile unless Raj asks). Raj also built NIfTI↔DICOM conversion
+  in both directions (NeuroAssist repo, `Input_preprocessing/`).
 - Credentials: Intel® AI for Manufacturing (2025, first batch, 16 weeks, demoed to GTU's Vice Chancellor and Intel leadership); Microsoft Elevate × GTU (2026); B.E. Information Technology + Data Science honours, GTU (2026); CPTE certified.
 - Skills as Raj listed them in the previous README: agentic AI, RAG, tool use, MCP servers, Claude Code; FastAPI, Django, Flask, Postgres + pgvector, Redis; PyTorch, TensorFlow, YOLOv8, OpenCV, 3D U-Net; LLMs/SLMs, NLP, Hugging Face, pandas, NumPy, scikit-learn; Streamlit, Node.js, GCP, Render, Vercel, Netlify; CPTE, STRIDE threat models, OWASP LLM Top 10, DPDP.
 - Not verified, do not use: Dice scores for NeuroAssist; mAP ≈ 0.90 for PCB.

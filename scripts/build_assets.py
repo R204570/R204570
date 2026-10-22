@@ -164,6 +164,8 @@ BUTTONS = [  # key, label, icon (line icon or @logo), primary
     ("demo", "Live demo", "external", False),
     ("source", "Source", "@github", False),
     ("contribute", "Contribute", "users", False),
+    ("notebook", "Notebook", "code", False),
+    ("dataset", "Dataset", "database", False),
 ]
 
 
@@ -309,6 +311,9 @@ def card(p: dict, narrow: bool) -> None:
 
 # ---------------------------------------------------------------- more work
 MORE = [  # key, name, description, lead mark (logo slug or :icon), two facts
+    ("mgmt", "MGMT Methylation Model", "A 3D ResNet trained on all four MRI sequences to predict MGMT promoter methylation, on "
+     "my own preprocessed BraTS dataset, with a NIfTI and DICOM conversion pipeline both ways.",
+     "pytorch", [("Model", "BrainNet3D · 3D ResNet"), ("Task", "RSNA-MICCAI MGMT")]),
     ("sac", "SAC AI Search", "Describe a service in plain words and it finds the right GST service accounting code (SAC).",
      "python", [("Stack", "Python · AI search"), ("Licence", "Open source")]),
     ("reconciliation", "Reconciliation", "Wallet-balance reconciliation on an atomic compute-then-commit engine, with a Flask "
@@ -319,8 +324,6 @@ MORE = [  # key, name, description, lead mark (logo slug or :icon), two facts
      "django", [("Stack", "Django · DRF · PostgreSQL"), ("For", "Cafes and restaurants")]),
     ("gearguard", "GearGuard", "A full-featured web platform for maintenance and equipment management.",
      "django", [("Stack", "Django 5.2 · PostgreSQL"), ("Kind", "Web platform")]),
-    ("mgmt", "BraTS2020 MGMT", "Preprocessed BraTS 2020 MRI for predicting MGMT promoter methylation with a 3D ResNet.",
-     ":chart", [("Dataset", "Kaggle"), ("Model", "3D ResNet")]),
 ]
 
 

@@ -51,6 +51,12 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 ## More work
 
+<p>
+<a href="https://www.kaggle.com/code/raj072004/vedic-ai"><picture><source media="(max-width: 600px)" srcset="./assets/more-mgmt-narrow.svg"><img src="./assets/more-mgmt.svg" alt="MGMT Methylation Model: a 3D ResNet (BrainNet3D) trained on all four MRI sequences to predict MGMT promoter methylation for the RSNA-MICCAI task, on my own preprocessed BraTS dataset, with a NIfTI and DICOM conversion pipeline both ways. PyTorch."></picture></a><br>
+<a href="https://www.kaggle.com/code/raj072004/vedic-ai"><img src="./assets/btn-notebook.svg" alt="Training notebook on Kaggle"></a>
+<a href="https://www.kaggle.com/datasets/raj072004/preprocessed-final"><img src="./assets/btn-dataset.svg" alt="Preprocessed dataset on Kaggle"></a>
+</p>
+
 <a href="https://github.com/R204570/SAC-Database-and-AI-Automation"><picture><source media="(max-width: 600px)" srcset="./assets/more-sac-narrow.svg"><img src="./assets/more-sac.svg" alt="SAC AI Search: describe a service in plain words and it finds the right GST service accounting code. Python, AI search, open source."></picture></a>
 
 <a href="https://github.com/R204570/Reconciliation"><picture><source media="(max-width: 600px)" srcset="./assets/more-reconciliation-narrow.svg"><img src="./assets/more-reconciliation.svg" alt="Reconciliation: wallet-balance reconciliation on an atomic compute-then-commit engine, with a Flask dashboard, CLI and batch runner. Flask and MS SQL Server."></picture></a>
@@ -60,8 +66,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <a href="https://github.com/R204570/Cafe-POS"><picture><source media="(max-width: 600px)" srcset="./assets/more-cafepos-narrow.svg"><img src="./assets/more-cafepos.svg" alt="Cafe-POS: point of sale for cafes and restaurants with a REST API. Django, Django REST Framework, PostgreSQL."></picture></a>
 
 <a href="https://github.com/R204570/GearGuard"><picture><source media="(max-width: 600px)" srcset="./assets/more-gearguard-narrow.svg"><img src="./assets/more-gearguard.svg" alt="GearGuard: a full-featured web platform for maintenance and equipment management. Django 5.2 and PostgreSQL."></picture></a>
-
-<a href="https://www.kaggle.com/datasets/raj072004/preprocessed-final"><picture><source media="(max-width: 600px)" srcset="./assets/more-mgmt-narrow.svg"><img src="./assets/more-mgmt.svg" alt="BraTS2020 MGMT: preprocessed BraTS 2020 MRI for predicting MGMT promoter methylation with a 3D ResNet. Dataset on Kaggle."></picture></a>
 
 ## Tech stack
 
